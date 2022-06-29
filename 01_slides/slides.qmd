@@ -1,0 +1,186 @@
+---
+title: "Métricas de paisagem no R: landscapemetrics"
+author: "<br> [Maurício Vancine](https://mauriciovancine.github.io/) • [LEEC/Unesp](https://leec.eco.br/)"
+date: "Julho de 2022 <br><br><br> Licença: [CC BY-SA](https://beatrizmilz.com/license/)"
+format: 
+  revealjs:
+    theme: [custom.scss]
+    footer: "Slides por [Maurício Vancine](https://mauriciovancine.github.io/), feitos com [Quarto](https://quarto.org/docs/presentations/revealjs/index.html). Código disponível no [GitHub](https://github.com/mauriciovancine/workshop-landscapemetrics). Inspiração: [Bea Milz](https://beatrizmilz.github.io/2022-SER-quarto/#/)."
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: false
+    chalkboard: true
+---
+
+## Maurício Vancine 
+
+::: columns
+::: {.column width="40%"}
+<center>
+<br>
+![](img/avatar.png)
+[`r icons::icon_style(icons::fontawesome("link"), fill = "#287869")`](https://mauriciovancine.github.io/)
+[`r icons::icon_style(icons::fontawesome("envelope", style = "solid"), fill = "#287869")`](mailto:mauricio.vancine@gmail.com)
+[`r icons::icon_style(icons::academicons("cv"), fill = "#287869")`](https://mauriciovancine.github.io/cv/cv-mauricio-vancine-pt-academic-complete.html)
+[`r icons::icon_style(icons::fontawesome("twitter"), fill = "#287869")`](https://twitter.com/mauriciovancine)
+[`r icons::icon_style(icons::fontawesome("github"), fill = "#287869")`](https://github.com/mauriciovancine)
+[`r icons::icon_style(icons::academicons("orcid"), fill = "#287869")`](https://orcid.org/0000-0001-9650-7575)
+[`r icons::icon_style(icons::academicons("lattes"), fill = "#287869")`](http://lattes.cnpq.br/9761288418931193)
+</center>
+:::
+
+::: {.column width="60%"}
+
+- Doutorando em Ecologia (2020-?)
+
+- Ecologia Espacial
+
+- Modelagem Ecológica
+
+- Análise de Dados Ecológicos e Geoespaciais
+
+- Ecologia e Conservação de Anfíbios
+
+- *Open source* [R, QGIS, GRASS GIS, GNU/Linux, ...]
+
+:::
+:::
+
+## Análises Ecológicas no R
+
+::: columns
+::: {.column width="40%"}
+<center>
+<img src="img/aer.jpeg" href="https://analises-ecologicas.com/" style="width:90%"/>
+</center>
+:::
+
+::: {.column width="60%"}
+
+- 15 capítulos: linguagem R, *tidyverse*, perguntas em ecologia, análises univariadas, multivariadas e geoespaciais
+
+- [bookdown](https://analises-ecologicas.com/)
+
+- [PDF](https://canal6.com.br/livreacesso/livro/analises-ecologicas-no-r/)
+
+- [Amazon](https://www.amazon.com.br/An%C3%A1lises-ecol%C3%B3gicas-Ferdo-Rodrigues-Silva/dp/857917564X/ref=sr_1_1?keywords=9788579175640&qid=1654379366&sr=8-1)
+
+- [Código Fonte](https://github.com/paternogbc/livro_aer)
+
+- [YouTube](https://www.youtube.com/channel/UCLSVSCnmvf2k6OoWZCnEO4w)
+
+:::
+:::
+
+# 
+<center>
+<img src="img/landscapemetrics.png" href="https://r-spatialecology.github.io/landscapemetrics/" style="width:50%"/>
+</center>
+
+## Conteúdo
+
+::: panel-tabset
+## 1. Teoria
+
+::: columns
+::: {.column width="50%"}
+### R Markdown
+
+::: nonincremental
+-   É um pacote em R.
+
+-   Precisamos ter o R instalado para renderizar o arquivo R Markdown.
+:::
+:::
+
+::: {.column width="50%"}
+### Quarto
+
+::: nonincremental
+-   É um outro software, precisa ser instalado.
+
+-   Não precisamos do R para renderizar o arquivo.
+:::
+:::
+:::
+
+## 2. R
+
+::: columns
+::: {.column width="50%"}
+### R Markdown
+
+::: nonincremental
+-   .Rmd
+:::
+:::
+
+::: {.column width="50%"}
+### Quarto
+
+::: nonincremental
+-   .qmd
+:::
+:::
+:::
+
+## 3. Geoespacial
+
+::: columns
+::: {.column width="50%"}
+### R Markdown
+
+::: nonincremental
+-   [Bootstrap](https://getbootstrap.com/): Por padrão, usa o v3.3.5.
+
+-   Para usar versões recentes do bootstrap, é necessário usar o pacote [bslib](https://rstudio.github.io/bslib/reference/index.html) [#1260](https://github.com/rstudio/rmarkdown/issues/1260)
+:::
+:::
+
+::: {.column width="50%"}
+### Quarto
+
+::: nonincremental
+-   [Bootstrap](https://getbootstrap.com/) v5.
+:::
+:::
+:::
+
+## 4. Métricas
+
+::: columns
+::: {.column width="50%"}
+### R Markdown
+
+::: nonincremental
+-   Não tem suporte ao Observable JS.
+:::
+:::
+
+::: {.column width="50%"}
+### Quarto
+
+::: nonincremental
+-   Tem suporte ao Observable JS.
+:::
+:::
+
+[Observable JS](https://observablehq.com/tutorials): Usado para criar visualizações de dados interativas.
+:::
+:::
+
+## Material
+
+Todo o material está disponível no [GitHub](https://github.com/mauriciovancine/workshop-landscapemetrics)
+
+<center>
+<img src="img/github.png" style="width:50%"/>
+</center>
+
+## Script
+
+```{.r}
+print("oi")
+```
+
