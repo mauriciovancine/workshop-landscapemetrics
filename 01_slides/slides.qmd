@@ -1,11 +1,10 @@
 ---
 title: "Métricas de paisagem no R: landscapemetrics"
 author: "<br> [Maurício Vancine](https://mauriciovancine.github.io/) • [LEEC/Unesp](https://leec.eco.br/)"
-date: "Julho de 2022 <br><br><br> Licença: [CC BY-SA](https://beatrizmilz.com/license/)"
+date: "Julho de 2022 <br><br><br> Licença: [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR)"
 format: 
   revealjs:
     theme: [custom.scss]
-    footer: "Slides por [Maurício Vancine](https://mauriciovancine.github.io/), feitos com [Quarto](https://quarto.org/docs/presentations/revealjs/index.html). Código disponível no [GitHub](https://github.com/mauriciovancine/workshop-landscapemetrics). Inspiração: [Bea Milz](https://beatrizmilz.github.io/2022-SER-quarto/#/)."
     slide-number: c/t
     show-slide-number: all
     hash-type: number
@@ -85,64 +84,77 @@ format:
 
 ::: columns
 ::: {.column width="50%"}
-### R Markdown
+### Ecologia da paisagem
 
 ::: nonincremental
--   É um pacote em R.
-
--   Precisamos ter o R instalado para renderizar o arquivo R Markdown.
+- Definições
+- Escala, heterogeneidade e organismos
+- Estrutura da paisagem
+- Mudanças da paisagem
 :::
 :::
 
 ::: {.column width="50%"}
-### Quarto
+### Métricas da paisagem
 
 ::: nonincremental
--   É um outro software, precisa ser instalado.
-
--   Não precisamos do R para renderizar o arquivo.
+- Definições
+- Elementos da paisagem
+- Tipos de métricas 
+- Nível de análise das métricas
 :::
 :::
 :::
 
-## 2. R
+## 2. Geoprocessamento
 
 ::: columns
 ::: {.column width="50%"}
-### R Markdown
+### Geoprocessamento
 
 ::: nonincremental
--   .Rmd
+- Cartografia
+- Sensoriamento Remoto
+- Sistema de Informação Geográfico (SIG)
 :::
 :::
 
 ::: {.column width="50%"}
-### Quarto
+### Dados geoespaciais
 
 ::: nonincremental
--   .qmd
+- Dados vetoriais
+- Dados matriciais (raster)
+- Conversão de dados geoespaciais 
+- Bases de dados geoespaciais
 :::
 :::
 :::
 
-## 3. Geoespacial
+## 3. R
 
 ::: columns
 ::: {.column width="50%"}
-### R Markdown
+### Introdução ao R
 
 ::: nonincremental
--   [Bootstrap](https://getbootstrap.com/): Por padrão, usa o v3.3.5.
-
--   Para usar versões recentes do bootstrap, é necessário usar o pacote [bslib](https://rstudio.github.io/bslib/reference/index.html) [#1260](https://github.com/rstudio/rmarkdown/issues/1260)
+- R e RStudio
+- Script
+- Objetos
+- Funções
+- Pacotes
+- Diretório
 :::
 :::
 
 ::: {.column width="50%"}
-### Quarto
+### Dados geoespaciais
 
 ::: nonincremental
--   [Bootstrap](https://getbootstrap.com/) v5.
+- Importação
+- Reprojeção
+- Operações
+- Visualização
 :::
 :::
 :::
@@ -151,22 +163,29 @@ format:
 
 ::: columns
 ::: {.column width="50%"}
-### R Markdown
+### Preparar dados
 
 ::: nonincremental
--   Não tem suporte ao Observable JS.
+- Conferir pontos amostrais
+- Criar buffers
+- Conferir rasters
+- Listar as métricas
+- Pacote: *landscapetools*
 :::
 :::
 
 ::: {.column width="50%"}
-### Quarto
+### Calcular métricas
 
 ::: nonincremental
--   Tem suporte ao Observable JS.
+- Calcular as métricas
+- Espacializar as métricas
+- Correlação
+- Múltiplas escalas
+- Pacotes: *landscapemetrics* e *multifit*
 :::
 :::
 
-[Observable JS](https://observablehq.com/tutorials): Usado para criar visualizações de dados interativas.
 :::
 :::
 
@@ -178,9 +197,151 @@ Todo o material está disponível no [GitHub](https://github.com/mauriciovancine
 <img src="img/github.png" style="width:50%"/>
 </center>
 
-## Script
+# Ecologia da paisagem
 
-```{.r}
-print("oi")
-```
+## Ecologia da paisagem
 
+Enfatiza as causas e consequências da heterogeneidade espacial em várias escalas (**padrão espacial**) sobre um ou vários **processos ecológicos** (predação, dispersão, polinização)
+
+<br>
+
+<center>
+<img src="img/hauer_etal_2016.png" style="width:100%"/>
+</center>
+
+:::footer
+[Turner & Garden (2015)](https://link.springer.com/book/10.1007/978-1-4939-2794-4), [Hauer et al. (2016)](https://www.science.org/doi/10.1126/sciadv.1600026)
+:::
+
+## Ecologia da paisagem
+
+Ecologia da Paisagem e Padrões/Processos Ecológicos
+
+<center>
+<img src="img/slide_miltinho.png" style="width:80%"/>
+</center>
+
+:::footer
+Adaptado slide do Miltinho
+:::
+
+## Definição de paisagem
+
+(...) um **mosaico** ~~heterogêneo~~ formado por unidades interativas, sendo esta **heterogeneidade** existente para pelo menos um **fator**, segundo um **observador** e numa determinada **escala de observação**
+
+<center>
+<img src="img/fragmentos.jpg" style="width:70%"/>
+</center>
+
+:::footer
+[Metzger (2001)](https://www.scielo.br/j/bn/a/Jbchd6rjY35PGkY5BHPz63S/?lang=pt)
+:::
+
+---
+
+### Heterogeneidade, escala e organismos
+
+<center>
+<img src="img/forest-patch-landscape-mosaic.png" style="width:65%"/>
+</center>
+
+:::footer
+[Wu (2006)](https://link.springer.com/book/10.1007/1-4020-4663-4), [Wu (2013)](http://link.springer.com/10.1007/s10980-012-9836-y),
+[Wu (2022)](https://www.britannica.com/science/patch-dynamics)
+:::
+
+---
+
+### Heterogeneidade, escala e organismos
+
+<center>
+<img src="img/escala_organismos.png" style="width:100%"/>
+</center>
+
+:::footer
+[McGarigal & Marks (1995)](https://www.fs.fed.us/pnw/pubs/pnw_gtr351.pdf), [Wu (2006)](https://link.springer.com/book/10.1007/1-4020-4663-4), [Wu (2013)](http://link.springer.com/10.1007/s10980-012-9836-y),
+[Wu (2022)](https://www.britannica.com/science/patch-dynamics)
+:::
+
+## Elementos da paisagem
+
+- **Mancha** (*patch*): porções de habitat
+- **Corredor** (*corridor*): mancha linear que liga outras manchas
+- **Matriz** (*matriz*): porções de não-habitat (classe dominante)
+
+<center>
+<img src="img/estrutura_paisagem.png" style="width:90%"/>
+</center>
+
+:::footer
+[Gökyer (2013)](https://www.intechopen.com/chapters/45411#B7), [Sustentável blog (2017)](https://cebds.org/o-papel-do-setor-privado-no-desenvolvimento-de-um-futuro-sustentavel/#.YrzLOTXMJhE)
+:::
+
+## Morfologia da paisagem {.smaller}
+
+::: columns
+::: {.column width="50%"}
+<center>
+<img src="img/morfologia_paisagem.png" style="width:90%"/>
+</center>
+:::
+
+::: {.column width="50%"}
+
+- **Interior** (*core*): porção interior de habitat
+- **Borda** (*edge*): porção exterior de habitat
+- **Corredor** (*corridor*): mancha linear que liga outras manchas
+- **Ramificação** (*branch*): porção anexa de habitat
+- **Trampolim** (*stepping stone*): porção isolada de habitat
+- **Perfuração** (*perforation*): borda interna dentro das manchas
+
+:::
+:::
+
+:::footer
+[Soille & Vogt (2009)](https://doi.org/10.1016/j.patrec.2008.10.015)
+:::
+
+## Mudanças da paisagem (Processos)
+
+<center>
+<img src="img/mod_pai_processo.png" style="width:100%"/>
+</center>
+
+:::footer
+[Bennett & Saunders (2010)](dx.doi.org/10.1093/acprof:oso/9780199554232.003.0006)
+:::
+
+## Mudanças da paisagem (Estrutura)
+
+<center>
+<img src="img/mod_pai_estrutura.png" style="width:85%"/>
+</center>
+
+:::footer
+[Fischer & Lindenmayer (2007)](https://doi.org/10.1111/j.1466-8238.2007.00287.x)
+:::
+
+## Perda e fragmentação de habitat
+
+<center>
+<img src="img/fragmentacao.jpeg" style="width:55%"/>
+</center>
+
+:::footer
+[Fahrig (2003)](https://www.annualreviews.org/doi/10.1146/annurev.ecolsys.34.011802.132419)
+:::
+
+# E como mensurar a estrutura da paisagem?
+
+# Métricas de paisagem
+
+## Métricas de paisagem
+
+Algoritmos para quantificar a estrutura espacial de padrões - características da paisagem (uso e cobertura da terra),
+dentro de uma área geográfica definida
+
+:::footer
+[Frazier (2019)](https://www.annualreviews.org/doi/10.1146/annurev.ecolsys.34.011802.132419),
+[Hesselbarth et al. (2019)]()
+:::
