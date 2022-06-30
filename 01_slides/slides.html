@@ -371,6 +371,9 @@
 <center>
 <img src="img/landscapemetrics.png" href="https://r-spatialecology.github.io/landscapemetrics/" style="width:50%">
 </center>
+<div class="footer">
+<p><a href="https://r-spatialecology.github.io/landscapemetrics/">landscapemetrics</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Conteúdo</h2>
@@ -383,6 +386,7 @@
 <h3>Ecologia da paisagem</h3>
 <div>
 <ul>
+<li>Contextualização</li>
 <li>Definições</li>
 <li>Escala, heterogeneidade e organismos</li>
 <li>Estrutura da paisagem</li>
@@ -396,7 +400,9 @@
 <li>Definições</li>
 <li>Elementos da paisagem</li>
 <li>Tipos de métricas</li>
-<li>Nível de análise das métricas</li>
+<li>Nível das métricas</li>
+<li>Delineamento amostral</li>
+<li>Correlação e escala</li>
 </ul>
 </div>
 </div>
@@ -409,6 +415,7 @@
 <div>
 <ul>
 <li>Cartografia</li>
+<li><em>Global Positioning System</em> (GPS)</li>
 <li>Sensoriamento Remoto</li>
 <li>Sistema de Informação Geográfico (SIG)</li>
 </ul>
@@ -459,8 +466,8 @@
 <h3>Preparar dados</h3>
 <div>
 <ul>
-<li>Conferir pontos amostrais</li>
-<li>Criar buffers</li>
+<li>Pontos amostrais</li>
+<li>Buffers (paisagens)</li>
 <li>Conferir rasters</li>
 <li>Listar as métricas</li>
 <li>Pacote: <em>landscapetools</em></li>
@@ -485,22 +492,43 @@
 </section>
 <section class="slide level2">
 <h2>Material</h2>
-<p>Todo o material está disponível no <a href="https://github.com/mauriciovancine/workshop-landscapemetrics">GitHub</a></p>
+<p>Todo o material está disponível no GitHub</p>
 <center>
 <img src="img/github.png" style="width:50%">
 </center>
+<div class="footer">
+<p><a href="https://github.com/mauriciovancine/workshop-landscapemetrics">GitHub</a></p>
+</div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Ecologia da paisagem</h1>
+<h1>Ecologia da Paisagem</h1>
 
+</section>
+<section class="slide level2">
+<h2>Contextualização</h2>
+<center>
+<img src="img/ecologia_espacial_bg.png" style="width:55%">
+</center>
+<div class="footer">
+<p><a href="https://link.springer.com/book/10.1007/978-3-030-01989-1">Fletcher &amp; Fortin (2018)</a></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Contextualização</h2>
+<center>
+<img src="img/ecologia_espacial_estudos_bg.png" style="width:75%">
+</center>
+<div class="footer">
+<p><a href="https://link.springer.com/book/10.1007/978-3-030-01989-1">Fletcher &amp; Fortin (2018)</a></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Ecologia da paisagem</h2>
 <p>Enfatiza as causas e consequências da heterogeneidade espacial em várias escalas (<strong>padrão espacial</strong>) sobre um ou vários <strong>processos ecológicos</strong> (predação, dispersão, polinização)</p>
 <p><br></p>
 <center>
-<img src="img/hauer_etal_2016.png" style="width:100%">
+<img src="img/hauer_etal_2016_bg.png" style="width:100%">
 </center>
 <div class="footer">
 <p><a href="https://link.springer.com/book/10.1007/978-1-4939-2794-4">Turner &amp; Garden (2015)</a>, <a href="https://www.science.org/doi/10.1126/sciadv.1600026">Hauer et al.&nbsp;(2016)</a></p>
@@ -530,7 +558,7 @@
 
 <h3>Heterogeneidade, escala e organismos</h3>
 <center>
-<img src="img/forest-patch-landscape-mosaic.png" style="width:65%">
+<img src="img/forest-patch-landscape-mosaic_bg.png" style="width:65%">
 </center>
 <div class="footer">
 <p><a href="https://link.springer.com/book/10.1007/1-4020-4663-4">Wu (2006)</a>, <a href="http://link.springer.com/10.1007/s10980-012-9836-y">Wu (2013)</a>, <a href="https://www.britannica.com/science/patch-dynamics">Wu (2022)</a></p>
@@ -540,7 +568,7 @@
 
 <h3>Heterogeneidade, escala e organismos</h3>
 <center>
-<img src="img/escala_organismos.png" style="width:100%">
+<img src="img/escala_organismos_bg.png" style="width:100%">
 </center>
 <div class="footer">
 <p><a href="https://www.fs.fed.us/pnw/pubs/pnw_gtr351.pdf">McGarigal &amp; Marks (1995)</a>, <a href="https://link.springer.com/book/10.1007/1-4020-4663-4">Wu (2006)</a>, <a href="http://link.springer.com/10.1007/s10980-012-9836-y">Wu (2013)</a>, <a href="https://www.britannica.com/science/patch-dynamics">Wu (2022)</a></p>
@@ -554,7 +582,7 @@
 <li><strong>Matriz</strong> (<em>matriz</em>): porções de não-habitat (classe dominante)</li>
 </ul>
 <center>
-<img src="img/estrutura_paisagem.png" style="width:90%">
+<img src="img/estrutura_paisagem_bg.png" style="width:90%">
 </center>
 <div class="footer">
 <p><a href="https://www.intechopen.com/chapters/45411#B7">Gökyer (2013)</a>, <a href="https://cebds.org/o-papel-do-setor-privado-no-desenvolvimento-de-um-futuro-sustentavel/#.YrzLOTXMJhE">Sustentável blog (2017)</a></p>
@@ -621,14 +649,162 @@
 </section>
 <section class="slide level2">
 <h2>Métricas de paisagem</h2>
-<p>Algoritmos para quantificar a estrutura espacial de padrões - características da paisagem (uso e cobertura da terra), dentro de uma área geográfica definida</p>
+<p>Algoritmos para quantificar a <strong>estrutura espacial</strong> (características) da paisagem, para uma <strong>área geográfica</strong></p>
+<center>
+<img src="img/mosaico_bg.png" style="width:85%">
+</center>
 <div class="footer">
-<p><a href="https://www.annualreviews.org/doi/10.1146/annurev.ecolsys.34.011802.132419">Frazier (2019)</a>, <a href="">Hesselbarth et al.&nbsp;(2019)</a></p>
+<p><a href="https://gistbok.ucgis.org/bok-topics/landscape-metrics">Frazier (2019)</a></p>
 </div>
+</section>
+<section class="slide level2">
+<h2>Tipos de métricas</h2>
+<ol type="1">
+<li><strong>Classificação categórica</strong> (composição e configuração)</li>
+<li>Representação de grafos (conectância e redes)</li>
+<li>Classificação de gradientes (NDVI, rugosidade, etc.)</li>
+</ol>
+<br><br>
+<center>
+<img src="img/tipos_metricas_bg.png" style="width:100%">
+</center>
+<div class="footer">
+<p><a href="https://gistbok.ucgis.org/bok-topics/landscape-metrics">Frazier (2019)</a></p>
+</div>
+</section>
+<section class="slide level2 smaller">
+<h2>Métricas de classificação categóricas</h2>
+<p><strong>Composição</strong>: número e quantidade de cada tipo de mancha (número e área)</p>
+<p><strong>Configuração</strong>: arranjo espacial e distribuição de cada tipo de mancha (isolamento e forma)</p>
+<center>
+<img src="img/comp_conf_bg.png" style="width:60%">
+</center>
+<div class="footer">
+<p><a href="https://journals.sagepub.com/doi/pdf/10.1177/2399808317690157">Gehrke &amp; Clifton (2019)</a></p>
+</div>
+</section>
+<section class="slide level2 smaller">
+<h2>Métricas de classificação categóricas</h2>
+<center>
+<img src="img/comp_conf_tabela_espacial.png" style="width:90%">
+</center>
+<div class="footer">
+<p><a href="https://link.springer.com/book/10.1007/978-1-4939-2794-4">Turner &amp; Garden (2015)</a>, <a href="https://gistbok.ucgis.org/bok-topics/landscape-metrics">Frazier (2019)</a></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Nível das métricas</h2>
+<center>
+<img src="img/nivel_metricas.png" style="width:75%">
+</center>
+<div class="footer">
+<p><a href="https://r-spatialecology.github.io/landscapemetrics/">landscapemetrics</a>, <a href="https://www.fs.fed.us/pnw/pubs/pnw_gtr351.pdf">McGarigal &amp; Marks (1995)</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regras de definição de patches</h2>
+<center>
+<img src="img/regra_patches_bg.png" style="width:75%">
+</center>
+<div class="footer">
+<p><a href="https://link.springer.com/book/10.1007/978-3-030-01989-1">Fletcher &amp; Fortin (2018)</a></p>
+</div>
+</section>
+<section class="slide level2 smaller scrollable">
+<h2>Métricas</h2>
+<div class="cell">
+
+</div>
+<div class="footer">
+<p><a href="https://r-spatialecology.github.io/landscapemetrics/">landscapemetrics</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a></p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Qual métrica calcular e por que?</h1>
+
+</section>
+<section class="slide level2 smaller">
+<h2>Delineamento amostral</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<br><br>
+<center>
+<img src="img/amostragem_bg.png" style="width:100%">
+</center>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Processo ecológico</li>
+<li>Pergunta, hipóteses, predições</li>
+<li>Variável(is) resposta(s) (Y)</li>
+<li>Variáve(is) preditora(s) (X)</li>
+<li>Definir as métricas</li>
+<li>Garantir um gradiente das métricas nas amostragens</li>
+<li>Garantir indepedência entre as amostragens ou tratar isso estatisticamente</li>
+<li>Correlação entre as métricas</li>
+<li>Escala (de efeito)</li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0123628">Moreira (2015)</a>, <a href="https://analises-ecologicas.com/cap2.html">Da Silva et al.&nbsp;(2022)</a>, <a href="https://doi.org/10.2747/0272-3646.28.2.170">Wang &amp; Malanson (2013)</a>, <a href="https://doi.org/10.1111/geb.12233">Jackson &amp; Fahrig (2014)</a>, <a href="https://doi.org/10.1007/s10980-015-0314-1">Miguet et al.&nbsp;(2016)</a>, <a href="https://doi.org/10.1111/2041-210X.12198">Wang et al.&nbsp;(2014)</a>, <a href="https://link.springer.com/article/10.1007/s10980-018-0657-5">Huais (2018)</a></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Correlação entre as métricas</h2>
+<center>
+<img src="img/corr.png" style="width:55%">
+</center>
+<div class="footer">
+<p><a href="https://doi.org/10.1111/geb.12233">Jackson &amp; Fahrig (2014)</a>, <a href="https://doi.org/10.1007/s10980-015-0314-1">Miguet et al.&nbsp;(2016)</a></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Escala de efeito</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<br>
+<center>
+<img src="img/escala01_bg.png" style="width:100%">
+</center>
+</div><div class="column" style="width:30%;">
+<br><br>
+<center>
+<img src="img/escala02_bg.png" style="width:100%">
+</center>
+</div>
+</div>
+<div class="footer">
+<p><a href="https://doi.org/10.1111/geb.12233">Jackson &amp; Fahrig (2014)</a>, <a href="https://doi.org/10.1007/s10980-015-0314-1">Miguet et al.&nbsp;(2016)</a>, <a href="https://link.springer.com/article/10.1007/s10980-018-0657-5">Huais (2018)</a></p>
+</div>
+</section>
+<section class="slide level2 smaller">
+<h2>Recapitulando</h2>
+<ol type="1">
+<li><strong>Ecologia Espacial</strong>: respostas ecológicas à covariáveis ambientais incorporando o espaço</li>
+<li><strong>Ecologia da Paisagem</strong>: relaciona processos ecológicos a padrões espaciais</li>
+<li><strong>Paisagem</strong>: unidades heterogêneas ao menos para um fator, observador e escala</li>
+<li><strong>Elementos da paisagem</strong>: mancha, corredor e matriz</li>
+<li><strong>Mudanças na paisagem</strong>: processos e estrutura (perda e fragmentação)</li>
+<li><strong>Métricas da paisagem</strong>: quantificam a estrutura espacial (características) da paisagem</li>
+<li><strong>Métricas categóricas</strong>: composição e configuração</li>
+<li><strong>Níveis das métricas</strong>: patch, class e landscape</li>
+<li><strong>Escolha da métrica</strong>: dependente do delineamento amostral</li>
+<li><strong>Atenção</strong>: correlação entre as métricas</li>
+<li><strong>Atenção</strong>: escala de efeito</li>
+</ol>
+</section></section>
+<section class="title-slide slide level1 center">
+<h1>Dúvidas?</h1>
+
+</section>
+
+<section class="title-slide slide level1 center">
+<h1>Geoprocessamento</h1>
 <div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

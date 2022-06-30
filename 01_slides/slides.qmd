@@ -77,6 +77,10 @@ format:
 <img src="img/landscapemetrics.png" href="https://r-spatialecology.github.io/landscapemetrics/" style="width:50%"/>
 </center>
 
+:::footer
+[landscapemetrics](https://r-spatialecology.github.io/landscapemetrics/), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
+:::
+
 ## Conteúdo
 
 ::: panel-tabset
@@ -87,6 +91,7 @@ format:
 ### Ecologia da paisagem
 
 ::: nonincremental
+- Contextualização
 - Definições
 - Escala, heterogeneidade e organismos
 - Estrutura da paisagem
@@ -101,7 +106,9 @@ format:
 - Definições
 - Elementos da paisagem
 - Tipos de métricas 
-- Nível de análise das métricas
+- Nível das métricas
+- Delineamento amostral
+- Correlação e escala
 :::
 :::
 :::
@@ -114,6 +121,7 @@ format:
 
 ::: nonincremental
 - Cartografia
+- *Global Positioning System* (GPS)
 - Sensoriamento Remoto
 - Sistema de Informação Geográfico (SIG)
 :::
@@ -166,8 +174,8 @@ format:
 ### Preparar dados
 
 ::: nonincremental
-- Conferir pontos amostrais
-- Criar buffers
+- Pontos amostrais
+- Buffers (paisagens)
 - Conferir rasters
 - Listar as métricas
 - Pacote: *landscapetools*
@@ -191,13 +199,37 @@ format:
 
 ## Material
 
-Todo o material está disponível no [GitHub](https://github.com/mauriciovancine/workshop-landscapemetrics)
+Todo o material está disponível no GitHub
 
 <center>
 <img src="img/github.png" style="width:50%"/>
 </center>
 
-# Ecologia da paisagem
+:::footer
+[GitHub](https://github.com/mauriciovancine/workshop-landscapemetrics)
+:::
+
+# Ecologia da Paisagem
+
+## Contextualização
+
+<center>
+<img src="img/ecologia_espacial_bg.png" style="width:55%"/>
+</center>
+
+:::footer
+[Fletcher & Fortin (2018)](https://link.springer.com/book/10.1007/978-3-030-01989-1)
+:::
+
+## Contextualização
+
+<center>
+<img src="img/ecologia_espacial_estudos_bg.png" style="width:75%"/>
+</center>
+
+:::footer
+[Fletcher & Fortin (2018)](https://link.springer.com/book/10.1007/978-3-030-01989-1)
+:::
 
 ## Ecologia da paisagem
 
@@ -206,7 +238,7 @@ Enfatiza as causas e consequências da heterogeneidade espacial em várias escal
 <br>
 
 <center>
-<img src="img/hauer_etal_2016.png" style="width:100%"/>
+<img src="img/hauer_etal_2016_bg.png" style="width:100%"/>
 </center>
 
 :::footer
@@ -242,7 +274,7 @@ Adaptado slide do Miltinho
 ### Heterogeneidade, escala e organismos
 
 <center>
-<img src="img/forest-patch-landscape-mosaic.png" style="width:65%"/>
+<img src="img/forest-patch-landscape-mosaic_bg.png" style="width:65%"/>
 </center>
 
 :::footer
@@ -255,7 +287,7 @@ Adaptado slide do Miltinho
 ### Heterogeneidade, escala e organismos
 
 <center>
-<img src="img/escala_organismos.png" style="width:100%"/>
+<img src="img/escala_organismos_bg.png" style="width:100%"/>
 </center>
 
 :::footer
@@ -270,7 +302,7 @@ Adaptado slide do Miltinho
 - **Matriz** (*matriz*): porções de não-habitat (classe dominante)
 
 <center>
-<img src="img/estrutura_paisagem.png" style="width:90%"/>
+<img src="img/estrutura_paisagem_bg.png" style="width:90%"/>
 </center>
 
 :::footer
@@ -338,10 +370,166 @@ Adaptado slide do Miltinho
 
 ## Métricas de paisagem
 
-Algoritmos para quantificar a estrutura espacial de padrões - características da paisagem (uso e cobertura da terra),
-dentro de uma área geográfica definida
+Algoritmos para quantificar a **estrutura espacial** (características) da paisagem, para uma **área geográfica**
+
+<center>
+<img src="img/mosaico_bg.png" style="width:85%"/>
+</center>
 
 :::footer
-[Frazier (2019)](https://www.annualreviews.org/doi/10.1146/annurev.ecolsys.34.011802.132419),
-[Hesselbarth et al. (2019)]()
+[Frazier (2019)](https://gistbok.ucgis.org/bok-topics/landscape-metrics)
 :::
+
+## Tipos de métricas
+
+1. **Classificação categórica** (composição e configuração)
+1. Representação de grafos (conectância e redes)
+1. Classificação de gradientes (NDVI, rugosidade, etc.)
+
+<br><br>
+<center>
+<img src="img/tipos_metricas_bg.png" style="width:100%"/>
+</center>
+
+:::footer
+[Frazier (2019)](https://gistbok.ucgis.org/bok-topics/landscape-metrics)
+:::
+
+## Métricas de classificação categóricas {.smaller}
+
+**Composição**: número e quantidade de cada tipo de mancha (número e área)
+
+**Configuração**: arranjo espacial e distribuição de cada tipo de mancha (isolamento e forma)
+
+<center>
+<img src="img/comp_conf_bg.png" style="width:60%"/>
+</center>
+
+:::footer
+[Gehrke & Clifton (2019)](https://journals.sagepub.com/doi/pdf/10.1177/2399808317690157)
+:::
+
+## Métricas de classificação categóricas {.smaller}
+
+<center>
+<img src="img/comp_conf_tabela_espacial.png" style="width:90%"/>
+</center>
+
+:::footer
+[Turner & Garden (2015)](https://link.springer.com/book/10.1007/978-1-4939-2794-4), [Frazier (2019)](https://gistbok.ucgis.org/bok-topics/landscape-metrics)
+:::
+
+## Nível das métricas
+
+<center>
+<img src="img/nivel_metricas.png" style="width:75%"/>
+</center>
+
+:::footer
+[landscapemetrics](https://r-spatialecology.github.io/landscapemetrics/), [McGarigal & Marks (1995)](https://www.fs.fed.us/pnw/pubs/pnw_gtr351.pdf), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
+:::
+
+## Regras de definição de patches
+
+<center>
+<img src="img/regra_patches_bg.png" style="width:75%"/>
+</center>
+
+:::footer
+[Fletcher & Fortin (2018)](https://link.springer.com/book/10.1007/978-3-030-01989-1)
+:::
+
+## Métricas {.smaller .scrollable}
+
+```{r}
+# knitr::kable(landscapemetrics::list_lsm())
+```
+
+:::footer
+[landscapemetrics](https://r-spatialecology.github.io/landscapemetrics/), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
+:::
+
+# Qual métrica calcular e por que?
+
+## Delineamento amostral {.smaller}
+
+::: columns
+::: {.column width="60%"}
+
+<br><br>
+<center>
+<img src="img/amostragem_bg.png" style="width:100%"/>
+</center>
+:::
+
+::: {.column width="40%"}
+
+- Processo ecológico
+- Pergunta, hipóteses, predições
+- Variável(is) resposta(s) (Y)
+- Variáve(is) preditora(s) (X)
+- Definir as métricas
+- Garantir um gradiente das métricas nas amostragens
+- Garantir indepedência entre as amostragens ou tratar isso estatisticamente
+- Correlação entre as métricas
+- Escala (de efeito)
+
+:::
+:::
+
+:::footer
+[Moreira (2015)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0123628), [Da Silva et al. (2022)](https://analises-ecologicas.com/cap2.html), [Wang & Malanson (2013)](https://doi.org/10.2747/0272-3646.28.2.170), [Jackson & Fahrig (2014)](https://doi.org/10.1111/geb.12233), [Miguet et al. (2016)](https://doi.org/10.1007/s10980-015-0314-1), [Wang et al. (2014)](https://doi.org/10.1111/2041-210X.12198), [Huais (2018)](https://link.springer.com/article/10.1007/s10980-018-0657-5)
+:::
+
+## Correlação entre as métricas
+
+<center>
+<img src="img/corr.png" style="width:55%"/>
+</center>
+
+:::footer
+[Jackson & Fahrig (2014)](https://doi.org/10.1111/geb.12233), [Miguet et al. (2016)](https://doi.org/10.1007/s10980-015-0314-1)
+:::
+
+## Escala de efeito
+
+::: columns
+::: {.column width="70%"}
+
+<br>
+<center>
+<img src="img/escala01_bg.png" style="width:100%"/>
+</center>
+:::
+
+::: {.column width="30%"}
+
+<br><br>
+<center>
+<img src="img/escala02_bg.png" style="width:100%"/>
+</center>
+
+:::
+:::
+
+:::footer
+[Jackson & Fahrig (2014)](https://doi.org/10.1111/geb.12233), [Miguet et al. (2016)](https://doi.org/10.1007/s10980-015-0314-1), [Huais (2018)](https://link.springer.com/article/10.1007/s10980-018-0657-5)
+:::
+
+## Recapitulando {.smaller}
+
+1. **Ecologia Espacial**: respostas ecológicas à covariáveis ambientais incorporando o espaço
+1. **Ecologia da Paisagem**: relaciona processos ecológicos a padrões espaciais
+1. **Paisagem**: unidades heterogêneas ao menos para um fator, observador e escala
+1. **Elementos da paisagem**: mancha, corredor e matriz
+1. **Mudanças na paisagem**: processos e estrutura (perda e fragmentação)
+1. **Métricas da paisagem**: quantificam a estrutura espacial (características) da paisagem 
+1. **Métricas categóricas**: composição e configuração
+1. **Níveis das métricas**: patch, class e landscape
+1. **Escolha da métrica**: dependente do delineamento amostral
+1. **Atenção**: correlação entre as métricas
+1. **Atenção**: escala de efeito
+
+# Dúvidas?
+
+# Geoprocessamento
