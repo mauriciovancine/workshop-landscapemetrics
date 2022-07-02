@@ -134,7 +134,7 @@ format:
 - Dados vetoriais
 - Dados matriciais (raster)
 - Conversão de dados geoespaciais 
-- Bases de dados geoespaciais
+- Fontes de dados geoespaciais
 :::
 :::
 :::
@@ -449,7 +449,33 @@ Algoritmos para quantificar a **estrutura espacial** (características) da paisa
 [landscapemetrics](https://r-spatialecology.github.io/landscapemetrics/), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
 :::
 
-# Qual métrica calcular e por que?
+# Qual métrica calcular e por quê?
+
+## Concepção de uma pesquisa  {.smaller}
+
+::: columns
+::: {.column width="60%"}
+<center>
+<img src="img/perguntas_bg.png" style="width:60%"/>
+</center>
+:::
+
+::: {.column width="40%"}
+
+####  
+- Teoria Ecológica: fenônomenos, mecanismos, processos e padrões
+- Observação, questões, hipóteses, predições
+- Variável(is) resposta(s) (Y) e preditora(s) (X)
+
+<center>
+<img src="img/variaveis_bg.png" style="width:70%"/>
+</center>
+:::
+:::
+
+:::footer
+[Da Silva et al. (2022)](https://analises-ecologicas.com/cap2.html)
+:::
 
 ## Delineamento amostral {.smaller}
 
@@ -464,13 +490,12 @@ Algoritmos para quantificar a **estrutura espacial** (características) da paisa
 
 ::: {.column width="40%"}
 
-- Processo ecológico
-- Pergunta, hipóteses, predições
-- Variável(is) resposta(s) (Y)
-- Variáve(is) preditora(s) (X)
-- Definir as métricas
-- Garantir um gradiente das métricas nas amostragens
-- Garantir indepedência entre as amostragens ou tratar isso estatisticamente
+<br>
+
+- Definir as unidades amostrais
+- Definir as métricas de paisagem
+- Garantir um gradiente das métricas nas unidades amostrais
+- Garantir indepedência entre as amostragens ou tratar isso estatisticamente (fator aleatório)
 - Correlação entre as métricas
 - Escala (de efeito)
 
@@ -478,7 +503,7 @@ Algoritmos para quantificar a **estrutura espacial** (características) da paisa
 :::
 
 :::footer
-[Moreira (2015)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0123628), [Da Silva et al. (2022)](https://analises-ecologicas.com/cap2.html), [Wang & Malanson (2013)](https://doi.org/10.2747/0272-3646.28.2.170), [Jackson & Fahrig (2014)](https://doi.org/10.1111/geb.12233), [Miguet et al. (2016)](https://doi.org/10.1007/s10980-015-0314-1), [Wang et al. (2014)](https://doi.org/10.1111/2041-210X.12198), [Huais (2018)](https://link.springer.com/article/10.1007/s10980-018-0657-5)
+[Wang & Malanson (2013)](https://doi.org/10.2747/0272-3646.28.2.170), [Jackson & Fahrig (2014)](https://doi.org/10.1111/geb.12233), [Moreira (2015)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0123628), [Miguet et al. (2016)](https://doi.org/10.1007/s10980-015-0314-1), [Wang et al. (2014)](https://doi.org/10.1111/2041-210X.12198), [Huais (2018)](https://link.springer.com/article/10.1007/s10980-018-0657-5)
 :::
 
 ## Correlação entre as métricas
@@ -488,7 +513,7 @@ Algoritmos para quantificar a **estrutura espacial** (características) da paisa
 </center>
 
 :::footer
-[Jackson & Fahrig (2014)](https://doi.org/10.1111/geb.12233), [Miguet et al. (2016)](https://doi.org/10.1007/s10980-015-0314-1)
+[Wang & Malanson (2013)](https://doi.org/10.2747/0272-3646.28.2.170), [Wang et al. (2014)](https://doi.org/10.1111/2041-210X.12198)
 :::
 
 ## Escala de efeito
@@ -533,3 +558,741 @@ Algoritmos para quantificar a **estrutura espacial** (características) da paisa
 # Dúvidas?
 
 # Geoprocessamento
+
+## Geoprocessamento
+
+Entender os **padrões espaciais** como o ambiente físico, fenômenos climáticos, humanos, sociais ou econômicos, a partir de dados **dados espaciais** para gerar **informações espaciais**
+
+<center>
+<img src="img/geoprocessamento.jpg" style="width:50%"/>
+</center>
+
+:::footer
+[Xavier-da-Silva (2009)](http://www.ufrrj.br/lga/tiagomarino/artigos/oqueegeoprocessamento.pdf)
+:::
+
+## Geoprocessamento (Elementos)
+
+1. Cartografia digital (CD)
+1. Global Positioning System (GPS)
+1. Sensoriamento Remoto (RS)
+1. Sistemas de Informações Geográficas (SIG)
+
+<center>
+<img src="img/geoprocessamento_elementos.png" style="width:100%"/>
+</center>
+
+:::footer
+[Xavier-da-Silva (2009)](http://www.ufrrj.br/lga/tiagomarino/artigos/oqueegeoprocessamento.pdf)
+:::
+
+## Cartografia
+
+### Escala
+
+Relação entre a **medida gráfica** (representado no papel ou computador) e a **medida real** (objeto ou lugar)
+
+- d (distância gráfica): 0.01 m (1 cm)
+- D (distância real): 250 m
+
+- E (escala) = d / D = 0.01 m / 250 m
+- E = 1/25000 ou 1:25000
+
+<center>
+<img src="img/barra_escala.png" style="width:30%"/>
+</center>
+
+## Cartografia {.smaller}
+
+### Sistema de coordenadas geográfico (graus)
+
+::: columns
+::: {.column width="40%"}
+**1. Graus, minutos e segundos**
+
+Longitude: 42°42'42" O
+
+Latitude: 23°23'23" S
+
+<br>
+
+**2. Graus decimais**
+
+Longitude: -42.71167
+
+Latitude: -23.38972
+
+<br>
+
+**Conversão** 
+
+42 + (42/60) + (42/3600) = 42.71167
+
+23 + (23/60) + (23/3600) = 23.38972
+:::
+
+::: {.column width="60%"}
+<br><br>
+<center>
+<img src="img/crs_geo.png" style="width:100%"/>
+</center>
+:::
+:::
+
+:::footer
+[5 Themes of Geography](https://express.adobe.com/page/WXwQFzH7DqYAw/)
+:::
+
+## Cartografia {.smaller}
+
+### Sistema de coordenadas projetado (metros)
+
+::: columns
+::: {.column width="50%"}
+<br>
+<center>
+<img src="img/proj.png" style="width:100%"/>
+</center>
+:::
+
+::: {.column width="50%"}
+<center>
+<img src="img/crs_proj.png" style="width:100%"/>
+</center>
+:::
+:::
+
+:::footer
+[Guia do Usuário QGIS](https://docs.qgis.org/3.22/pt_BR/docs/gentle_gis_introduction/coordinate_reference_systems.html), [Tennekes & Nowosad (in prep.)](https://r-tmap.github.io/tmap-book/index.html)
+:::
+
+## Cartografia {.smaller}
+
+### Sistema de coordenadas projetado (metros)
+
+::: columns
+::: {.column width="30%"}
+**Universal Transversa de Mercator (UTM)**
+
+X UTM: 706832 m E
+
+Y UTM: 4344683 m N
+
+Zona: 10S
+:::
+
+::: {.column width="70%"}
+<br><br><br>
+<center>
+<img src="img/utm.png" style="width:100%"/>
+</center>
+:::
+:::
+
+:::footer
+[Guia do Usuário QGIS](https://docs.qgis.org/3.22/pt_BR/docs/gentle_gis_introduction/coordinate_reference_systems.html)
+:::
+
+## Cartografia {.smaller}
+
+### Datum
+
+Relação do sistema de coordenadas com a superfície da Terra
+
+::: columns
+::: {.column width="30%"}
+<br>
+
+**1. Geocêntricos**
+
+WGS84
+
+SIRGAS2000
+
+<br>
+
+**2. Topocêntricos**
+
+SAD69
+
+Córrego Alegre
+:::
+
+::: {.column width="70%"}
+<br><br>
+<center>
+<img src="img/datum_bg.png" style="width:100%"/>
+</center>
+:::
+:::
+
+:::footer
+[Cartografia para Geoprocessamento](http://www.geomatica.eng.uerj.br/docentes/araujo/cartografia_para_geoprocessamento)
+:::
+
+## Cartografia {.smaller}
+
+### Sistema de Referência de Coordenadas (SRC)
+
+Datum + Sistema de Coordenadas (geográfico ou projetado)
+
+<center>
+<img src="img/crs_bg.png" style="width:85%"/>
+</center>
+
+:::footer
+[5 Themes of Geography](https://express.adobe.com/page/WXwQFzH7DqYAw/), [Cartografia para Geoprocessamento](http://www.geomatica.eng.uerj.br/docentes/araujo/cartografia_para_geoprocessamento), [Guia do Usuário QGIS](https://docs.qgis.org/3.22/pt_BR/docs/gentle_gis_introduction/coordinate_reference_systems.html)
+:::
+
+## Cartografia
+
+### EPSG (*European Petroleum Survey Group*)
+
+<br>
+
+- EPSG: 4326 [WGS84 Geográfico](https://epsg.io/4326)
+- EPSG: 4674 [SIRGAS2000 Geográfico](https://epsg.io/4674)
+- EPSG: 32723 [WGS84 UTM23S](https://epsg.io/32723)
+- EPSG: 31983 [SIRGAS2000 UTM23S](https://epsg.io/31983)
+
+:::footer
+[epsg.io](https://epsg.io/)
+:::
+
+## *Global Positioning System* (GPS)
+
+Indica sua localização no planeta através de pontos ou linhas
+
+::: columns
+::: {.column width="40%"}
+
+- **Satélites**: localização e altitude
+- **Tipos de dados**: waypoint, route e track
+- **Formatos**: .gpx e .kml ou .kmz 
+:::
+
+::: {.column width="60%"}
+<center>
+<img src="img/gps.png" style="width:100%"/>
+</center>
+:::
+:::
+
+:::footer
+[Como funciona o GPS?](https://www.electricalelibrary.com/2018/03/23/como-funciona-o-gps/), [GPS Exchange Format](https://en.wikipedia.org/wiki/GPS_Exchange_Format), [Conversor Online para KML e GPX](https://www.clickgeo.com.br/conversor-online-kml-gpx/), [Global Positioning System](https://en.wikipedia.org/wiki/Global_Positioning_System)
+:::
+
+## *Global Positioning System* (GPS)
+
+Indica sua localização no planeta através de pontos ou linhas
+
+<center>
+<img src="img/gps.gif" style="width:50%"/>
+</center>
+
+:::footer
+[Zanotta et al. (2019)](https://www.ofitexto.com.br/livro/processamento-de-imagens-de-satelite/)
+:::
+
+## Sensoriamento Remoto
+
+<br>
+<center>
+<img src="img/sr_bg.png" style="width:100%"/>
+</center>
+
+:::footer
+[Zanotta et al. (2019)](https://www.ofitexto.com.br/livro/processamento-de-imagens-de-satelite/)
+:::
+
+---
+
+### Sistema de Informação Geográfica (SIG/GIS)
+
+<br>
+<center>
+<img src="img/gis.png" style="width:100%"/>
+</center>
+
+:::footer
+[Geographic Information System](https://ankageo.com/en/information/geographic-information-system/), [SIG](https://www.eosconsultores.com.br/sig-funcionalidades-no-saneamento-basico/), [ArcGIS](https://www.esri.com/pt-br/home), [QGIS](https://qgis.org/pt_BR/site/), [GRASS GIS](https://grass.osgeo.org/)
+:::
+
+# Dados geoespaciais
+
+## Dados geoespaciais
+
+::: columns
+::: {.column width="60%"}
+<center>
+<img src="img/gis_data_bg.png" style="width:100%"/>
+</center>
+:::
+
+::: {.column width="40%"}
+<center>
+<img src="img/geo_layers.png" style="width:100%"/>
+</center>
+:::
+:::
+
+:::footer
+[StartDee](https://blog.startdee.com/%E0%B8%A14-6-%E0%B8%A0%E0%B8%B9%E0%B8%A1%E0%B8%B4%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B9%8C-%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%A8%E0%B8%A0%E0%B8%B9%E0%B8%A1%E0%B8%B4%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B9%8C), [Campbell & Shin (2012)](https://2012books.lardbucket.org/books/geographic-information-system-basics/index.html)
+:::
+
+## Dados geoespaciais
+
+<center>
+<img src="img/geo_layers.gif" style="width:70%"/>
+</center>
+
+:::footer
+[7 GIS terms To Know: Map Making for Designers](https://www.avenza.com/blog/2019/11/)
+:::
+
+## Dados vetoriais
+
+Pontos, linhas e polígonos
+
+<center>
+<img src="img/vetor_bg.png" style="width:90%"/>
+</center>
+
+:::footer
+[Da Silva et al. (2022)](https://analises-ecologicas.com/)
+:::
+
+## Dados vetoriais
+
+Tabela de atributos
+
+<center>
+<img src="img/vetor_tabela.png" style="width:50%"/>
+</center>
+
+:::footer
+[Tennekes & Nowosad (in prep.)](https://r-tmap.github.io/tmap-book/index.html)
+:::
+
+## Dados vetoriais {.smaller}
+
+Formato: Shapefile
+
+**.shp**: contém as informações da feição (desenho)
+
+**.dbf**: tabela que contém as informações (colunas) sobre cada feição (linhas)
+
+**.shx**: arquivo de índice que une o .shp ao .dbf
+
+**.prj**: contém as informações do sistema de referências de coordenadas
+
+<br><br>
+<center>
+<img src="img/vetor_shp_formats_bg.png" style="width:90%"/>
+</center>
+
+:::footer
+[Tennekes & Nowosad (in prep.)](https://r-tmap.github.io/tmap-book/index.html)
+:::
+
+## Dados matriciais (Raster)
+
+Matriz de valores
+
+<center>
+<img src="img/raster_bg.png" style="width:90%"/>
+</center>
+
+:::footer
+[Da Silva et al. (2022)](https://analises-ecologicas.com/)
+:::
+
+## Dados matriciais (Raster)
+
+Matriz de valores - contínuos ou categóricos
+
+<br>
+<center>
+<img src="img/raster_matriz_cont_cat.png" style="width:100%"/>
+</center>
+
+:::footer
+[Lovelace et al. (2020)](https://geocompr.robinlovelace.net/), [National Ecological Observatory Network (NEON)](https://www.neonscience.org/resources/learning-hub/tutorials/dc-raster-data-r)
+:::
+
+## Dados matriciais (Raster)
+
+Propriedades - extensão e resolução
+
+<center>
+<img src="img/raster_ext_res.png" style="width:100%"/>
+</center>
+
+:::footer
+[National Ecological Observatory Network (NEON)](https://www.neonscience.org/resources/learning-hub/tutorials/dc-raster-data-r)
+:::
+
+## Dados matriciais (Raster)
+
+Formato: GeoTiff
+
+**.tif**: arquivo rater georreferenciado
+
+<center>
+<img src="img/geotiff.png" style="width:70%"/>
+</center>
+
+:::footer
+[LuminFire Developers](https://luminfire.com/technologies/geotiff/), [GeoTIFF](https://trac.osgeo.org/geotiff)
+:::
+
+## Conversão de dados geoespaciais
+
+Converter vetor-raster e vice-versa
+
+<center>
+<img src="img/geo_data_convert_bg.png" style="width:50%"/>
+</center>
+
+:::footer
+[Tennekes & Nowosad (in prep.)](https://r-tmap.github.io/tmap-book/index.html)
+:::
+
+## Fontes de dados geoespaciais {.smaller .scrollable}
+
+### Vetoriais
+
+-  **[IBGE](https://www.ibge.gov.br/geociencias/downloads-geociencias.html)**: limites territoriais e censitários do Brasil
+-  **[FBDS](http://geo.fbds.org.br)**: uso da terra, APP e hidrografia -  Mata Atlântica e Cerrado
+-  **[GeoBank](http://geosgb.cprm.gov.br/)**: dados geológicos do Brasil
+-  **[Pastagem.org](http://maps.lapig.iesa.ufg.br)**: dados de pastagens e gado para o Brasil
+-  **[CanaSat](http://www.dsr.inpe.br/laf/canasat/)**: dados de cana-de-açúcar para o Brasil
+-  **[CSR Maps](http://maps.csr.ufmg.br)**: diversos dados vetoriais para o Brasil
+-  **[OpenStreetMap Data Extracts](http://download.geofabrik.de/index.html)**: dados do OpenStreetMap
+-  **[Ecoregions](https://ecoregions2017.appspot.com/)**: dados de biorregiões e biomas do mundo  
+-  **[GADM](https://gadm.org/)**: limites de áreas administrativas do mundo
+-  **[Natural Earth](https://www.naturalearthdata.com/):** diversos limites para o mundo
+-  **[Protected Planet](https://www.protectedplanet.net/en):** áreas protegidas para o mundo
+-  **[UN Biodiversity Lab](https://www.unbiodiversitylab.org/)**: Diversas bases de dados para o mundo
+-  **[HydroSHEDS](https://www.hydrosheds.org/)**: informações hidrológicas do mundo
+-  **[Global Roads Inventory Project (GRIP)](https://www.globio.info/download-grip-dataset)**: dados de estradas do mundo todo 
+
+:::footer
+[Lista completa](https://mauriciovancine.github.io/blog/geodados-fonte/)
+:::
+
+## Fontes de dados geoespaciais {.smaller .scrollable}
+
+### Matriciais
+
+-  **[MapBiomas](https://mapbiomas.org)**: uso e cobertura da terra para o Brasil, diversos anos
+-  **[Bahlu](ftp://madeira.dea.ufv.br/bdados/bhalu/)**: Distribuições históricas de terras agrícolas e pastagens para todo o Brasil de 1940 a 2012
+-  **[USGS](https://www.usgs.gov)**: dados de diversos satélites livres para o mundo
+-  **[SRTM](http://srtm.csi.cgiar.org/)**: dados de elevação para o mundo
+-  **[Global Forest Watch](https://www.globalforestwatch.org/)**: dados de uso e cobertura para todo o planeta
+-  **[Geoservice Maps](https://geoservice.dlr.de/web/maps)**: dados de elevação e florestas para o mundo
+-  **[GlobCover](http://due.esrin.esa.int/page_globcover.php)**: dados de uso e cobertura da terra para todo o planeta
+-  **[Global Human Footprint](https://wcshumanfootprint.org/)**: dados de pegada ecológica para o mundo
+-  **[Land-Use Harmonization (LUH2)](https://luh.umd.edu/)**: dados atuais e previsões de uso da terra
+-  **[SoilGrids](https://soilgrids.org/)**: dados de solo para o mundo                         
+-  **[WorldClim](https://www.worldclim.org/)**: dados climáticos para o mundo
+-  **[CHELSA](https://chelsa-climate.org/)**: dados climáticos para o mundo
+-  **[EarthEnv](https://www.earthenv.org/)**: dados de cobertura da terra, nuvens, relevo e hidrografia
+-  **[MARSPEC](http://www.marspec.org)**: dados de condições do oceano para o mundo
+-  **[Bio-ORACLE](https://www.bio-oracle.org/)**: dados de condições do oceano para o mundo   
+
+:::footer
+[Lista completa](https://mauriciovancine.github.io/blog/geodados-fonte/)
+:::
+
+## Fontes de dados geoespaciais {.smaller .scrollable}
+
+### Pacotes e sites
+
+-  **[geobr](https://cran.r-project.org/web/packages/geobr/index.html)**: carrega Shapefiles de Conjuntos de Dados Espaciais Oficiais do Brasil
+-  **[rnaturalearth](https://cran.r-project.org/web/packages/rnaturalearth/index.html)**: dados do mapa mundial da Natural Earth
+-  **[geodata](https://cran.r-project.org/web/packages/geodata/index.html)**: acesso a dados globais de clima, altitude, solo, ocorrência de espécies e limites administrativos
+-  **[rworldmap](https://cran.r-project.org/web/packages/rworldmap/index.html)**: dados globais
+-  **[spData](https://cran.r-project.org/web/packages/spData/index.html)**: conjuntos de dados para análise espacial
+-  **[OpenStreetMap](https://cran.r-project.org/web/packages/OpenStreetMap/index.html)**: acesso para abrir imagens raster de mapas de ruas
+-  **[osmdata](https://cran.r-project.org/web/packages/osmdata/index.html)**: baixe e importe dados do OpenStreetMap
+-  **[geonames](https://cran.r-project.org/web/packages/geonames/index.html)**: interface para o serviço da Web de consulta espacial "Geonames"
+-  **[rgbif](https://cran.r-project.org/web/packages/rgbif/index.html)**: interface para o Global 'Biodiversity' Information Facility API
+-  **[maptools](https://cran.r-project.org/web/packages/maptools/index.html)**: ferramentas para lidar com objetos espaciais
+-  **[marmap](https://cran.r-project.org/web/packages/marmap/index.html)**: importar, traçar e analisar dados batimétricos e topográficos
+-  **[envirem](https://cran.r-project.org/web/packages/envirem/index.html)**: geração de Variáveis ENVIREM
+-  **[sdmpredictors](https://cran.r-project.org/web/packages/sdmpredictors/index.html)**: conjuntos de dados preditor de modelagem de distribuição de espécies
+-  **[rstac](https://github.com/brazil-data-cube/rstac)**: R Client Library for SpatioTemporal Asset Catalog
+-  **[rwlts](https://github.com/brazil-data-cube/rwlts)**: R Client Library for Web Land Trajectory Service 
+-  **[getSpatialData](https://jakob.schwalb-willmann.de/getSpatialData/)**: baixar diversas bases de dados
+-  **[rspatialdata](https://rspatialdata.github.io/index.html)**: coleção de fontes de dados e tutoriais sobre a visualização de dados espaciais usando R
+
+:::footer
+[Lista completa](https://mauriciovancine.github.io/blog/geodados-fonte/)
+:::
+
+## Recapitulando {.smaller}
+
+1. **Geoprocessamento**: entende padrões espaciais a partir de dados espaciais para gerar informações espaciais, com quatro componentes: cartografia, GPS, SR e SIG
+1. **Escala**: relação entre uma medida gráfica e uma medida real 
+1. **Sistema de coordenadas**: pode ser geográfico (graus) ou projetado (metros)
+1. **Datum**: relação do sistema de coordenadas com a superfície da Terra
+1. **Sistema de Referência de Coordenadas (SRC)**: Datum + Sistema de Coordenadas
+1. **GPS**: indica sua localização no planeta através de pontos ou linhas
+1. **Sensoriamento Remoto**: usa sistemas sensores acoplados a satélites para imagear a superfície do planeta de forma remota 
+1. **SIG**: conjunto de ferramentas que tratam os dados geoespaciais para gerar informações
+1. **Vetor**: pontos, linhas e polígonos em que há associado uma tabela de dados
+1. **Raster**: matriz de valores contínuos ou categóricos
+1. **Conversão**: de dados vetoriais para dados rasters e vice-versa
+
+# Tranquilo?
+
+# R 
+
+## R
+
+O R é uma **linguagem de programação livre** (*open source*), direcionada à **manipulação, análise e visualização de dados**, com diversas **expansões** (*pacotes*) para o uso de **dados com formatos específicos** 
+
+<center>
+<img src="img/r_logo.svg" style="width:40%"/>
+</center>
+
+:::footer
+[R](https://www.r-project.org/)
+:::
+
+## RStudio
+
+IDE (*Integrated Development Environment*) ou Ambiente de Desenvolvimento Integrado 
+
+<center>
+<img src="img/rstudio.png" style="width:80%"/>
+</center>
+
+:::footer
+[RStudio](https://www.rstudio.com/)
+:::
+
+## Script
+
+Onde os códigos são escritos e salvos no formato .R
+
+<center>
+<img src="img/rstudio_script_bg.png" style="width:90%"/>
+</center>
+
+## Objetos
+
+Palavras que atribuímos dados possibilitando a manipulação dos mesmos 
+
+**Atribuição (objeto <- dados)**
+
+```{r}
+#| echo: true
+
+# atribuicao (<-)
+objeto <- 42
+objeto
+```
+
+. . . 
+
+**Operações (+, -, \*, /, ^)**
+
+```{r}
+#| echo: true
+
+# operacoes
+objeto2 <- objeto * 2
+objeto2
+```
+
+## Funções
+
+Códigos que realizam operações em argumentos
+
+**Estrutura de uma função**
+
+> nome_da_funcao(argumento1, argumento2)
+
+**Soma**
+
+```{r}
+#| echo: true
+
+# soma
+objeto3 <- sum(objeto, objeto2)
+objeto3
+```
+
+. . . 
+
+**Repetição**
+
+```{r}
+#| echo: true
+
+# repeticao
+objeto4 <- rep(x = objeto, times = 10)
+objeto4
+```
+
+## Pacotes
+
+Coleção de funções para executar tarefas específicas
+
+**Instalar pacotes do CRAN**
+
+```{.r}
+# instalar pacotes
+install.packages("landscapemetrics", dep = TRUE)
+```
+
+. . . 
+
+**Instalar pacotes do GitHub**
+
+```{.r}
+# instalar pacotes do github
+install.packages("remotes")
+remotes::install_github("r-spatialecology/landscapemetrics")
+```
+
+. . .
+
+**Carregar pacotes**
+
+```{.r}
+# carregar pacotes
+library(landscapemetrics)
+```
+
+## Diretório
+
+Caminho de uma pasta/diretório onde o R irá importar e exportar os dados
+
+**Definir um diretório de trabalho**
+```{.r}
+# definir o diretorio de trabalho
+setwd("/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/")
+```
+
+. . . 
+
+**Verificar o diretório**
+```{.r}
+# verificar o diretorio
+getwd()
+```
+
+. . . 
+
+**Listar os arquivos no diretório**
+```{.r}
+# listar os arquivos
+dir()
+```
+
+# Dados geoespaciais
+
+## Importar dados geoespaciais
+
+**Vetor**
+
+```{r}
+#| echo = TRUE
+
+# pacote
+library(sf)
+
+# diretorio
+setwd("/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data/")
+
+# importar vetor
+rc <- sf::st_read("rio_claro.shp", quiet = TRUE)
+rc
+```
+
+## Importar dados geoespaciais
+
+**Vetor**
+
+```{r fig.align='center'}
+#| echo = TRUE
+plot(rc$geom, axes = TRUE, graticule = TRUE)
+```
+
+## Importar dados geoespaciais
+
+**Raster**
+
+```{r}
+#| echo = TRUE
+
+# pacote
+library(raster)
+
+# diretorio
+setwd("/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data/")
+
+# importar raster
+ra <- raster::raster("dem_rc.tif")
+ra
+```
+
+## Importar dados geoespaciais
+
+**Raster**
+
+```{r fig.align='center'}
+#| echo = TRUE
+plot(ra)
+```
+
+## Reprojetar dados geoespaciais
+
+**Vetor**
+
+```{r}
+#| echo = TRUE
+
+# pacote
+library(sf)
+
+# reprojetar vetor
+rc_utm <- sf::st_transform(rc, crs = 31983)
+rc_utm 
+```
+
+## Reprojetar dados geoespaciais
+
+**Vetor**
+
+```{r fig.align='center'}
+#| echo = TRUE
+plot(rc_utm$geom, axes = TRUE, graticule = TRUE)
+```
+
+## Reprojetar dados geoespaciais
+
+**Raster**
+
+```{r}
+#| echo = TRUE
+
+# pacote
+library(raster)
+
+# reprojetar vetor
+ra_utm <- raster::projectRaster(ra, crs = "+init=epsg:31983", method = "bilinear", res = 90)
+ra_utm 
+```
+
+## Reprojetar dados geoespaciais
+
+**Raster**
+
+```{r fig.align='center'}
+#| echo = TRUE
+plot(ra_utm)
+```
