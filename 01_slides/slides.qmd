@@ -171,43 +171,35 @@ format:
 
 ::: columns
 ::: {.column width="50%"}
-### Preparar dados
-
 ::: nonincremental
-- Pontos amostrais
-- Buffers (paisagens)
-- Conferir rasters
-- Listar as métricas
-- Pacote: *landscapetools*
+### landscapemetrics
+- Descrição
+- Checar o raster
+- Descrição das funções
+- Retorno das funções
 :::
 :::
 
 ::: {.column width="50%"}
-### Calcular métricas
-
 ::: nonincremental
-- Calcular as métricas
-- Espacializar as métricas
-- Correlação
+### landscapemetrics
+- Nível das métricas
+- Classes das métricas
 - Múltiplas escalas
-- Pacotes: *landscapemetrics* e *multifit*
+- Espacializar as métricas
+:::
 :::
 :::
 
-:::
 :::
 
 ## Material
 
-Todo o material está disponível no GitHub
+Todo o material está disponível no [GitHub](https://github.com/mauriciovancine/workshop-landscapemetrics)
 
 <center>
 <img src="img/github.png" style="width:50%"/>
 </center>
-
-:::footer
-[GitHub](https://github.com/mauriciovancine/workshop-landscapemetrics)
-:::
 
 # Ecologia da Paisagem
 
@@ -397,12 +389,12 @@ Algoritmos para quantificar a **estrutura espacial** (características) da paisa
 
 ## Métricas de classificação categóricas {.smaller}
 
-**Composição**: número e quantidade de cada tipo de mancha (número e área)
+**Composição**: número e quantidade das manchas (número e área)
 
-**Configuração**: arranjo espacial e distribuição de cada tipo de mancha (isolamento e forma)
+**Configuração**: arranjo espacial e distribuição das manchas (isolamento e forma)
 
 <center>
-<img src="img/comp_conf_bg.png" style="width:60%"/>
+<img src="img/comp_conf_bg.png" style="width:65%"/>
 </center>
 
 :::footer
@@ -429,20 +421,10 @@ Algoritmos para quantificar a **estrutura espacial** (características) da paisa
 [landscapemetrics](https://r-spatialecology.github.io/landscapemetrics/), [McGarigal & Marks (1995)](https://www.fs.fed.us/pnw/pubs/pnw_gtr351.pdf), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
 :::
 
-## Regras de definição de patches
-
-<center>
-<img src="img/regra_patches_bg.png" style="width:75%"/>
-</center>
-
-:::footer
-[Fletcher & Fortin (2018)](https://link.springer.com/book/10.1007/978-3-030-01989-1)
-:::
-
 ## Métricas {.smaller .scrollable}
 
 ```{r}
-# knitr::kable(landscapemetrics::list_lsm())
+knitr::kable(landscapemetrics::list_lsm())
 ```
 
 :::footer
@@ -574,7 +556,7 @@ Entender os **padrões espaciais** como o ambiente físico, fenômenos climátic
 ## Geoprocessamento (Elementos)
 
 1. Cartografia digital (CD)
-1. Global Positioning System (GPS)
+1. *Global Positioning System* (GPS)
 1. Sensoriamento Remoto (RS)
 1. Sistemas de Informações Geográficas (SIG)
 
@@ -784,7 +766,7 @@ Indica sua localização no planeta através de pontos ou linhas
 
 ## *Global Positioning System* (GPS)
 
-Indica sua localização no planeta através de pontos ou linhas
+Indica uma localização no planeta através de pontos ou linhas
 
 <center>
 <img src="img/gps.gif" style="width:50%"/>
@@ -1033,19 +1015,19 @@ Converter vetor-raster e vice-versa
 
 ## Recapitulando {.smaller}
 
-1. **Geoprocessamento**: entende padrões espaciais a partir de dados espaciais para gerar informações espaciais, com quatro componentes: cartografia, GPS, SR e SIG
+1. **Geoprocessamento**: entender padrões espaciais a partir de dados espaciais para gerar informações espaciais, com quatro componentes: cartografia, GPS, SR e SIG
 1. **Escala**: relação entre uma medida gráfica e uma medida real 
 1. **Sistema de coordenadas**: pode ser geográfico (graus) ou projetado (metros)
 1. **Datum**: relação do sistema de coordenadas com a superfície da Terra
 1. **Sistema de Referência de Coordenadas (SRC)**: Datum + Sistema de Coordenadas
-1. **GPS**: indica sua localização no planeta através de pontos ou linhas
-1. **Sensoriamento Remoto**: usa sistemas sensores acoplados a satélites para imagear a superfície do planeta de forma remota 
+1. **GPS**: indica uma localização no planeta através de pontos ou linhas
+1. **Sensoriamento Remoto**: usa sistemas sensores acoplados a satélites/aviões/drones/balões para imagear a superfície do planeta de forma remota 
 1. **SIG**: conjunto de ferramentas que tratam os dados geoespaciais para gerar informações
-1. **Vetor**: pontos, linhas e polígonos em que há associado uma tabela de dados
+1. **Vetor**: pontos, linhas e polígonos associados a uma tabela de atributos
 1. **Raster**: matriz de valores contínuos ou categóricos
-1. **Conversão**: de dados vetoriais para dados rasters e vice-versa
+1. **Conversão**: dados vetoriais para dados rasters e vice-versa
 
-# Tranquilo?
+# Tranquilo até aqui?
 
 # R 
 
@@ -1107,7 +1089,7 @@ objeto2 <- objeto * 2
 objeto2
 ```
 
-## Funções
+## Funções 
 
 Códigos que realizam operações em argumentos
 
@@ -1169,7 +1151,7 @@ library(landscapemetrics)
 
 ## Diretório
 
-Caminho de uma pasta/diretório onde o R irá importar e exportar os dados
+Caminho de uma pasta/diretório onde o R irá importar e/ou exportar os dados
 
 **Definir um diretório de trabalho**
 ```{.r}
@@ -1193,7 +1175,49 @@ getwd()
 dir()
 ```
 
-# Dados geoespaciais
+# Dados geoespaciais no R
+
+## Importar dados geoespaciais {.scrollable}
+
+**Vetor**
+
+```{r}
+#| echo = TRUE
+
+# pacote
+library(readr)
+
+# diretorio
+setwd("/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data/")
+
+# importar pontos
+da <- readr::read_csv("pontos_amostragem.csv")
+da
+```
+
+## Importar dados geoespaciais {.scrollable}
+
+**Vetor**
+
+```{r}
+#| echo = TRUE
+
+# pacote
+library(sf)
+
+# importar pontos
+po <- sf::st_as_sf(da, coords = c("x", "y"), crs = 31983)
+po
+```
+
+## Importar dados geoespaciais
+
+**Vetor**
+
+```{r fig.align='center'}
+#| echo = TRUE
+plot(po$geometry, col = "black", pch = 19, axes = TRUE, graticule = TRUE)
+```
 
 ## Importar dados geoespaciais
 
@@ -1219,7 +1243,7 @@ rc
 
 ```{r fig.align='center'}
 #| echo = TRUE
-plot(rc$geom, axes = TRUE, graticule = TRUE)
+plot(rc$geom, col = "gray", axes = TRUE, graticule = TRUE)
 ```
 
 ## Importar dados geoespaciais
@@ -1236,8 +1260,8 @@ library(raster)
 setwd("/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data/")
 
 # importar raster
-ra <- raster::raster("dem_rc.tif")
-ra
+mapbiomas <- raster::raster("mapbiomas.tif")
+mapbiomas
 ```
 
 ## Importar dados geoespaciais
@@ -1246,7 +1270,7 @@ ra
 
 ```{r fig.align='center'}
 #| echo = TRUE
-plot(ra)
+plot(mapbiomas)
 ```
 
 ## Reprojetar dados geoespaciais
@@ -1255,9 +1279,6 @@ plot(ra)
 
 ```{r}
 #| echo = TRUE
-
-# pacote
-library(sf)
 
 # reprojetar vetor
 rc_utm <- sf::st_transform(rc, crs = 31983)
@@ -1270,7 +1291,7 @@ rc_utm
 
 ```{r fig.align='center'}
 #| echo = TRUE
-plot(rc_utm$geom, axes = TRUE, graticule = TRUE)
+plot(rc_utm$geom, col = "gray", axes = TRUE, graticule = TRUE)
 ```
 
 ## Reprojetar dados geoespaciais
@@ -1280,12 +1301,12 @@ plot(rc_utm$geom, axes = TRUE, graticule = TRUE)
 ```{r}
 #| echo = TRUE
 
-# pacote
-library(raster)
-
 # reprojetar vetor
-ra_utm <- raster::projectRaster(ra, crs = "+init=epsg:31983", method = "bilinear", res = 90)
-ra_utm 
+mapbiomas_utm <- raster::projectRaster(mapbiomas, 
+crs = "+init=epsg:31983", 
+method = "ngb", 
+res = 90)
+mapbiomas_utm 
 ```
 
 ## Reprojetar dados geoespaciais
@@ -1294,5 +1315,422 @@ ra_utm
 
 ```{r fig.align='center'}
 #| echo = TRUE
-plot(ra_utm)
+plot(mapbiomas_utm)
 ```
+
+## Operações com dados geoespaciais {.scrollable}
+
+**Buffer**
+
+```{r}
+#| echo = TRUE
+bu <- sf::st_buffer(po, dist = 500)
+bu
+```
+
+## Operações com dados geoespaciais
+
+**Buffer**
+
+```{r fig.align='center'}
+#| echo = TRUE
+plot(rc_utm$geom, border = "gray")
+plot(bu$geometry, border = "red", add = TRUE)
+```
+
+## Operações com dados geoespaciais
+
+**Ajuste à extenção**
+
+```{r}
+#| echo = TRUE
+mapbiomas_utm_crop <- raster::crop(mapbiomas_utm, st_as_sf(bu))
+mapbiomas_utm_crop
+```
+
+## Operações com dados geoespaciais
+
+**Ajuste à extenção**
+
+```{r fig.align='center'}
+#| echo = TRUE
+plot(rc_utm$geom, border = "gray")
+plot(mapbiomas_utm_crop, add = TRUE)
+plot(bu$geometry, border = "red", add = TRUE)
+```
+
+## Operações com dados geoespaciais
+
+**Ajuste à máscara**
+
+```{r}
+#| echo = TRUE
+mapbiomas_utm_mask <- raster::mask(mapbiomas_utm, st_as_sf(bu))
+mapbiomas_utm_mask
+```
+
+## Operações com dados geoespaciais
+
+**Ajuste à máscara**
+
+```{r fig.align='center'}
+#| echo = TRUE
+plot(mapbiomas_utm_mask)
+plot(bu$geometry, border = "red", add = TRUE)
+plot(rc_utm$geom, border = "gray", add = TRUE)
+```
+
+## Operações com dados geoespaciais
+
+**Ajuste à extensão e à máscara**
+
+```{r}
+#| echo = TRUE
+mapbiomas_utm_crop <- raster::crop(mapbiomas_utm, st_as_sf(bu))
+mapbiomas_utm_crop_mask <- raster::mask(mapbiomas_utm_crop, st_as_sf(bu))
+mapbiomas_utm_crop_mask
+```
+
+## Operações com dados geoespaciais
+
+**Ajuste à máscara**
+
+```{r fig.align='center'}
+#| echo = TRUE
+plot(mapbiomas_utm_crop_mask)
+plot(bu$geometry, border = "red", add = TRUE)
+plot(rc_utm$geom, border = "gray", add = TRUE)
+```
+
+## Operações com dados geoespaciais
+
+**Reclassificação de rasters**
+
+```{r}
+#| echo = TRUE
+mapbiomas_utm_floresta <- raster::reclassify(x = mapbiomas_utm,
+rcl = c(0,2,NA, 2,4,1, 4,48,NA))
+mapbiomas_utm_floresta
+```
+
+## Operações com dados geoespaciais
+
+**Reclassificação de rasters**
+
+```{r fig.align='center'}
+#| echo = TRUE
+plot(mapbiomas_utm_floresta)
+plot(rc_utm$geom, border = "gray", add = TRUE)
+```
+
+## Visualização
+
+**Vetor**
+
+```{r fig.align='center'}
+#| echo = TRUE
+# pacote
+library(tmap)
+
+# mapa
+tm_shape(rc_utm) +
+tm_polygons()
+```
+
+## Visualização
+
+**Vetor**
+
+```{r fig.align='center'}
+#| echo = TRUE
+tm_shape(rc_utm) +
+tm_polygons() +
+tm_grid(lines = FALSE) +
+tm_compass() +
+tm_scale_bar()
+```
+
+## Visualização
+
+**Raster**
+
+```{r fig.align='center'}
+#| echo = TRUE
+tm_shape(mapbiomas_utm_floresta) +
+tm_raster(style = "cat", pal = c("white", "forestgreen")) +
+tm_shape(rc_utm) +
+tm_borders() +
+tm_grid(lines = FALSE) +
+tm_compass() +
+tm_scale_bar()
+```
+
+## Recapitulando {.smaller}
+
+1. **R**:  linguagem de programação direcionada à manipulação, análise e visualização de dados
+1. **RStudio**: IDE (Ambiente de Desenvolvimento Integrado) facilita o uso do R
+1. **Script**: onde os códigos são escritos e salvos no formato .R
+1. **Objetos**: palavras que atribuímos dados possibilitando a manipulação dos mesmos
+1. **Funções**: códigos que realizam operações em argumentos
+1. **Pacotes**: coleção de funções para executar tarefas específicas
+1. **Diretório**: caminho de uma pasta/diretório onde o R irá importar e exportar os dados
+1. **Importar**: readr::read_csv(), sf::st_as_sf(), sf::st_read() e raster::raster()
+1. **Reprojetar**: sf::st_transform e raster::projectRaster()
+1. **Operações**: sf::st_buffer(), raster::crop(), raster::mask() e raster::reclassify
+1. **Visualização**: tm_shape() + tm_polygon() e tm_shape() + tm_raster()
+
+# Sussa? Bora finalmente calcular as métricas?
+
+# Métricas de paisagem no R
+
+## landscapemetrics
+
+Implementação do FRAGSTATS para a linguagem R
+
+::: columns
+::: {.column width="50%"}
+<br><br>
+<center>
+<img src="img/fragstats.png" style="width:100%"/>
+</center>
+:::
+
+::: {.column width="50%"}
+<center>
+<img src="img/landscapemetrics_eco_bg.png" style="width:100%"/>
+</center>
+:::
+:::
+
+:::footer
+[landscapemetrics](https://github.com/mauriciovancine/workshop-landscapemetrics),
+[McGarigal et al. (2012)](http://www.umass.edu/landeco/research/fragstats/fragstats.html),
+[McGarigal & Marks (1995)](https://www.fs.usda.gov/treesearch/pubs/3064),
+[Sá Volotão et al. (2008)](http://www.dpi.inpe.br/cursos/ser431/trabalhos/fragstats.pdf),
+[Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617), 
+:::
+
+## landscapemetrics
+
+Pacote R para calcular métricas de paisagem para padrões de paisagem categóricas
+
+<center>
+<img src="img/landscapemetrics.png" style="width:35%"/>
+</center>
+
+:::footer
+[landscapemetrics](https://github.com/mauriciovancine/workshop-landscapemetrics), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
+:::
+
+## landscapemetrics
+
+O raster de entrada tem de estar com coordendas projetadas
+
+**Checar o raster**
+
+```{r}
+#| echo=TRUE
+# pacote
+library(landscapemetrics)
+```
+
+**Raster geográfico**
+
+```{r}
+#| echo=TRUE
+# checar o raster
+check_landscape(mapbiomas)
+```
+
+**Raster projetado**
+
+```{r}
+#| echo=TRUE
+# checar o raster
+check_landscape(mapbiomas_utm)
+```
+
+:::footer
+[landscapemetrics](https://github.com/mauriciovancine/workshop-landscapemetrics), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
+:::
+
+## landscapemetrics {.smaller}
+
+### Descrição das funções
+
+- Todas as funções começam com `lsm_` (para métricas de paisagem)
+
+- A segunda parte especifica o nível (patch - `p`, classe - `c` ou paisagem - `l`)
+
+- A última parte do nome da função é a abreviação da métrica correspondente (e.g., `enn` - euclidean nearest-neighbor distance)
+
+```{.r}
+# general structure
+lsm_"level"_"metric"
+
+# Patch level
+## lsm_p_"metric"
+lsm_p_enn()
+
+# Class level
+## lsm_c_"metric"
+lsm_c_enn()
+
+# Landscape level
+## lsm_p_"metric"
+lsm_l_enn()
+```
+
+:::footer
+[landscapemetrics](https://github.com/mauriciovancine/workshop-landscapemetrics), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
+:::
+
+## landscapemetrics {.smaller .scrollable}
+
+Todas as funções retornam uma tabela com a mesma estrutura
+
+::: columns
+::: {.column width="40%"}
+```{r echo=FALSE}
+library(landscapemetrics)
+library(landscapetools)
+
+show_landscape(landscape, discrete = TRUE)
+show_patches(landscape, class = 1)
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+library(landscapemetrics)
+knitr::kable(lsm_p_area(landscape) |> dplyr::filter(class == 1))
+```
+:::
+:::
+
+:::footer
+[landscapemetrics](https://github.com/mauriciovancine/workshop-landscapemetrics), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
+:::
+
+## landscapemetrics {.smaller}
+
+### Nível das métricas
+
+- **Mancha** (*patch*): calculadas para cada mancha na paisagem
+
+- **Classe** (*classe*):  resumem as manchas pertencentes a uma mesma classe
+
+- **Paisagem** (*landscape*): resumem todas manchas de todas as classes em um único valor
+
+<center>
+<img src="img/nivel_metricas_simples.png" style="width:100%"/>
+</center>
+
+:::footer
+[landscapemetrics](https://github.com/mauriciovancine/workshop-landscapemetrics), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
+:::
+
+## landscapemetrics 
+
+#### Regras de definição da manchas
+
+<center>
+<img src="img/regra_patches_bg.png" style="width:65%"/>
+</center>
+
+:::footer
+[Fletcher & Fortin (2018)](https://link.springer.com/book/10.1007/978-3-030-01989-1)
+:::
+
+## landscapemetrics {.smaller}
+
+### Classes das métricas
+
+1. **Métricas de área e borda** (*area* e *edge*): descrevem o tamanho de manchas e classes e a quantidade de borda (composição - dominância ou raridade de classes)
+
+1. **Métricas de forma** (*shape*): descrevem a forma das manchas, principalmente usando área e perímetro 
+
+1. **Métricas de interior** (*core*): descrevem a área de manchas que não são borda
+
+1. **Métricas de agregação** (*aggregation*): descrevem se os manchas (da mesma classe) são bastante agrupados (agregados) ou tendem a ser isolados (configuração)
+
+1. **Métricas de diversidade** (*diversity*): descrevem a abundância e dominância/raridade das classes (disponíveis apenas no nível da paisagem)
+
+1. **Métricas de complexidade** (*complexity*): descrevem a complexidade da paisagem (entropia marginal, entropia condicional, entropia conjunta e informação mútua)
+
+:::footer
+[landscapemetrics](https://github.com/mauriciovancine/workshop-landscapemetrics),
+[Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617),
+[Nowosad & Stepinski 2019](https://doi.org/10.1007/s10980-019-00830-x)
+:::
+
+## landscapemetrics {.smaller}
+
+### Múltiplas escalas
+
+```{r}
+knitr::kable(
+    data.frame(buffer = rep(c(3000, 6000), each = 3),
+               layer = rep(1, 6),
+               level = rep("landscape", 6),   
+               class = rep(NA, 6),  
+               id = rep(NA, 6),  
+               metric = rep("landscape", 6),   
+               value = c(0.87, 1.49, 0.665, 1.02, 1.62, 0.731)
+    ))
+```
+
+<center>
+<img src="img/multi_scale_bg.png" style="width:70%"/>
+</center>
+
+:::footer
+[landscapemetrics](https://r-spatialecology.github.io/landscapemetrics/), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
+[Efficient landscape metrics calculations for buffers around sampling points](https://jakubnowosad.com/posts/2019-03-07-lsm-bp1/)
+:::
+
+## landscapemetrics
+
+### Espacializar as métricas
+
+Apenas para as métricas para manchas
+
+<center>
+<img src="img/espacializar_bg.png" style="width:80%"/>
+</center>
+
+:::footer
+[landscapemetrics](https://github.com/mauriciovancine/workshop-landscapemetrics), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
+:::
+
+# Bora para o R!
+
+## Muito obrigado!
+
+::: columns
+::: {.column width="50%"}
+Agradecimentos:
+
+- [Felipe Sodré Barros](https://felipesbarros.github.io/pt/)
+- [Beatriz Milz](https://beatrizmilz.com/)
+- [Miltinho](https://leec.eco.br/people/prof-milton-cezar-ribeiro-miltinho/)
+:::
+
+::: {.column width="50%"}
+Contato:
+
+<center>
+[`r icons::icon_style(icons::fontawesome("link"), fill = "#287869")`](https://mauriciovancine.github.io/)
+[`r icons::icon_style(icons::fontawesome("envelope", style = "solid"), fill = "#287869")`](mailto:mauricio.vancine@gmail.com)
+[`r icons::icon_style(icons::fontawesome("twitter"), fill = "#287869")`](https://twitter.com/mauriciovancine)
+[`r icons::icon_style(icons::fontawesome("github"), fill = "#287869")`](https://github.com/mauriciovancine)
+
+<img src="img/gif_frogs.gif" style="width:80%"/>
+</center>
+
+:::
+:::
+
+:::footer
+Slides por [Maurício Vancine](https://mauriciovancine.github.io/), feitos com [Quarto](https://quarto.org/). Código disponível no [GitHub](https://github.com/mauriciovancine/workshop-landscapemetrics/blob/main/01_slides/slides.qmd).
+:::

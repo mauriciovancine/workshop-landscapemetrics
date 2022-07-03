@@ -122,3 +122,14 @@ img <- magick::image_read("rstudio_script.jpg")
 img_tr <- image_transparent(img, 'white')
 image_write(img_tr, "rstudio_script_bg.png")
 
+img <- magick::image_read("landscapemetrics_eco.png")
+img_tr <- image_transparent(img, 'white')
+image_write(img_tr, "landscapemetrics_eco_bg.png")
+
+img <- magick::image_read("multi_scale.png")
+img_tr <- image_transparent(img, 'white')
+image_write(img_tr, "multi_scale_bg.png")
+
+img <- magick::image_read("espacializar.png")
+img_tr <- image_transparent(img, 'white')
+image_write(img_tr, "espacializar_bg.png")

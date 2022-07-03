@@ -22,20 +22,19 @@ library(tmap)
 ## download ----
 for(i in c(".dbf", ".prj", ".shp", ".shx")){
     download.file(url = paste0("http://geo.fbds.org.br/SP/RIO_CLARO/USO/SP_3543907_USO", i),
-                  destfile = paste0("03_data//SP_3543907_USO", i), mode = "wb")
+                  destfile = paste0("03_data/SP_3543907_USO", i), mode = "wb")
 }
 
 ## importar ----
-uso <- sf::st_read("03_data/SP_3543907_USO.shp")
-uso
+uso <- sf::st_read("03_data/SP_3543907_USO.shp", quiet = TRUE)
+
+# tabela de atributos
+sf::st_drop_geometry(uso)
 
 # plot
 tm_shape(uso) +
     tm_fill(col = "CLASSE_USO", title = "Legenda",
             pal = c("blue", "orange", "gray", "forestgreen", "green"))
-
-# tabela de atributos
-sf::st_drop_geometry(uso)
 
 # criar uma coluna numerica para as classes de uso da terra
 uso$classe_num <- factor(uso$CLASSE_USO)
@@ -67,7 +66,7 @@ amost <- readr::read_csv("03_data/pontos_amostragem.csv")
 amost
 
 # amostragens vetoriais
-amost_vetor <- sf::st_as_sf(x = co, coords = c("x", "y"), crs = raster::crs(uso))
+amost_vetor <- sf::st_as_sf(x = amost, coords = c("x", "y"), crs = raster::crs(uso))
 amost_vetor
 
 # buffers
@@ -211,10 +210,35 @@ landscape_metrics_type <- landscape_metrics %>%
     dplyr::summarise(n = n())
 landscape_metrics_type
 
+# mapas -------------------------------------------------------------------
+
+# plotar paisagem e metricas
+landscapemetrics::show_patches(landscape = paisagens[[1]], 
+                               directions = 8,
+                               class = 4)
+
+landscapemetrics::show_patches(landscape = paisagens[[1]],
+                               directions = 4, 
+                               class = 4)
+
+landscapemetrics::show_cores(paisagens[[1]], 
+                             class = 4, 
+                             edge_depth = 1)
+
+landscapemetrics::show_cores(paisagens[[1]], 
+                             class = 4, 
+                             edge_depth = 2)
+
+landscapemetrics::show_lsm(paisagens[[1]], 
+                           what = "lsm_p_area", 
+                           class = 4, 
+                           labels = FALSE)
+
 # calcular as metricas ----------------------------------------------------
+
 #' estrutura das funcoes
 #' 1. prefixo: ‘lsm_’
-#' 2. nivel: ‘p’, ‘c’ e ‘l’ para patch‐, class‐ e landscape‐level
+#' 2. nivel: ‘p’, ‘c’ e ‘l’ para patch, class e landscape level
 #' 3. metrica: patch area - ‘lsm_p_area’
 #' 4. todas as funcoes funcionam para rasterlayers, rasterstack/rasterbrick ou list
 #' 5. algumas funcoes permitem add parametros: edge depth ou cell neighbourhood rule
@@ -223,13 +247,22 @@ landscape_metrics_type
 area_p <- landscapemetrics::lsm_p_area(landscape = paisagens[[1]])
 area_p
 
+area_p_all <- landscapemetrics::lsm_p_area(landscape = paisagens)
+area_p_all
+
 # area no nivel de classe (class - c)
 area_c <- landscapemetrics::lsm_c_area_mn(landscape = paisagens[[1]])
 area_c
 
+area_c_all <- landscapemetrics::lsm_c_area_mn(landscape = paisagens)
+area_c_all
+
 # area no nivel de paisagem (landscape - l)
 area_l <- landscapemetrics::lsm_l_area_mn(landscape = paisagens[[1]])
 area_l
+
+area_l_all <- landscapemetrics::lsm_l_area_mn(landscape = paisagens)
+area_l_all
 
 # calcular todas as metricas por nivel ------------------------------------
 
@@ -239,7 +272,7 @@ area_l
 #' permite escolha por ‘level’, ‘metric’, ‘name’, ‘type’, ‘what’
 
 # patch level
-lsm_patch <- landscapemetrics::calculate_lsm(landscape = rc_raster_pai, 
+lsm_patch <- landscapemetrics::calculate_lsm(landscape = paisagens[[1]], 
                                              level = "patch", 
                                              edge_depth = 1, # celulas
                                              neighbourhood = 8, # oito celulas nas vizinhancas
@@ -249,7 +282,7 @@ lsm_patch <- landscapemetrics::calculate_lsm(landscape = rc_raster_pai,
 lsm_patch
 
 # class level
-lsm_class <- landscapemetrics::calculate_lsm(landscape = rc_raster_pai, 
+lsm_class <- landscapemetrics::calculate_lsm(landscape = paisagens[[1]], 
                                              level = "class", 
                                              edge_depth = 1, # celulas
                                              neighbourhood = 8, # oito celulas nas vizinhancas
@@ -259,7 +292,7 @@ lsm_class <- landscapemetrics::calculate_lsm(landscape = rc_raster_pai,
 lsm_class
 
 # landscape level
-lsm_landscape <- landscapemetrics::calculate_lsm(landscape = rc_raster_pai, 
+lsm_landscape <- landscapemetrics::calculate_lsm(landscape = paisagens[[1]], 
                                                  level = "landscape",
                                                  edge_depth = 1, # celulas
                                                  neighbourhood = 8, # oito celulas nas vizinhancas
@@ -268,54 +301,31 @@ lsm_landscape <- landscapemetrics::calculate_lsm(landscape = rc_raster_pai,
                                                  progress = TRUE)
 lsm_landscape
 
-# export
-readr::write_csv(lsm_patch, "./metricas_tabelas/metricas_patch.csv")
-readr::write_csv(lsm_class, "./metricas_tabelas/metricas_class.csv")
-readr::write_csv(lsm_landscape, "./metricas_tabelas/metricas_landscape.csv")
-
-# mapas -------------------------------------------------------------------
-# plotar paisagem e metricas
-landscapemetrics::show_patches(landscape = rc_raster_pai$paisagem_01, 
-                               class = 4, labels = FALSE)
-
-landscapemetrics::show_cores(rc_raster_pai$paisagem_01, class = 4, 
-                             edge_depth = 1, labels = FALSE)
-
-landscapemetrics::show_cores(rc_raster_pai$paisagem_01, class = 4, 
-                             edge_depth = 2, labels = FALSE)
-
-landscapemetrics::show_lsm(rc_raster_pai$paisagem_01, what = "lsm_p_area", class = 4, 
-                           labels = FALSE)
-
 # espacializar os valores das metricas ------------------------------------
+
 # reclassificar
-rc_raster_pai01_fo <- raster::reclassify(x = rc_raster_pai$paisagem_01, 
-                                         rcl = c(0,3,NA, 3,4,1))
-landscapetools::show_landscape(rc_raster_pai01_fo)
+paisagen01_forest <- raster::reclassify(x = paisagens[[1]], 
+                                        rcl = c(0,3,NA, 3,4,1))
+paisagen01_forest
+
+tm_shape(paisagen01_forest) +
+    tm_raster(pal = "forestgreen", legend.show = FALSE)
 
 # calcular e espacializar
-rc_raster_pai01_fo_patch <- landscapemetrics::spatialize_lsm(rc_raster_pai01_fo,
-                                                             what = "patch", 
-                                                             progress = TRUE)
-rc_raster_pai01_fo_patch
+paisagen01_forest_patch <- landscapemetrics::spatialize_lsm(paisagen01_forest,
+                                                            what = "patch", 
+                                                            progress = TRUE)
+paisagen01_forest_patch
 
 # mapa
-landscapetools::show_landscape(rc_raster_pai01_fo_patch[[1]]$lsm_p_area) +
-    labs(title = "Área")
+tm_shape(paisagen01_forest_patch$layer_1$lsm_p_area) +
+    tm_raster(pal = "viridis", title = "Área (ha)")
 
-# exportar
-for(i in 1:length(rc_raster_pai01_fo_patch[[1]])){
-    
-    # informacao
-    print(paste0("Paisagem 01 - ", names(rc_raster_pai01_fo_patch[[1]][i])))
-    
-    # exportar
-    raster::writeRaster(x = rc_raster_pai01_fo_patch[[1]][[i]],
-                        filename = paste0("./metricas_raster/paisagem_01_", names(rc_raster_pai01_fo_patch[[1]][i])),
-                        format = "GTiff",
-                        options = c("COMPRESS=DEFLATE" , "TFW=TRUE"),
-                        overwrite = TRUE)
-}
+tm_shape(paisagen01_forest_patch$layer_1$lsm_p_shape) +
+    tm_raster(pal = "viridis", title = "Formato")
+
+tm_shape(paisagen01_forest_patch$layer_1$lsm_p_enn) +
+    tm_raster(pal = "viridis", title = "Distância (m)")
 
 # exemplo -----------------------------------------------------------------
 # paisagens com floresta e água
