@@ -133,3 +133,7 @@ image_write(img_tr, "multi_scale_bg.png")
 img <- magick::image_read("espacializar.png")
 img_tr <- image_transparent(img, 'white')
 image_write(img_tr, "espacializar_bg.png")
+
+img <- magick::image_read("morfologia_paisagem.png")
+img_tr <- image_transparent(img, 'white')
+image_write(img_tr, "morfologia_paisagem_bg.png")

@@ -72,6 +72,10 @@ format:
 :::
 :::
 
+:::footer
+[Da Silva et al. (2022)](https://analises-ecologicas.com/)
+:::
+
 # 
 <center>
 <img src="img/landscapemetrics.png" href="https://r-spatialecology.github.io/landscapemetrics/" style="width:50%"/>
@@ -182,11 +186,11 @@ format:
 
 ::: {.column width="50%"}
 ::: nonincremental
-### landscapemetrics
+### 
 - Nível das métricas
 - Classes das métricas
-- Múltiplas escalas
 - Espacializar as métricas
+- Múltiplas escalas
 :::
 :::
 :::
@@ -304,26 +308,31 @@ Adaptado slide do Miltinho
 ## Morfologia da paisagem {.smaller}
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="60%"}
 <center>
-<img src="img/morfologia_paisagem.png" style="width:90%"/>
+<img src="img/morfologia_paisagem_bg.png" style="width:100%"/>
 </center>
 :::
 
-::: {.column width="50%"}
+::: {.column width="40%"}
 
-- **Interior** (*core*): porção interior de habitat
-- **Borda** (*edge*): porção exterior de habitat
-- **Corredor** (*corridor*): mancha linear que liga outras manchas
-- **Ramificação** (*branch*): porção anexa de habitat
-- **Trampolim** (*stepping stone*): porção isolada de habitat
-- **Perfuração** (*perforation*): borda interna dentro das manchas
+**1. Interior** (*core*): porção interior de habitat
+
+**2. Borda** (*edge*): porção exterior de habitat
+
+**3. Corredor** (*corridor*): mancha linear que liga outras manchas
+
+**4. Ramificação** (*branch*): porção anexa de habitat
+
+**5. Trampolim** (*stepping stone*): porção isolada de habitat
+
+**6. Perfuração** (*perforation*): borda interna dentro das manchas
 
 :::
 :::
 
 :::footer
-[Soille & Vogt (2009)](https://doi.org/10.1016/j.patrec.2008.10.015)
+[Soille & Vogt (2009)](https://doi.org/10.1016/j.patrec.2008.10.015), [LSmetrics](https://mauriciovancine.github.io/project/lsmetrics/)
 :::
 
 ## Mudanças da paisagem (Processos)
@@ -1664,6 +1673,20 @@ knitr::kable(lsm_p_area(landscape) |> dplyr::filter(class == 1))
 [Nowosad & Stepinski 2019](https://doi.org/10.1007/s10980-019-00830-x)
 :::
 
+## landscapemetrics
+
+### Espacializar as métricas
+
+Apenas para as métricas para manchas
+
+<center>
+<img src="img/espacializar_bg.png" style="width:80%"/>
+</center>
+
+:::footer
+[landscapemetrics](https://github.com/mauriciovancine/workshop-landscapemetrics), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
+:::
+
 ## landscapemetrics {.smaller}
 
 ### Múltiplas escalas
@@ -1687,20 +1710,6 @@ knitr::kable(
 :::footer
 [landscapemetrics](https://r-spatialecology.github.io/landscapemetrics/), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
 [Efficient landscape metrics calculations for buffers around sampling points](https://jakubnowosad.com/posts/2019-03-07-lsm-bp1/)
-:::
-
-## landscapemetrics
-
-### Espacializar as métricas
-
-Apenas para as métricas para manchas
-
-<center>
-<img src="img/espacializar_bg.png" style="width:80%"/>
-</center>
-
-:::footer
-[landscapemetrics](https://github.com/mauriciovancine/workshop-landscapemetrics), [Hesselbarth et al. (2019)](https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617)
 :::
 
 # Bora para o R!

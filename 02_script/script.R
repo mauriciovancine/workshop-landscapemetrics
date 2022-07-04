@@ -11,9 +11,14 @@ library(tidyverse)
 library(sf)
 library(raster)
 library(fasterize)
-library(landscapetools)
 library(landscapemetrics)
 library(tmap)
+
+# source
+source("https://raw.githubusercontent.com/phuais/multifit/master/multifit.R")
+
+# options
+options(timeout = 600)
 
 # importar dados ----------------------------------------------------------
 
@@ -101,7 +106,7 @@ tm_shape(paisagens) +
     tm_dots(size = .7, shape = 20, alpha = .7)
 
 # crop e mask das paisagens individualmente
-paisagens <- NULL
+paisagens_list <- NULL
 
 for(i in 1:10){
     
@@ -112,13 +117,13 @@ for(i in 1:10){
     buffers_i <- buffers[i, ]
     
     # crop e mask
-    paisagens[[i]] <- uso_raster %>% 
+    paisagens_list[[i]] <- uso_raster %>% 
         raster::crop(buffers_i) %>% 
         raster::mask(buffers_i)
     
 }
 
-paisagens
+paisagens_list
 
 # mapas
 cores <- data.frame(val = freq(uso_raster)[1:5, 1],
@@ -133,26 +138,27 @@ for(i in 1:10){
     
     # mapas
     assign(nome_paisagem, 
-           tm_shape(paisagens[[i]]) +
+           tm_shape(paisagens_list[[i]]) +
                tm_raster(style = "cat", legend.show = FALSE,
-                         palette = cores[cores$val %in% freq(paisagens[[i]])[, 1], 2]) +
+                         palette = cores[cores$val %in% freq(paisagens_list[[i]])[, 1], 2]) +
                tm_shape(buffers[i, ]) +
                tm_borders(col = "red", lwd = 2) +
                tm_shape(amost_vetor) +
                tm_dots(size = .7, shape = 20, alpha = .7) +
-               tm_layout(main.title = names(paisagens)[i])
+               tm_layout(main.title = names(paisagens_list)[i])
     )
     
     assign(nome_floresta, 
-           tm_shape(paisagens[[i]] == 4) +
+           tm_shape(raster::reclassify(x = paisagens_list[[i]], rcl = c(0,3,NA, 3,4,1, 4,6,NA))) +
                tm_raster(legend.show = FALSE,
-                         pal = c("gray", "forestgreen")) +
+                         pal = "forestgreen") +
                tm_shape(buffers[i, ]) +
                tm_borders(col = "red", lwd = 2) +
                tm_shape(amost_vetor) +
                tm_dots(size = .7, shape = 20, alpha = .7) +
-               tm_layout(main.title = names(paisagens)[i])
+               tm_layout(main.title = names(paisagens_list)[i])
     )
+    
 }
 
 # todos os mapas
@@ -165,7 +171,7 @@ tmap::tmap_arrange(map_for1, map_for2, map_for3, map_for4, map_for5, map_for6,
 # checar o raster --------------------------------------------------------
 
 # checar o raster
-landscapemetrics::check_landscape(paisagens)
+landscapemetrics::check_landscape(paisagens_list)
 
 #' prerequisitos do raster
 #' 1. sistema de referencias de coordenadas e projetada (crs)
@@ -213,26 +219,20 @@ landscape_metrics_type
 # mapas -------------------------------------------------------------------
 
 # plotar paisagem e metricas
-landscapemetrics::show_patches(landscape = paisagens[[1]], 
-                               directions = 8,
-                               class = 4)
+landscapemetrics::show_patches(landscape = paisagens_list[[1]], 
+                               class = 4, directions = 8)
 
-landscapemetrics::show_patches(landscape = paisagens[[1]],
-                               directions = 4, 
-                               class = 4)
+landscapemetrics::show_patches(landscape = paisagens_list[[1]],
+                               class = 4, directions = 4)
 
-landscapemetrics::show_cores(paisagens[[1]], 
-                             class = 4, 
-                             edge_depth = 1)
+landscapemetrics::show_cores(landscape = paisagens_list[[1]], 
+                             class = 4, edge_depth = 1)
 
-landscapemetrics::show_cores(paisagens[[1]], 
-                             class = 4, 
-                             edge_depth = 2)
+landscapemetrics::show_cores(landscape = paisagens_list[[1]], 
+                             class = 4, edge_depth = 2)
 
-landscapemetrics::show_lsm(paisagens[[1]], 
-                           what = "lsm_p_area", 
-                           class = 4, 
-                           labels = FALSE)
+landscapemetrics::show_lsm(landscape = paisagens_list[[1]], 
+                           what = "lsm_p_area", class = 4)
 
 # calcular as metricas ----------------------------------------------------
 
@@ -244,25 +244,25 @@ landscapemetrics::show_lsm(paisagens[[1]],
 #' 5. algumas funcoes permitem add parametros: edge depth ou cell neighbourhood rule
 
 # area no nivel de mancha (patch - p)
-area_p <- landscapemetrics::lsm_p_area(landscape = paisagens[[1]])
-area_p
+paisagens_area_p <- landscapemetrics::lsm_p_area(landscape = paisagens_list[[1]])
+paisagens_area_p
 
-area_p_all <- landscapemetrics::lsm_p_area(landscape = paisagens)
-area_p_all
+paisagens_area_p_all <- landscapemetrics::lsm_p_area(landscape = paisagens_list)
+paisagens_area_p_all
 
 # area no nivel de classe (class - c)
-area_c <- landscapemetrics::lsm_c_area_mn(landscape = paisagens[[1]])
-area_c
+paisagens_area_c <- landscapemetrics::lsm_c_area_mn(landscape = paisagens_list[[1]])
+paisagens_area_c
 
-area_c_all <- landscapemetrics::lsm_c_area_mn(landscape = paisagens)
-area_c_all
+paisagens_area_c_all <- landscapemetrics::lsm_c_area_mn(landscape = paisagens_list)
+paisagens_area_c_all
 
 # area no nivel de paisagem (landscape - l)
-area_l <- landscapemetrics::lsm_l_area_mn(landscape = paisagens[[1]])
-area_l
+paisagens_area_l <- landscapemetrics::lsm_l_area_mn(landscape = paisagens_list[[1]])
+paisagens_area_l
 
-area_l_all <- landscapemetrics::lsm_l_area_mn(landscape = paisagens)
-area_l_all
+paisagens_area_l_all <- landscapemetrics::lsm_l_area_mn(landscape = paisagens_list)
+paisagens_area_l_all
 
 # calcular todas as metricas por nivel ------------------------------------
 
@@ -272,7 +272,7 @@ area_l_all
 #' permite escolha por ‘level’, ‘metric’, ‘name’, ‘type’, ‘what’
 
 # patch level
-lsm_patch <- landscapemetrics::calculate_lsm(landscape = paisagens[[1]], 
+lsm_patch <- landscapemetrics::calculate_lsm(landscape = paisagens_list[[1]], 
                                              level = "patch", 
                                              edge_depth = 1, # celulas
                                              neighbourhood = 8, # oito celulas nas vizinhancas
@@ -282,7 +282,7 @@ lsm_patch <- landscapemetrics::calculate_lsm(landscape = paisagens[[1]],
 lsm_patch
 
 # class level
-lsm_class <- landscapemetrics::calculate_lsm(landscape = paisagens[[1]], 
+lsm_class <- landscapemetrics::calculate_lsm(landscape = paisagens_list[[1]], 
                                              level = "class", 
                                              edge_depth = 1, # celulas
                                              neighbourhood = 8, # oito celulas nas vizinhancas
@@ -292,7 +292,7 @@ lsm_class <- landscapemetrics::calculate_lsm(landscape = paisagens[[1]],
 lsm_class
 
 # landscape level
-lsm_landscape <- landscapemetrics::calculate_lsm(landscape = paisagens[[1]], 
+lsm_landscape <- landscapemetrics::calculate_lsm(landscape = paisagens_list[[1]], 
                                                  level = "landscape",
                                                  edge_depth = 1, # celulas
                                                  neighbourhood = 8, # oito celulas nas vizinhancas
@@ -301,11 +301,10 @@ lsm_landscape <- landscapemetrics::calculate_lsm(landscape = paisagens[[1]],
                                                  progress = TRUE)
 lsm_landscape
 
-# espacializar os valores das metricas ------------------------------------
+# espacializar as metricas ------------------------------------
 
 # reclassificar
-paisagen01_forest <- raster::reclassify(x = paisagens[[1]], 
-                                        rcl = c(0,3,NA, 3,4,1))
+paisagen01_forest <- raster::reclassify(x = paisagens_list[[1]], rcl = c(0,3,NA, 3,4,1))
 paisagen01_forest
 
 tm_shape(paisagen01_forest) +
@@ -327,129 +326,209 @@ tm_shape(paisagen01_forest_patch$layer_1$lsm_p_shape) +
 tm_shape(paisagen01_forest_patch$layer_1$lsm_p_enn) +
     tm_raster(pal = "viridis", title = "Distância (m)")
 
-# exemplo -----------------------------------------------------------------
-# paisagens com floresta e água
-# list
-rc_raster_pai_flo_agu_sep <- list()
-rc_raster_pai_flo_agu_sep
+# multiplas escalas -------------------------------------------------------
 
-rc_raster_pai_flo_agu_jun <- list()
-rc_raster_pai_flo_agu_jun
+# tamanhos
+tamanhos <- c(100, 200, 500, 1000)
+tamanhos
 
-# reclassificar as paisagens das paisagens
-for(i in 1:10){
-    
-    # informacao
-    print(paste0("Ajustando a paisagem ", i))
-    
-    # reclassify
-    rc_raster_pai_flo_agu_sep[[i]] <- raster::reclassify(x = rc_raster_pai[[i]],
-                                                         rcl = c(0,1,1, 1,2,NA, 2,3,NA, 3,4,4, 4,5,NA))
-    
-    # reclassify
-    rc_raster_pai_flo_agu_jun[[i]] <- raster::reclassify(x = rc_raster_pai[[i]],
-                                                         rcl = c(0,1,1, 1,2,NA, 2,3,NA, 3,4,1, 4,5,NA))
-    
-}
+# multiplos buffers
+buffers_multi <- sf::st_buffer(x = sf::st_as_sf(purrr::map_dfr(amost_vetor, rep, 4)), 
+                               dist = rep(tamanhos, each = 10))
+buffers_multi$buffer <- rep(tamanhos, each = 10)
+buffers_multi
 
-# verificar
-landscapetools::show_landscape(rc_raster_pai_flo_agu_sep[[1]])
-landscapetools::show_landscape(rc_raster_pai_flo_agu_jun[[1]])
+# map
+tm_shape(uso_raster) +
+    tm_raster(style = "cat", title = "Legenda", alpha = .5,
+              palette = c("blue", "orange", "gray", "forestgreen", "green")) +
+    tm_shape(buffers_multi) +
+    tm_borders(col = "red") 
 
-# metrica para tamanho e densidade de borda das lagoas
-borda_lagoas <- landscapemetrics::calculate_lsm(landscape = rc_raster_pai_flo_agu_sep,
-                                                what = "lsm_c_ed",
-                                                edge_depth = 1) %>% 
-    dplyr::filter(class == 1)
-borda_lagoas
+# metricas multiplas escalas
+metricas_multiplas_escalas <- tamanhos %>% 
+    set_names() %>% 
+    map_dfr(~sample_lsm(landscape = uso_raster, 
+                        y = amost_vetor, 
+                        shape = "circle",
+                        size = .,
+                        what = c("lsm_c_np", "lsm_c_area_mn", "lsm_c_pland"),
+                        all_classes = TRUE,
+                        return_raster = TRUE,
+                        verbose = TRUE,
+                        progress = TRUE), 
+            .id = "buffer")
+metricas_multiplas_escalas
 
-# metrica para tamanho de floresta
-area_floresta <- landscapemetrics::calculate_lsm(landscape = rc_raster_pai_flo_agu_sep,
-                                                 what = "lsm_c_ca") %>% 
-    dplyr::filter(class == 4)
-area_floresta
+# map
+tm_shape(paisagens_list[[1]]) +
+    tm_raster(style = "cat", title = "Legenda", alpha = .7,
+              palette = c("blue", "orange", "forestgreen")) +
+    tm_shape(buffers_multi) +
+    tm_borders(col = "red") +
+    tm_shape(amost_vetor[1, ]) +
+    tm_bubbles()
 
-# distancia de lagos e florestas
-dist_floresta_lago <- landscapemetrics::calculate_lsm(landscape = rc_raster_pai_flo_agu_jun,
-                                                      what = c("lsm_l_enn_mn"))
-dist_floresta_lago
+tm_shape(metricas_multiplas_escalas[metricas_multiplas_escalas$layer == 1 &
+                                        metricas_multiplas_escalas$buffer == 100, ]$raster_sample_plots[[1]], 
+         bbox = buffers_multi[31,]) +
+    tm_raster(style = "cat", title = "Legenda", alpha = .7,
+              palette = c("blue", "orange", "forestgreen")) +
+    tm_shape(buffers_multi) +
+    tm_borders(col = "red")  +
+    tm_shape(amost_vetor[1, ]) +
+    tm_bubbles()
+
+tm_shape(metricas_multiplas_escalas[metricas_multiplas_escalas$layer == 1 &
+                                        metricas_multiplas_escalas$buffer == 200, ]$raster_sample_plots[[1]], 
+         bbox = buffers_multi[31,]) +
+    tm_raster(style = "cat", title = "Legenda", alpha = .7,
+              palette = c("blue", "orange", "forestgreen")) +
+    tm_shape(buffers_multi) +
+    tm_borders(col = "red")  +
+    tm_shape(amost_vetor[1, ]) +
+    tm_bubbles()
+
+tm_shape(metricas_multiplas_escalas[metricas_multiplas_escalas$layer == 1 &
+                                        metricas_multiplas_escalas$buffer == 500, ]$raster_sample_plots[[1]], 
+         bbox = buffers_multi[31,]) +
+    tm_raster(style = "cat", title = "Legenda", alpha = .7,
+              palette = c("blue", "orange", "forestgreen")) +
+    tm_shape(buffers_multi) +
+    tm_borders(col = "red")  +
+    tm_shape(amost_vetor[1, ]) +
+    tm_bubbles()
+
+tm_shape(metricas_multiplas_escalas[metricas_multiplas_escalas$layer == 1 &
+                                        metricas_multiplas_escalas$buffer == 1000, ]$raster_sample_plots[[1]], 
+         bbox = buffers_multi[31,]) +
+    tm_raster(style = "cat", title = "Legenda", alpha = .7,
+              palette = c("blue", "orange", "forestgreen")) +
+    tm_shape(buffers_multi) +
+    tm_borders(col = "red")  +
+    tm_shape(amost_vetor[1, ]) +
+    tm_bubbles()
+
+# multifit -----------------------------------------------------------------
 
 # numero de especies por paisagem
-sp_n <- c(5, 3, 6, 8, 5, 2, 0, 9, 4, 2)
-sp_n
+n_sp <- tibble::tibble(id = 1:10, s = c(5, 3, 6, 5, 3, 2, 1, 10, 7, 4))
+n_sp
 
-# data
-da <- tibble::tibble(sp_n = sp_n,
-                     borda_lagoa = borda_lagoas$value,
-                     area_floresta = area_floresta$value,
-                     dist_floresta_lago = dist_floresta_lago$value)
-da
+# preparar os dados numero de manchas
+data_np <- metricas_multiplas_escalas %>% 
+    dplyr::filter(metric == "np",
+                  class == 4) %>% 
+    dplyr::mutate(value = ifelse(is.na(value), 0, value)) %>% 
+    tidyr::pivot_wider(id_cols = plot_id, 
+                       names_from = c(metric, buffer), 
+                       values_from = value) %>% 
+    dplyr::right_join(n_sp, ., by = c("id" = "plot_id"))
+data_np
 
-# modelos
-mo_borda_lagoas <- glm(sp_n ~ borda_lagoa, data = da, family = "poisson")
-broom::tidy(mo_borda_lagoas)
+fits_np <- multifit(data = data_np,
+                    mod = "glm", 
+                    multief = colnames(data_np)[3:6], 
+                    formula = s ~ multief, 
+                    criterion = "AIC",
+                    plot_est = TRUE)
+fits_np
 
-mo_area_floresta <- glm(sp_n ~ log10(area_floresta), data = da, family = "poisson")
-broom::tidy(mo_area_floresta)
+fits_np$summary
+fits_np$plot
+fits_np$models
 
-mo_dist_floresta_lago <- glm(sp_n ~ dist_floresta_lago, data = da, family = "poisson")
-broom::tidy(mo_dist_floresta_lago)
+# preparar os dados area
+data_area <- metricas_multiplas_escalas %>% 
+    dplyr::filter(metric == "area_mn",
+                  class == 4) %>% 
+    dplyr::mutate(value = ifelse(is.na(value), 0, value)) %>% 
+    tidyr::pivot_wider(id_cols = plot_id, 
+                       names_from = c(metric, buffer), 
+                       values_from = value) %>% 
+    dplyr::right_join(n_sp, ., by = c("id" = "plot_id"))
+data_area
+
+fits_area <- multifit(data = data_area,
+                      mod = "glm", 
+                      multief = colnames(data_area)[3:6], 
+                      formula = s ~ multief, 
+                      criterion = "AIC",
+                      plot_est = TRUE)
+fits_area
+
+fits_area$summary
+fits_area$plot
+fits_area$models
+
+# preparar os dados pland
+data_pland <- metricas_multiplas_escalas %>% 
+    dplyr::filter(metric == "pland",
+                  class == 4) %>% 
+    dplyr::mutate(value = ifelse(is.na(value), 0, value)) %>% 
+    tidyr::pivot_wider(id_cols = plot_id, 
+                       names_from = c(metric, buffer), 
+                       values_from = value) %>% 
+    dplyr::right_join(n_sp, ., by = c("id" = "plot_id"))
+data_pland
+
+fits_pland <- multifit(data = data_pland,
+                       mod = "glm", 
+                       multief = colnames(data_pland)[3:6], 
+                       formula = s ~ multief, 
+                       criterion = "AIC",
+                       plot_est = TRUE)
+fits_pland
+
+fits_pland$summary
+fits_pland$plot
+fits_pland$models
+
+
+# modelos finais
+fits_np$models$np_100
+fits_area$models$area_mn_200
+fits_pland$models$pland_500
+
+broom::tidy(fits_np$models$np_100)
+broom::tidy(fits_area$models$area_mn_200)
+broom::tidy(fits_pland$models$pland_500)
 
 # aicc
-aic <- bbmle::ICtab(mo_borda_lagoas, mo_area_floresta, mo_dist_floresta_lago, 
+aic <- bbmle::ICtab(fits_np$models$np_100,
+                    fits_area$models$area_mn_200,
+                    fits_pland$models$pland_500, 
                     type = "AICc",
                     weights = TRUE,
                     delta = TRUE,
                     logLik = TRUE,
                     sort = TRUE,
-                    nobs = nrow(da))
+                    nobs = 10)
 aic
-
-class(aic) <- "data.frame"
-aic
-
-write.csv(aic, "./modelos/aic_results.csv")
 
 # graficos
-ggplot(data = da) +
-    aes(x = borda_lagoa, y = sp_n) +
+ggplot(data = data_pland) +
+    aes(x = pland_500, y = s) +
     stat_smooth(method = "glm", method.args = list(family = "poisson"), col = "black", level = .95) +
     geom_point(shape = 21, size = 5, col = "black", fill = "blue", alpha = .8) +
     theme_classic() +
-    labs(x = "Densidade de borda de lagoas", y = "Número de espécies") +
+    labs(x = "Porcentagem de habitat (%) - 500 m", y = "Número de espécies") +
     theme(axis.title = element_text(size = 24),
           axis.text.x = element_text(size = 20),
           axis.text.y = element_text(size = 20),
           legend.title = element_text(size = 14),
           legend.text = element_text(size = 12))
-ggsave("./modelos/modelo_borda_lagoa.png", he = 15, wi = 20, un = "cm", dpi = 300)
 
-# graficos
-ggplot(data = da) +
-    aes(x = log10(area_floresta), y = sp_n) +
+ggplot(data = data_area) +
+    aes(x = area_mn_200, y = s) +
     stat_smooth(method = "glm", method.args = list(family = "poisson"), col = "black", level = .95) +
     geom_point(shape = 21, size = 5, col = "black", fill = "forestgreen", alpha = .8) +
     theme_classic() +
-    labs(x = "Área de floresta (log10)", y = "Número de espécies") +
+    labs(x = "Área média das manchas (ha) - 200 m", y = "Número de espécies") +
     theme(axis.title = element_text(size = 24),
           axis.text.x = element_text(size = 20),
           axis.text.y = element_text(size = 20),
           legend.title = element_text(size = 14),
           legend.text = element_text(size = 12))
-ggsave("./modelos/modelo_area_flo.png", he = 15, wi = 20, un = "cm", dpi = 300)
-
-# graficos
-ggplot(data = da) +
-    aes(x = dist_floresta_lago, y = sp_n) +
-    stat_smooth(method = "glm", method.args = list(family = "poisson"), col = "black", level = .95) +
-    geom_point(shape = 21, size = 5, col = "black", fill = "cyan4", alpha = .8) +
-    theme_classic() +
-    labs(x = "Distância de lagoas e florestas", y = "Número de espécies") +
-    theme(axis.title = element_text(size = 24),
-          axis.text.x = element_text(size = 20),
-          axis.text.y = element_text(size = 20),
-          legend.title = element_text(size = 14),
-          legend.text = element_text(size = 12))
-ggsave("./modelos/modelo_dist_flo_agu.png", he = 15, wi = 20, un = "cm", dpi = 300)
 
 # end ---------------------------------------------------------------------
