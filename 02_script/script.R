@@ -427,7 +427,8 @@ data_np <- metricas_multiplas_escalas %>%
 data_np
 
 fits_np <- multifit(data = data_np,
-                    mod = "glm", 
+                    mod = "glm",
+                    args = c("family = poisson"),
                     multief = colnames(data_np)[3:6], 
                     formula = s ~ multief, 
                     criterion = "AIC",

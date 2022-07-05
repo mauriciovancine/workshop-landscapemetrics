@@ -1984,7 +1984,7 @@
 </section>
 <section class="slide level2">
 <h2><em>Global Positioning System</em> (GPS)</h2>
-<p>Indica sua localização no planeta através de pontos ou linhas</p>
+<p>Indica uma localização no planeta através de pontos ou linhas</p>
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
@@ -2379,25 +2379,25 @@
 <span id="cb15-2"><a href="#cb15-2"></a><span class="fu">library</span>(readr)</span>
 <span id="cb15-3"><a href="#cb15-3"></a></span>
 <span id="cb15-4"><a href="#cb15-4"></a><span class="co"># diretorio</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="fu">setwd</span>(<span class="st">"/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data/"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="fu">setwd</span>(<span class="st">"/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data"</span>)</span>
 <span id="cb15-6"><a href="#cb15-6"></a></span>
 <span id="cb15-7"><a href="#cb15-7"></a><span class="co"># importar pontos</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a>da <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"pontos_amostragem.csv"</span>)</span>
+<span id="cb15-8"><a href="#cb15-8"></a>da <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"pontos_amostragem_geo.csv"</span>)</span>
 <span id="cb15-9"><a href="#cb15-9"></a>da</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
-      id      x       y
-   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
- 1     1 222993 7526113
- 2     2 229276 7517654
- 3     3 242815 7528139
- 4     4 231477 7507708
- 5     5 231477 7512711
- 6     6 241702 7535264
- 7     7 237779 7532688
- 8     8 239468 7520459
- 9     9 236614 7527841
-10    10 230836 7524274</code></pre>
+      id   lon   lat
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1     1 -47.7 -22.3
+ 2     2 -47.6 -22.4
+ 3     3 -47.5 -22.3
+ 4     4 -47.6 -22.5
+ 5     5 -47.6 -22.5
+ 6     6 -47.5 -22.3
+ 7     7 -47.5 -22.3
+ 8     8 -47.5 -22.4
+ 9     9 -47.6 -22.3
+10    10 -47.7 -22.3</code></pre>
 </div>
 </div>
 </section>
@@ -2409,27 +2409,27 @@
 <span id="cb17-2"><a href="#cb17-2"></a><span class="fu">library</span>(sf)</span>
 <span id="cb17-3"><a href="#cb17-3"></a></span>
 <span id="cb17-4"><a href="#cb17-4"></a><span class="co"># importar pontos</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a>po <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_as_sf</span>(da, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>), <span class="at">crs =</span> <span class="dv">31983</span>)</span>
+<span id="cb17-5"><a href="#cb17-5"></a>po <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_as_sf</span>(da, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
 <span id="cb17-6"><a href="#cb17-6"></a>po</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 10 features and 1 field
 Geometry type: POINT
 Dimension:     XY
-Bounding box:  xmin: 222993 ymin: 7507708 xmax: 242815 ymax: 7535264
-Projected CRS: SIRGAS 2000 / UTM zone 23S
+Bounding box:  xmin: -47.68955 ymin: -22.51605 xmax: -47.49691 ymax: -22.26893
+Geodetic CRS:  WGS 84
 # A tibble: 10 × 2
-      id         geometry
- * &lt;dbl&gt;      &lt;POINT [m]&gt;
- 1     1 (222993 7526113)
- 2     2 (229276 7517654)
- 3     3 (242815 7528139)
- 4     4 (231477 7507708)
- 5     5 (231477 7512711)
- 6     6 (241702 7535264)
- 7     7 (237779 7532688)
- 8     8 (239468 7520459)
- 9     9 (236614 7527841)
-10    10 (230836 7524274)</code></pre>
+      id              geometry
+ * &lt;dbl&gt;           &lt;POINT [°]&gt;
+ 1     1 (-47.68955 -22.34861)
+ 2     2 (-47.63003 -22.42595)
+ 3     3  (-47.49691 -22.3334)
+ 4     4 (-47.61035 -22.51605)
+ 5     5   (-47.6095 -22.4709)
+ 6     6 (-47.50656 -22.26893)
+ 7     7 (-47.54502 -22.29159)
+ 8     8 (-47.53064 -22.40221)
+ 9     9 (-47.55712 -22.33515)
+10    10 (-47.68955 -22.34861)</code></pre>
 </div>
 </div>
 </section>
@@ -2449,7 +2449,7 @@ Projected CRS: SIRGAS 2000 / UTM zone 23S
 <span id="cb20-2"><a href="#cb20-2"></a><span class="fu">library</span>(sf)</span>
 <span id="cb20-3"><a href="#cb20-3"></a></span>
 <span id="cb20-4"><a href="#cb20-4"></a><span class="co"># diretorio</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a><span class="fu">setwd</span>(<span class="st">"/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data/"</span>)</span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="fu">setwd</span>(<span class="st">"/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data"</span>)</span>
 <span id="cb20-6"><a href="#cb20-6"></a></span>
 <span id="cb20-7"><a href="#cb20-7"></a><span class="co"># importar vetor</span></span>
 <span id="cb20-8"><a href="#cb20-8"></a>rc <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_read</span>(<span class="st">"rio_claro.shp"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
@@ -2513,8 +2513,45 @@ values     : 0, 255  (min, max)</code></pre>
 <p><strong>Vetor</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># reprojetar vetor</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a>rc_utm <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_transform</span>(rc, <span class="at">crs =</span> <span class="dv">31983</span>)</span>
-<span id="cb26-3"><a href="#cb26-3"></a>rc_utm </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-2"><a href="#cb26-2"></a>po_utm <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_transform</span>(po, <span class="at">crs =</span> <span class="dv">31983</span>)</span>
+<span id="cb26-3"><a href="#cb26-3"></a>po_utm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 10 features and 1 field
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: 222993.2 ymin: 7507708 xmax: 242815.3 ymax: 7535264
+Projected CRS: SIRGAS 2000 / UTM zone 23S
+# A tibble: 10 × 2
+      id           geometry
+ * &lt;dbl&gt;        &lt;POINT [m]&gt;
+ 1     1 (222993.2 7526113)
+ 2     2 (229276.4 7517654)
+ 3     3 (242815.3 7528139)
+ 4     4 (231477.1 7507708)
+ 5     5 (231477.4 7512711)
+ 6     6 (241702.3 7535264)
+ 7     7 (237779.5 7532687)
+ 8     8 (239467.7 7520459)
+ 9     9   (236614 7527841)
+10    10 (222993.2 7526113)</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Reprojetar dados geoespaciais</h2>
+<p><strong>Vetor</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">plot</span>(po_utm<span class="sc">$</span>geometry, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>, <span class="at">graticule =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+<h2>Reprojetar dados geoespaciais</h2>
+<p><strong>Vetor</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># reprojetar vetor</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>rc_utm <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_transform</span>(rc, <span class="at">crs =</span> <span class="dv">31983</span>)</span>
+<span id="cb29-3"><a href="#cb29-3"></a>rc_utm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 1 feature and 7 fields
 Geometry type: POLYGON
@@ -2532,20 +2569,20 @@ Projected CRS: SIRGAS 2000 / UTM zone 23S
 <h2>Reprojetar dados geoespaciais</h2>
 <p><strong>Vetor</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">col =</span> <span class="st">"gray"</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>, <span class="at">graticule =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">col =</span> <span class="st">"gray"</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>, <span class="at">graticule =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch quarto-figure-center"></section>
 <section class="slide level2">
 <h2>Reprojetar dados geoespaciais</h2>
 <p><strong>Raster</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># reprojetar vetor</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>mapbiomas_utm <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">projectRaster</span>(mapbiomas, </span>
-<span id="cb29-3"><a href="#cb29-3"></a><span class="at">crs =</span> <span class="st">"+init=epsg:31983"</span>, </span>
-<span id="cb29-4"><a href="#cb29-4"></a><span class="at">method =</span> <span class="st">"ngb"</span>, </span>
-<span id="cb29-5"><a href="#cb29-5"></a><span class="at">res =</span> <span class="dv">90</span>)</span>
-<span id="cb29-6"><a href="#cb29-6"></a>mapbiomas_utm </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># reprojetar raster</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>mapbiomas_utm <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">projectRaster</span>(mapbiomas, </span>
+<span id="cb32-3"><a href="#cb32-3"></a>                                       <span class="at">crs =</span> <span class="st">"+init=epsg:31983"</span>, </span>
+<span id="cb32-4"><a href="#cb32-4"></a>                                       <span class="at">method =</span> <span class="st">"ngb"</span>, </span>
+<span id="cb32-5"><a href="#cb32-5"></a>                                       <span class="at">res =</span> <span class="dv">90</span>)</span>
+<span id="cb32-6"><a href="#cb32-6"></a>mapbiomas_utm </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>class      : RasterLayer 
 dimensions : 395, 363, 143385  (nrow, ncol, ncell)
@@ -2562,35 +2599,35 @@ values     : 0, 48  (min, max)</code></pre>
 <h2>Reprojetar dados geoespaciais</h2>
 <p><strong>Raster</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">plot</span>(mapbiomas_utm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">plot</span>(mapbiomas_utm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch quarto-figure-center"></section>
 <section class="slide level2 scrollable">
 <h2>Operações com dados geoespaciais</h2>
 <p><strong>Buffer</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>bu <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_buffer</span>(po, <span class="at">dist =</span> <span class="dv">500</span>)</span>
-<span id="cb32-2"><a href="#cb32-2"></a>bu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>bu <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_buffer</span>(po_utm, <span class="at">dist =</span> <span class="dv">500</span>)</span>
+<span id="cb35-2"><a href="#cb35-2"></a>bu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 10 features and 1 field
 Geometry type: POLYGON
 Dimension:     XY
-Bounding box:  xmin: 222493 ymin: 7507208 xmax: 243315 ymax: 7535764
+Bounding box:  xmin: 222493.2 ymin: 7507208 xmax: 243315.3 ymax: 7535764
 Projected CRS: SIRGAS 2000 / UTM zone 23S
 # A tibble: 10 × 2
       id                                                                geometry
  * &lt;dbl&gt;                                                           &lt;POLYGON [m]&gt;
- 1     1 ((223493 7526113, 223492.3 7526087, 223490.3 7526061, 223486.8 7526035…
- 2     2 ((229776 7517654, 229775.3 7517628, 229773.3 7517602, 229769.8 7517576…
- 3     3 ((243315 7528139, 243314.3 7528113, 243312.3 7528087, 243308.8 7528061…
- 4     4 ((231977 7507708, 231976.3 7507682, 231974.3 7507656, 231970.8 7507630…
- 5     5 ((231977 7512711, 231976.3 7512685, 231974.3 7512659, 231970.8 7512633…
- 6     6 ((242202 7535264, 242201.3 7535238, 242199.3 7535212, 242195.8 7535186…
- 7     7 ((238279 7532688, 238278.3 7532662, 238276.3 7532636, 238272.8 7532610…
- 8     8 ((239968 7520459, 239967.3 7520433, 239965.3 7520407, 239961.8 7520381…
- 9     9 ((237114 7527841, 237113.3 7527815, 237111.3 7527789, 237107.8 7527763…
-10    10 ((231336 7524274, 231335.3 7524248, 231333.3 7524222, 231329.8 7524196…</code></pre>
+ 1     1 ((223493.2 7526113, 223492.5 7526086, 223490.5 7526060, 223487.1 75260…
+ 2     2 ((229776.4 7517654, 229775.7 7517627, 229773.7 7517601, 229770.2 75175…
+ 3     3 ((243315.3 7528139, 243314.6 7528113, 243312.6 7528087, 243309.2 75280…
+ 4     4 ((231977.1 7507708, 231976.4 7507682, 231974.4 7507656, 231970.9 75076…
+ 5     5 ((231977.4 7512711, 231976.7 7512685, 231974.6 7512659, 231971.2 75126…
+ 6     6 ((242202.3 7535264, 242201.6 7535238, 242199.6 7535211, 242196.1 75351…
+ 7     7 ((238279.5 7532687, 238278.8 7532661, 238276.7 7532635, 238273.3 75326…
+ 8     8 ((239967.7 7520459, 239967 7520433, 239965 7520407, 239961.5 7520381, …
+ 9     9 ((237114 7527841, 237113.3 7527815, 237111.3 7527789, 237107.9 7527763…
+10    10 ((223493.2 7526113, 223492.5 7526086, 223490.5 7526060, 223487.1 75260…</code></pre>
 </div>
 </div>
 </section>
@@ -2598,45 +2635,47 @@ Projected CRS: SIRGAS 2000 / UTM zone 23S
 <h2>Operações com dados geoespaciais</h2>
 <p><strong>Buffer</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>)</span>
-<span id="cb34-2"><a href="#cb34-2"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
-<h2>Operações com dados geoespaciais</h2>
-<p><strong>Ajuste à extenção</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>mapbiomas_utm_crop <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">crop</span>(mapbiomas_utm, <span class="fu">st_as_sf</span>(bu))</span>
-<span id="cb35-2"><a href="#cb35-2"></a>mapbiomas_utm_crop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>class      : RasterLayer 
-dimensions : 317, 231, 73227  (nrow, ncol, ncell)
-resolution : 90, 90  (x, y)
-extent     : 222480.4, 243270.4, 7507251, 7535781  (xmin, xmax, ymin, ymax)
-crs        : +proj=utm +zone=23 +south +ellps=GRS80 +units=m +no_defs 
-source     : memory
-names      : mapbiomas 
-values     : 0, 48  (min, max)</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Operações com dados geoespaciais</h2>
-<p><strong>Ajuste à extenção</strong></p>
-<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>)</span>
-<span id="cb37-2"><a href="#cb37-2"></a><span class="fu">plot</span>(mapbiomas_utm_crop, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="fu">plot</span>(po_utm<span class="sc">$</span>geometry, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb37-3"><a href="#cb37-3"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch quarto-figure-center"></section>
 <section class="slide level2">
 <h2>Operações com dados geoespaciais</h2>
+<p><strong>Ajuste à extenção</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>mapbiomas_utm_crop <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">crop</span>(mapbiomas_utm, <span class="fu">st_as_sf</span>(bu))</span>
+<span id="cb38-2"><a href="#cb38-2"></a>mapbiomas_utm_crop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>class      : RasterLayer 
+dimensions : 317, 231, 73227  (nrow, ncol, ncell)
+resolution : 90, 90  (x, y)
+extent     : 222480.4, 243270.4, 7507251, 7535781  (xmin, xmax, ymin, ymax)
+crs        : +proj=utm +zone=23 +south +ellps=GRS80 +units=m +no_defs 
+source     : memory
+names      : mapbiomas 
+values     : 0, 48  (min, max)</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Operações com dados geoespaciais</h2>
+<p><strong>Ajuste à extenção</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>)</span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="fu">plot</span>(mapbiomas_utm_crop, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-3"><a href="#cb40-3"></a><span class="fu">plot</span>(po_utm<span class="sc">$</span>geometry, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-4"><a href="#cb40-4"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+<h2>Operações com dados geoespaciais</h2>
 <p><strong>Ajuste à máscara</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>mapbiomas_utm_mask <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">mask</span>(mapbiomas_utm, <span class="fu">st_as_sf</span>(bu))</span>
-<span id="cb38-2"><a href="#cb38-2"></a>mapbiomas_utm_mask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>mapbiomas_utm_mask <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">mask</span>(mapbiomas_utm, <span class="fu">st_as_sf</span>(bu))</span>
+<span id="cb41-2"><a href="#cb41-2"></a>mapbiomas_utm_mask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>class      : RasterLayer 
 dimensions : 395, 363, 143385  (nrow, ncol, ncell)
@@ -2653,36 +2692,7 @@ values     : 3, 47  (min, max)</code></pre>
 <h2>Operações com dados geoespaciais</h2>
 <p><strong>Ajuste à máscara</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">plot</span>(mapbiomas_utm_mask)</span>
-<span id="cb40-2"><a href="#cb40-2"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb40-3"><a href="#cb40-3"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
-<h2>Operações com dados geoespaciais</h2>
-<p><strong>Ajuste à extensão e à máscara</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>mapbiomas_utm_crop <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">crop</span>(mapbiomas_utm, <span class="fu">st_as_sf</span>(bu))</span>
-<span id="cb41-2"><a href="#cb41-2"></a>mapbiomas_utm_crop_mask <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">mask</span>(mapbiomas_utm_crop, <span class="fu">st_as_sf</span>(bu))</span>
-<span id="cb41-3"><a href="#cb41-3"></a>mapbiomas_utm_crop_mask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>class      : RasterLayer 
-dimensions : 317, 231, 73227  (nrow, ncol, ncell)
-resolution : 90, 90  (x, y)
-extent     : 222480.4, 243270.4, 7507251, 7535781  (xmin, xmax, ymin, ymax)
-crs        : +proj=utm +zone=23 +south +ellps=GRS80 +units=m +no_defs 
-source     : memory
-names      : mapbiomas 
-values     : 3, 47  (min, max)</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Operações com dados geoespaciais</h2>
-<p><strong>Ajuste à máscara</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">plot</span>(mapbiomas_utm_crop_mask)</span>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">plot</span>(mapbiomas_utm_mask)</span>
 <span id="cb43-2"><a href="#cb43-2"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb43-3"><a href="#cb43-3"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
@@ -2690,11 +2700,40 @@ values     : 3, 47  (min, max)</code></pre>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch quarto-figure-center"></section>
 <section class="slide level2">
 <h2>Operações com dados geoespaciais</h2>
+<p><strong>Ajuste à extensão e à máscara</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>mapbiomas_utm_crop <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">crop</span>(mapbiomas_utm, <span class="fu">st_as_sf</span>(bu))</span>
+<span id="cb44-2"><a href="#cb44-2"></a>mapbiomas_utm_crop_mask <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">mask</span>(mapbiomas_utm_crop, <span class="fu">st_as_sf</span>(bu))</span>
+<span id="cb44-3"><a href="#cb44-3"></a>mapbiomas_utm_crop_mask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>class      : RasterLayer 
+dimensions : 317, 231, 73227  (nrow, ncol, ncell)
+resolution : 90, 90  (x, y)
+extent     : 222480.4, 243270.4, 7507251, 7535781  (xmin, xmax, ymin, ymax)
+crs        : +proj=utm +zone=23 +south +ellps=GRS80 +units=m +no_defs 
+source     : memory
+names      : mapbiomas 
+values     : 3, 47  (min, max)</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Operações com dados geoespaciais</h2>
+<p><strong>Ajuste à máscara</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">plot</span>(mapbiomas_utm_crop_mask)</span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-26-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+<h2>Operações com dados geoespaciais</h2>
 <p><strong>Reclassificação de rasters</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>mapbiomas_utm_floresta <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">reclassify</span>(<span class="at">x =</span> mapbiomas_utm,</span>
-<span id="cb44-2"><a href="#cb44-2"></a><span class="at">rcl =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="cn">NA</span>, <span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>, <span class="dv">4</span>,<span class="dv">48</span>,<span class="cn">NA</span>))</span>
-<span id="cb44-3"><a href="#cb44-3"></a>mapbiomas_utm_floresta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>mapbiomas_utm_floresta <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">reclassify</span>(<span class="at">x =</span> mapbiomas_utm,</span>
+<span id="cb47-2"><a href="#cb47-2"></a>                                             <span class="at">rcl =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="cn">NA</span>, <span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>, <span class="dv">4</span>,<span class="dv">48</span>,<span class="cn">NA</span>))</span>
+<span id="cb47-3"><a href="#cb47-3"></a>mapbiomas_utm_floresta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>class      : RasterLayer 
 dimensions : 395, 363, 143385  (nrow, ncol, ncell)
@@ -2711,50 +2750,50 @@ values     : 0, 1  (min, max)</code></pre>
 <h2>Operações com dados geoespaciais</h2>
 <p><strong>Reclassificação de rasters</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">plot</span>(mapbiomas_utm_floresta)</span>
-<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-26-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
-<h2>Visualização</h2>
-<p><strong>Vetor</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># pacote</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a><span class="fu">library</span>(tmap)</span>
-<span id="cb47-3"><a href="#cb47-3"></a></span>
-<span id="cb47-4"><a href="#cb47-4"></a><span class="co"># mapa</span></span>
-<span id="cb47-5"><a href="#cb47-5"></a><span class="fu">tm_shape</span>(rc_utm) <span class="sc">+</span></span>
-<span id="cb47-6"><a href="#cb47-6"></a><span class="fu">tm_polygons</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-27-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
-<h2>Visualização</h2>
-<p><strong>Vetor</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">tm_shape</span>(rc_utm) <span class="sc">+</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a><span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb48-3"><a href="#cb48-3"></a><span class="fu">tm_grid</span>(<span class="at">lines =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb48-4"><a href="#cb48-4"></a><span class="fu">tm_compass</span>() <span class="sc">+</span></span>
-<span id="cb48-5"><a href="#cb48-5"></a><span class="fu">tm_scale_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">plot</span>(mapbiomas_utm_floresta)</span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-28-1.png" width="960" class="r-stretch quarto-figure-center"></section>
 <section class="slide level2">
 <h2>Visualização</h2>
-<p><strong>Raster</strong></p>
+<p><strong>Vetor</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">tm_shape</span>(mapbiomas_utm_floresta) <span class="sc">+</span></span>
-<span id="cb49-2"><a href="#cb49-2"></a><span class="fu">tm_raster</span>(<span class="at">style =</span> <span class="st">"cat"</span>, <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"forestgreen"</span>)) <span class="sc">+</span></span>
-<span id="cb49-3"><a href="#cb49-3"></a><span class="fu">tm_shape</span>(rc_utm) <span class="sc">+</span></span>
-<span id="cb49-4"><a href="#cb49-4"></a><span class="fu">tm_borders</span>() <span class="sc">+</span></span>
-<span id="cb49-5"><a href="#cb49-5"></a><span class="fu">tm_grid</span>(<span class="at">lines =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb49-6"><a href="#cb49-6"></a><span class="fu">tm_compass</span>() <span class="sc">+</span></span>
-<span id="cb49-7"><a href="#cb49-7"></a><span class="fu">tm_scale_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># pacote</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a><span class="fu">library</span>(tmap)</span>
+<span id="cb50-3"><a href="#cb50-3"></a></span>
+<span id="cb50-4"><a href="#cb50-4"></a><span class="co"># mapa</span></span>
+<span id="cb50-5"><a href="#cb50-5"></a><span class="fu">tm_shape</span>(rc_utm) <span class="sc">+</span></span>
+<span id="cb50-6"><a href="#cb50-6"></a>    <span class="fu">tm_polygons</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-29-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+<h2>Visualização</h2>
+<p><strong>Vetor</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">tm_shape</span>(rc_utm) <span class="sc">+</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a>    <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb51-3"><a href="#cb51-3"></a>    <span class="fu">tm_grid</span>(<span class="at">lines =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb51-4"><a href="#cb51-4"></a>    <span class="fu">tm_compass</span>() <span class="sc">+</span></span>
+<span id="cb51-5"><a href="#cb51-5"></a>    <span class="fu">tm_scale_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-30-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2">
+<h2>Visualização</h2>
+<p><strong>Raster</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">tm_shape</span>(mapbiomas_utm_floresta) <span class="sc">+</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>    <span class="fu">tm_raster</span>(<span class="at">style =</span> <span class="st">"cat"</span>, <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"forestgreen"</span>)) <span class="sc">+</span></span>
+<span id="cb52-3"><a href="#cb52-3"></a>    <span class="fu">tm_shape</span>(rc_utm) <span class="sc">+</span></span>
+<span id="cb52-4"><a href="#cb52-4"></a>    <span class="fu">tm_borders</span>() <span class="sc">+</span></span>
+<span id="cb52-5"><a href="#cb52-5"></a>    <span class="fu">tm_grid</span>(<span class="at">lines =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb52-6"><a href="#cb52-6"></a>    <span class="fu">tm_compass</span>() <span class="sc">+</span></span>
+<span id="cb52-7"><a href="#cb52-7"></a>    <span class="fu">tm_scale_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-31-1.png" width="960" class="r-stretch quarto-figure-center"></section>
 <section class="slide level2 smaller">
 <h2>Recapitulando</h2>
 <ol type="1">
@@ -2802,7 +2841,7 @@ values     : 0, 1  (min, max)</code></pre>
 </section>
 <section class="slide level2">
 <h2>landscapemetrics</h2>
-<p>Pacote R para calcular métricas de paisagem para padrões de paisagem categóricas</p>
+<p>Pacote no R para calcular métricas de paisagem com classes categóricas (<strong>raster categórico</strong>)</p>
 <center>
 <img src="img/landscapemetrics.png" style="width:35%">
 </center>
@@ -2812,16 +2851,16 @@ values     : 0, 1  (min, max)</code></pre>
 </section>
 <section class="slide level2">
 <h2>landscapemetrics</h2>
-<p>O raster de entrada tem de estar com coordendas projetadas</p>
+<p>O raster categórico de entrada tem de estar com coordenadas projetadas</p>
 <p><strong>Checar o raster</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># pacote</span></span>
-<span id="cb50-2"><a href="#cb50-2"></a><span class="fu">library</span>(landscapemetrics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># pacote</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a><span class="fu">library</span>(landscapemetrics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Raster geográfico</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># checar o raster</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a><span class="fu">check_landscape</span>(mapbiomas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># checar o raster</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a><span class="fu">check_landscape</span>(mapbiomas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  layer        crs   units   class n_classes OK
 1     1 geographic degrees integer        18  ✖</code></pre>
@@ -2829,8 +2868,8 @@ values     : 0, 1  (min, max)</code></pre>
 </div>
 <p><strong>Raster projetado</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># checar o raster</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a><span class="fu">check_landscape</span>(mapbiomas_utm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># checar o raster</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a><span class="fu">check_landscape</span>(mapbiomas_utm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  layer       crs units   class n_classes OK
 1     1 projected     m integer        18  ✔</code></pre>
@@ -2848,20 +2887,20 @@ values     : 0, 1  (min, max)</code></pre>
 <li><p>A segunda parte especifica o nível (patch - <code>p</code>, classe - <code>c</code> ou paisagem - <code>l</code>)</p></li>
 <li><p>A última parte do nome da função é a abreviação da métrica correspondente (e.g., <code>enn</code> - euclidean nearest-neighbor distance)</p></li>
 </ul>
-<div class="sourceCode" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># general structure</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a>lsm_<span class="st">"level"</span>_<span class="st">"metric"</span></span>
-<span id="cb55-3"><a href="#cb55-3"></a></span>
-<span id="cb55-4"><a href="#cb55-4"></a><span class="co"># Patch level</span></span>
-<span id="cb55-5"><a href="#cb55-5"></a><span class="do">## lsm_p_"metric"</span></span>
-<span id="cb55-6"><a href="#cb55-6"></a><span class="fu">lsm_p_enn</span>()</span>
-<span id="cb55-7"><a href="#cb55-7"></a></span>
-<span id="cb55-8"><a href="#cb55-8"></a><span class="co"># Class level</span></span>
-<span id="cb55-9"><a href="#cb55-9"></a><span class="do">## lsm_c_"metric"</span></span>
-<span id="cb55-10"><a href="#cb55-10"></a><span class="fu">lsm_c_enn</span>()</span>
-<span id="cb55-11"><a href="#cb55-11"></a></span>
-<span id="cb55-12"><a href="#cb55-12"></a><span class="co"># Landscape level</span></span>
-<span id="cb55-13"><a href="#cb55-13"></a><span class="do">## lsm_p_"metric"</span></span>
-<span id="cb55-14"><a href="#cb55-14"></a><span class="fu">lsm_l_enn</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># general structure</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>lsm_<span class="st">"level"</span>_<span class="st">"metric"</span></span>
+<span id="cb58-3"><a href="#cb58-3"></a></span>
+<span id="cb58-4"><a href="#cb58-4"></a><span class="co"># Patch level</span></span>
+<span id="cb58-5"><a href="#cb58-5"></a><span class="do">## lsm_p_"metric"</span></span>
+<span id="cb58-6"><a href="#cb58-6"></a><span class="fu">lsm_p_enn</span>()</span>
+<span id="cb58-7"><a href="#cb58-7"></a></span>
+<span id="cb58-8"><a href="#cb58-8"></a><span class="co"># Class level</span></span>
+<span id="cb58-9"><a href="#cb58-9"></a><span class="do">## lsm_c_"metric"</span></span>
+<span id="cb58-10"><a href="#cb58-10"></a><span class="fu">lsm_c_enn</span>()</span>
+<span id="cb58-11"><a href="#cb58-11"></a></span>
+<span id="cb58-12"><a href="#cb58-12"></a><span class="co"># Landscape level</span></span>
+<span id="cb58-13"><a href="#cb58-13"></a><span class="do">## lsm_p_"metric"</span></span>
+<span id="cb58-14"><a href="#cb58-14"></a><span class="fu">lsm_l_enn</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="footer">
 <p><a href="https://github.com/mauriciovancine/workshop-landscapemetrics">landscapemetrics</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a></p>
 </div>
@@ -2873,13 +2912,13 @@ values     : 0, 1  (min, max)</code></pre>
 <div class="column" style="width:40%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-33-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-35-1.png" width="960"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$layer_1</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-33-2.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-35-2.png" width="960"></p>
 </div>
 </div>
 </div><div class="column" style="width:60%;">
@@ -2983,9 +3022,9 @@ values     : 0, 1  (min, max)</code></pre>
 <h2>landscapemetrics</h2>
 <h3>Nível das métricas</h3>
 <ul>
-<li><p><strong>Mancha</strong> (<em>patch</em>): calculadas para cada mancha na paisagem</p></li>
-<li><p><strong>Classe</strong> (<em>classe</em>): resumem as manchas pertencentes a uma mesma classe</p></li>
-<li><p><strong>Paisagem</strong> (<em>landscape</em>): resumem todas manchas de todas as classes em um único valor</p></li>
+<li><p><strong>Mancha</strong> (<em>patch</em>): calculada para cada mancha na paisagem</p></li>
+<li><p><strong>Classe</strong> (<em>classe</em>): resume as manchas pertencentes a uma mesma classe</p></li>
+<li><p><strong>Paisagem</strong> (<em>landscape</em>): resume todas as manchas de todas as classes em um único valor</p></li>
 </ul>
 <center>
 <img src="img/nivel_metricas_simples.png" style="width:100%">
@@ -3008,10 +3047,10 @@ values     : 0, 1  (min, max)</code></pre>
 <h2>landscapemetrics</h2>
 <h3>Classes das métricas</h3>
 <ol type="1">
-<li><p><strong>Métricas de área e borda</strong> (<em>area</em> e <em>edge</em>): descrevem o tamanho de manchas e classes e a quantidade de borda (composição - dominância ou raridade de classes)</p></li>
-<li><p><strong>Métricas de forma</strong> (<em>shape</em>): descrevem a forma das manchas, principalmente usando área e perímetro</p></li>
+<li><p><strong>Métricas de área e borda</strong> (<em>area</em> e <em>edge</em>): descrevem o tamanho de manchas, classes e a quantidade de borda (composição - dominância ou raridade de classes)</p></li>
+<li><p><strong>Métricas de forma</strong> (<em>shape</em>): descrevem a forma das manchas, principalmente área e perímetro</p></li>
 <li><p><strong>Métricas de interior</strong> (<em>core</em>): descrevem a área de manchas que não são borda</p></li>
-<li><p><strong>Métricas de agregação</strong> (<em>aggregation</em>): descrevem se os manchas (da mesma classe) são bastante agrupados (agregados) ou tendem a ser isolados (configuração)</p></li>
+<li><p><strong>Métricas de agregação</strong> (<em>aggregation</em>): descrevem se as manchas (da mesma classe) são agregadas ou isolados (configuração)</p></li>
 <li><p><strong>Métricas de diversidade</strong> (<em>diversity</em>): descrevem a abundância e dominância/raridade das classes (disponíveis apenas no nível da paisagem)</p></li>
 <li><p><strong>Métricas de complexidade</strong> (<em>complexity</em>): descrevem a complexidade da paisagem (entropia marginal, entropia condicional, entropia conjunta e informação mútua)</p></li>
 </ol>
@@ -3022,7 +3061,7 @@ values     : 0, 1  (min, max)</code></pre>
 <section class="slide level2">
 <h2>landscapemetrics</h2>
 <h3>Espacializar as métricas</h3>
-<p>Apenas para as métricas para manchas</p>
+<p>Apenas para as métricas calculadas para manchas</p>
 <center>
 <img src="img/espacializar_bg.png" style="width:80%">
 </center>

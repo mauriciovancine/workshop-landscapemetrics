@@ -752,7 +752,7 @@ Datum + Sistema de Coordenadas (geográfico ou projetado)
 
 ## *Global Positioning System* (GPS)
 
-Indica sua localização no planeta através de pontos ou linhas
+Indica uma localização no planeta através de pontos ou linhas
 
 ::: columns
 ::: {.column width="40%"}
@@ -1197,10 +1197,10 @@ dir()
 library(readr)
 
 # diretorio
-setwd("/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data/")
+setwd("/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data")
 
 # importar pontos
-da <- readr::read_csv("pontos_amostragem.csv")
+da <- readr::read_csv("pontos_amostragem_geo.csv")
 da
 ```
 
@@ -1215,7 +1215,7 @@ da
 library(sf)
 
 # importar pontos
-po <- sf::st_as_sf(da, coords = c("x", "y"), crs = 31983)
+po <- sf::st_as_sf(da, coords = c("lon", "lat"), crs = 4326)
 po
 ```
 
@@ -1239,7 +1239,7 @@ plot(po$geometry, col = "black", pch = 19, axes = TRUE, graticule = TRUE)
 library(sf)
 
 # diretorio
-setwd("/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data/")
+setwd("/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data")
 
 # importar vetor
 rc <- sf::st_read("rio_claro.shp", quiet = TRUE)
@@ -1290,8 +1290,29 @@ plot(mapbiomas)
 #| echo = TRUE
 
 # reprojetar vetor
+po_utm <- sf::st_transform(po, crs = 31983)
+po_utm
+```
+
+## Reprojetar dados geoespaciais
+
+**Vetor**
+
+```{r fig.align='center'}
+#| echo = TRUE
+plot(po_utm$geometry, pch = 20, axes = TRUE, graticule = TRUE)
+```
+
+## Reprojetar dados geoespaciais
+
+**Vetor**
+
+```{r}
+#| echo = TRUE
+
+# reprojetar vetor
 rc_utm <- sf::st_transform(rc, crs = 31983)
-rc_utm 
+rc_utm
 ```
 
 ## Reprojetar dados geoespaciais
@@ -1310,11 +1331,11 @@ plot(rc_utm$geom, col = "gray", axes = TRUE, graticule = TRUE)
 ```{r}
 #| echo = TRUE
 
-# reprojetar vetor
+# reprojetar raster
 mapbiomas_utm <- raster::projectRaster(mapbiomas, 
-crs = "+init=epsg:31983", 
-method = "ngb", 
-res = 90)
+                                       crs = "+init=epsg:31983", 
+                                       method = "ngb", 
+                                       res = 90)
 mapbiomas_utm 
 ```
 
@@ -1333,7 +1354,7 @@ plot(mapbiomas_utm)
 
 ```{r}
 #| echo = TRUE
-bu <- sf::st_buffer(po, dist = 500)
+bu <- sf::st_buffer(po_utm, dist = 500)
 bu
 ```
 
@@ -1344,6 +1365,7 @@ bu
 ```{r fig.align='center'}
 #| echo = TRUE
 plot(rc_utm$geom, border = "gray")
+plot(po_utm$geometry, add = TRUE)
 plot(bu$geometry, border = "red", add = TRUE)
 ```
 
@@ -1365,6 +1387,7 @@ mapbiomas_utm_crop
 #| echo = TRUE
 plot(rc_utm$geom, border = "gray")
 plot(mapbiomas_utm_crop, add = TRUE)
+plot(po_utm$geometry, add = TRUE)
 plot(bu$geometry, border = "red", add = TRUE)
 ```
 
@@ -1418,7 +1441,7 @@ plot(rc_utm$geom, border = "gray", add = TRUE)
 ```{r}
 #| echo = TRUE
 mapbiomas_utm_floresta <- raster::reclassify(x = mapbiomas_utm,
-rcl = c(0,2,NA, 2,4,1, 4,48,NA))
+                                             rcl = c(0,2,NA, 2,4,1, 4,48,NA))
 mapbiomas_utm_floresta
 ```
 
@@ -1443,7 +1466,7 @@ library(tmap)
 
 # mapa
 tm_shape(rc_utm) +
-tm_polygons()
+    tm_polygons()
 ```
 
 ## Visualização
@@ -1453,10 +1476,10 @@ tm_polygons()
 ```{r fig.align='center'}
 #| echo = TRUE
 tm_shape(rc_utm) +
-tm_polygons() +
-tm_grid(lines = FALSE) +
-tm_compass() +
-tm_scale_bar()
+    tm_polygons() +
+    tm_grid(lines = FALSE) +
+    tm_compass() +
+    tm_scale_bar()
 ```
 
 ## Visualização
@@ -1466,12 +1489,12 @@ tm_scale_bar()
 ```{r fig.align='center'}
 #| echo = TRUE
 tm_shape(mapbiomas_utm_floresta) +
-tm_raster(style = "cat", pal = c("white", "forestgreen")) +
-tm_shape(rc_utm) +
-tm_borders() +
-tm_grid(lines = FALSE) +
-tm_compass() +
-tm_scale_bar()
+    tm_raster(style = "cat", pal = c("white", "forestgreen")) +
+    tm_shape(rc_utm) +
+    tm_borders() +
+    tm_grid(lines = FALSE) +
+    tm_compass() +
+    tm_scale_bar()
 ```
 
 ## Recapitulando {.smaller}
@@ -1521,7 +1544,7 @@ Implementação do FRAGSTATS para a linguagem R
 
 ## landscapemetrics
 
-Pacote R para calcular métricas de paisagem para padrões de paisagem categóricas
+Pacote no R para calcular métricas de paisagem com classes categóricas (**raster categórico**)
 
 <center>
 <img src="img/landscapemetrics.png" style="width:35%"/>
@@ -1533,7 +1556,7 @@ Pacote R para calcular métricas de paisagem para padrões de paisagem categóri
 
 ## landscapemetrics
 
-O raster de entrada tem de estar com coordendas projetadas
+O raster categórico de entrada tem de estar com coordenadas projetadas
 
 **Checar o raster**
 
@@ -1625,11 +1648,11 @@ knitr::kable(lsm_p_area(landscape) |> dplyr::filter(class == 1))
 
 ### Nível das métricas
 
-- **Mancha** (*patch*): calculadas para cada mancha na paisagem
+- **Mancha** (*patch*): calculada para cada mancha na paisagem
 
-- **Classe** (*classe*):  resumem as manchas pertencentes a uma mesma classe
+- **Classe** (*classe*):  resume as manchas pertencentes a uma mesma classe
 
-- **Paisagem** (*landscape*): resumem todas manchas de todas as classes em um único valor
+- **Paisagem** (*landscape*): resume todas as manchas de todas as classes em um único valor
 
 <center>
 <img src="img/nivel_metricas_simples.png" style="width:100%"/>
@@ -1655,13 +1678,13 @@ knitr::kable(lsm_p_area(landscape) |> dplyr::filter(class == 1))
 
 ### Classes das métricas
 
-1. **Métricas de área e borda** (*area* e *edge*): descrevem o tamanho de manchas e classes e a quantidade de borda (composição - dominância ou raridade de classes)
+1. **Métricas de área e borda** (*area* e *edge*): descrevem o tamanho de manchas, classes e a quantidade de borda (composição - dominância ou raridade de classes)
 
-1. **Métricas de forma** (*shape*): descrevem a forma das manchas, principalmente usando área e perímetro 
+1. **Métricas de forma** (*shape*): descrevem a forma das manchas, principalmente área e perímetro 
 
 1. **Métricas de interior** (*core*): descrevem a área de manchas que não são borda
 
-1. **Métricas de agregação** (*aggregation*): descrevem se os manchas (da mesma classe) são bastante agrupados (agregados) ou tendem a ser isolados (configuração)
+1. **Métricas de agregação** (*aggregation*): descrevem se as manchas (da mesma classe) são agregadas ou isolados (configuração)
 
 1. **Métricas de diversidade** (*diversity*): descrevem a abundância e dominância/raridade das classes (disponíveis apenas no nível da paisagem)
 
@@ -1677,7 +1700,7 @@ knitr::kable(lsm_p_area(landscape) |> dplyr::filter(class == 1))
 
 ### Espacializar as métricas
 
-Apenas para as métricas para manchas
+Apenas para as métricas calculadas para manchas
 
 <center>
 <img src="img/espacializar_bg.png" style="width:80%"/>
