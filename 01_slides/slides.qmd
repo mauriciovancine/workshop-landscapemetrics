@@ -10,6 +10,11 @@ format:
     hash-type: number
     preview-links: false
     chalkboard: true
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      message: false
 ---
 
 ## Maurício Vancine 

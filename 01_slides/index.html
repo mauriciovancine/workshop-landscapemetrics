@@ -3,8 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.483">
 
-  <meta name="author" content="  Maurício Vancine • LEEC/Unesp">
-  <title>Métricas de paisagem no R: landscapemetrics</title>
+  <title>slides</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -82,6 +81,7 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="slides_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="styles.css">
   <link href="slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -384,13 +384,25 @@
   <div class="reveal">
     <div class="slides">
 
-<section class="center">
-  <h1 class="title">Métricas de paisagem no R: landscapemetrics</h1>
-  <p class="author"><br> <a href="https://mauriciovancine.github.io/">Maurício Vancine</a> • <a href="https://leec.eco.br/">LEEC/Unesp</a></p>
-  <p class="date">Julho de 2022 <br><br><br> Licença: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR">CC BY-NC-SA</a></p>
-</section>
 
-<section class="slide level2">
+<section class="slide level1">
+
+<h2 style="margin-top: 2em;">Automating tasks with R</h2>
+<div style="margin-bottom: 1em; font-size: 0.75em">
+<p>James Laird-Smith</p>
+<p>Data Scientist, Bank of England</p>
+</div>
+<!-- ::: {style="margin-top: 8em; margin-bottom: 1em; font-size: 0.5em; color: grey"} -->
+<!-- - Link to slides: [talk-automation-R.jameslairdsmith.com/](https://talk-automation-R.jameslairdsmith.com/) -->
+<!-- - Github repo for talk: [jameslairdsmith/talk-automation-R](https://github.com/jameslairdsmith/talk-automation-R) -->
+<!-- ::: -->
+<div style="font-size:0.5em">
+<ul>
+<li>Link to slides: <a href="https://talk-automation-R.jameslairdsmith.com/">talk-automation-R.jameslairdsmith.com/</a></li>
+<li>Github repo for talk: <a href="https://github.com/jameslairdsmith/talk-automation-R">jameslairdsmith/talk-automation-R</a></li>
+</ul>
+</div>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/en/thumb/7/72/Bank_of_England_logo.svg/400px-Bank_of_England_logo.svg.png?20220630040920" class="absolute" style="top: 150px; right: 150px; width: 300px; height: 300px; "></p>
 <h2>Maurício Vancine</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -408,8 +420,6 @@
 </ul>
 </div>
 </div>
-</section>
-<section class="slide level2">
 <h2>Análises Ecológicas no R</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -431,8 +441,7 @@
 <p><a href="https://analises-ecologicas.com/">Da Silva et al.&nbsp;(2022)</a></p>
 </div>
 </section>
-<section>
-<section class="title-slide slide level1 center">
+<section class="slide level1">
 <h1></h1>
 <center>
 <img src="img/landscapemetrics.png" href="https://r-spatialecology.github.io/landscapemetrics/" style="width:50%">
@@ -440,8 +449,6 @@
 <div class="footer">
 <p><a href="https://r-spatialecology.github.io/landscapemetrics/">landscapemetrics</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Conteúdo</h2>
 <div class="panel-tabset">
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">1. Teoria</a></li><li><a href="#tabset-1-2">2. Geoprocessamento</a></li><li><a href="#tabset-1-3">3. R</a></li><li><a href="#tabset-1-4">4. Métricas</a></li></ul>
@@ -553,20 +560,14 @@
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2">
 <h2>Material</h2>
 <p>Todo o material está disponível no <a href="https://github.com/mauriciovancine/workshop-landscapemetrics">GitHub</a></p>
 <center>
 <img src="img/github.png" style="width:50%">
 </center>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Ecologia da Paisagem</h1>
-
 </section>
-<section class="slide level2">
+<section class="slide level1">
+<h1>Ecologia da Paisagem</h1>
 <h2>Contextualização</h2>
 <center>
 <img src="img/ecologia_espacial_bg.png" style="width:55%">
@@ -574,8 +575,6 @@
 <div class="footer">
 <p><a href="https://link.springer.com/book/10.1007/978-3-030-01989-1">Fletcher &amp; Fortin (2018)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Contextualização</h2>
 <center>
 <img src="img/ecologia_espacial_estudos_bg.png" style="width:75%">
@@ -583,8 +582,6 @@
 <div class="footer">
 <p><a href="https://link.springer.com/book/10.1007/978-3-030-01989-1">Fletcher &amp; Fortin (2018)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Ecologia da paisagem</h2>
 <p>Enfatiza as causas e consequências da heterogeneidade espacial em várias escalas (<strong>padrão espacial</strong>) sobre um ou vários <strong>processos ecológicos</strong> (predação, dispersão, polinização)</p>
 <p><br></p>
@@ -594,8 +591,6 @@
 <div class="footer">
 <p><a href="https://link.springer.com/book/10.1007/978-1-4939-2794-4">Turner &amp; Garden (2015)</a>, <a href="https://www.science.org/doi/10.1126/sciadv.1600026">Hauer et al.&nbsp;(2016)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Ecologia da paisagem</h2>
 <p>Ecologia da Paisagem e Padrões/Processos Ecológicos</p>
 <center>
@@ -604,8 +599,6 @@
 <div class="footer">
 <p>Adaptado slide do Miltinho</p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Definição de paisagem</h2>
 <p>(…) um <strong>mosaico</strong> <del>heterogêneo</del> formado por unidades interativas, sendo esta <strong>heterogeneidade</strong> existente para pelo menos um <strong>fator</strong>, segundo um <strong>observador</strong> e numa determinada <strong>escala de observação</strong></p>
 <center>
@@ -615,7 +608,7 @@
 <p><a href="https://www.scielo.br/j/bn/a/Jbchd6rjY35PGkY5BHPz63S/?lang=pt">Metzger (2001)</a></p>
 </div>
 </section>
-<section class="slide level2">
+<section class="slide level1">
 
 <h3>Heterogeneidade, escala e organismos</h3>
 <center>
@@ -625,7 +618,7 @@
 <p><a href="https://link.springer.com/book/10.1007/1-4020-4663-4">Wu (2006)</a>, <a href="http://link.springer.com/10.1007/s10980-012-9836-y">Wu (2013)</a>, <a href="https://www.britannica.com/science/patch-dynamics">Wu (2022)</a></p>
 </div>
 </section>
-<section class="slide level2">
+<section class="slide level1">
 
 <h3>Heterogeneidade, escala e organismos</h3>
 <center>
@@ -634,8 +627,6 @@
 <div class="footer">
 <p><a href="https://www.fs.fed.us/pnw/pubs/pnw_gtr351.pdf">McGarigal &amp; Marks (1995)</a>, <a href="https://link.springer.com/book/10.1007/1-4020-4663-4">Wu (2006)</a>, <a href="http://link.springer.com/10.1007/s10980-012-9836-y">Wu (2013)</a>, <a href="https://www.britannica.com/science/patch-dynamics">Wu (2022)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Elementos da paisagem</h2>
 <ul>
 <li><strong>Mancha</strong> (<em>patch</em>): porções de habitat</li>
@@ -648,9 +639,7 @@
 <div class="footer">
 <p><a href="https://www.intechopen.com/chapters/45411#B7">Gökyer (2013)</a>, <a href="https://cebds.org/o-papel-do-setor-privado-no-desenvolvimento-de-um-futuro-sustentavel/#.YrzLOTXMJhE">Sustentável blog (2017)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>Morfologia da paisagem</h2>
+<h2 class="smaller">Morfologia da paisagem</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <center>
@@ -668,8 +657,6 @@
 <div class="footer">
 <p><a href="https://doi.org/10.1016/j.patrec.2008.10.015">Soille &amp; Vogt (2009)</a>, <a href="https://mauriciovancine.github.io/project/lsmetrics/">LSmetrics</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Mudanças da paisagem (Processos)</h2>
 <center>
 <img src="img/mod_pai_processo.png" style="width:100%">
@@ -677,8 +664,6 @@
 <div class="footer">
 <p><a href="dx.doi.org/10.1093/acprof:oso/9780199554232.003.0006">Bennett &amp; Saunders (2010)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Mudanças da paisagem (Estrutura)</h2>
 <center>
 <img src="img/mod_pai_estrutura.png" style="width:85%">
@@ -686,8 +671,6 @@
 <div class="footer">
 <p><a href="https://doi.org/10.1111/j.1466-8238.2007.00287.x">Fischer &amp; Lindenmayer (2007)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Perda e fragmentação de habitat</h2>
 <center>
 <img src="img/fragmentacao.jpeg" style="width:55%">
@@ -695,18 +678,12 @@
 <div class="footer">
 <p><a href="https://www.annualreviews.org/doi/10.1146/annurev.ecolsys.34.011802.132419">Fahrig (2003)</a></p>
 </div>
-</section></section>
-<section class="title-slide slide level1 center">
+</section>
+<section class="slide level1">
 <h1>E como mensurar a estrutura da paisagem?</h1>
-
 </section>
-
-<section>
-<section class="title-slide slide level1 center">
+<section class="slide level1">
 <h1>Métricas de paisagem</h1>
-
-</section>
-<section class="slide level2">
 <h2>Métricas de paisagem</h2>
 <p>Algoritmos para quantificar a <strong>estrutura espacial</strong> (características) da paisagem, para uma <strong>área geográfica</strong></p>
 <center>
@@ -715,8 +692,6 @@
 <div class="footer">
 <p><a href="https://gistbok.ucgis.org/bok-topics/landscape-metrics">Frazier (2019)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Tipos de métricas</h2>
 <ol type="1">
 <li><strong>Classificação categórica</strong> (composição e configuração)</li>
@@ -730,9 +705,7 @@
 <div class="footer">
 <p><a href="https://gistbok.ucgis.org/bok-topics/landscape-metrics">Frazier (2019)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>Métricas de classificação categóricas</h2>
+<h2 class="smaller">Métricas de classificação categóricas</h2>
 <p><strong>Composição</strong>: número e quantidade das manchas (número e área)</p>
 <p><strong>Configuração</strong>: arranjo espacial e distribuição das manchas (isolamento e forma)</p>
 <center>
@@ -741,17 +714,13 @@
 <div class="footer">
 <p><a href="https://journals.sagepub.com/doi/pdf/10.1177/2399808317690157">Gehrke &amp; Clifton (2019)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>Métricas de classificação categóricas</h2>
+<h2 class="smaller">Métricas de classificação categóricas</h2>
 <center>
 <img src="img/comp_conf_tabela_espacial.png" style="width:90%">
 </center>
 <div class="footer">
 <p><a href="https://link.springer.com/book/10.1007/978-1-4939-2794-4">Turner &amp; Garden (2015)</a>, <a href="https://gistbok.ucgis.org/bok-topics/landscape-metrics">Frazier (2019)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Nível das métricas</h2>
 <center>
 <img src="img/nivel_metricas.png" style="width:75%">
@@ -759,976 +728,17 @@
 <div class="footer">
 <p><a href="https://r-spatialecology.github.io/landscapemetrics/">landscapemetrics</a>, <a href="https://www.fs.fed.us/pnw/pubs/pnw_gtr351.pdf">McGarigal &amp; Marks (1995)</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller scrollable">
-<h2>Métricas</h2>
+<h2 class="smaller scrollable">Métricas</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(landscapemetrics<span class="sc">::</span><span class="fu">list_lsm</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table>
-<colgroup>
-<col style="width: 10%">
-<col style="width: 40%">
-<col style="width: 22%">
-<col style="width: 10%">
-<col style="width: 16%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">metric</th>
-<th style="text-align: left;">name</th>
-<th style="text-align: left;">type</th>
-<th style="text-align: left;">level</th>
-<th style="text-align: left;">function_name</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">area</td>
-<td style="text-align: left;">patch area</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: left;">lsm_p_area</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cai</td>
-<td style="text-align: left;">core area index</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: left;">lsm_p_cai</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">circle</td>
-<td style="text-align: left;">related circumscribing circle</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: left;">lsm_p_circle</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">contig</td>
-<td style="text-align: left;">contiguity index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: left;">lsm_p_contig</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">core</td>
-<td style="text-align: left;">core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: left;">lsm_p_core</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">enn</td>
-<td style="text-align: left;">euclidean nearest neighbor distance</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: left;">lsm_p_enn</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">frac</td>
-<td style="text-align: left;">fractal dimension index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: left;">lsm_p_frac</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">gyrate</td>
-<td style="text-align: left;">radius of gyration</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: left;">lsm_p_gyrate</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">ncore</td>
-<td style="text-align: left;">number of core areas</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: left;">lsm_p_ncore</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">para</td>
-<td style="text-align: left;">perimeter-area ratio</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: left;">lsm_p_para</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">perim</td>
-<td style="text-align: left;">patch perimeter</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: left;">lsm_p_perim</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">shape</td>
-<td style="text-align: left;">shape index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: left;">lsm_p_shape</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">ai</td>
-<td style="text-align: left;">aggregation index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_ai</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">area_cv</td>
-<td style="text-align: left;">patch area</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_area_cv</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">area_mn</td>
-<td style="text-align: left;">patch area</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_area_mn</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">area_sd</td>
-<td style="text-align: left;">patch area</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_area_sd</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">ca</td>
-<td style="text-align: left;">total (class) area</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_ca</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cai_cv</td>
-<td style="text-align: left;">core area index</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_cai_cv</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cai_mn</td>
-<td style="text-align: left;">core area index</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_cai_mn</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cai_sd</td>
-<td style="text-align: left;">core area index</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_cai_sd</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">circle_cv</td>
-<td style="text-align: left;">related circumscribing circle</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_circle_cv</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">circle_mn</td>
-<td style="text-align: left;">related circumscribing circle</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_circle_mn</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">circle_sd</td>
-<td style="text-align: left;">related circumscribing circle</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_circle_sd</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">clumpy</td>
-<td style="text-align: left;">clumpiness index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_clumpy</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cohesion</td>
-<td style="text-align: left;">patch cohesion index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_cohesion</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">contig_cv</td>
-<td style="text-align: left;">contiguity index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_contig_cv</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">contig_mn</td>
-<td style="text-align: left;">contiguity index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_contig_mn</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">contig_sd</td>
-<td style="text-align: left;">contiguity index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_contig_sd</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">core_cv</td>
-<td style="text-align: left;">core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_core_cv</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">core_mn</td>
-<td style="text-align: left;">core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_core_mn</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">core_sd</td>
-<td style="text-align: left;">core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_core_sd</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cpland</td>
-<td style="text-align: left;">core area percentage of landscape</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_cpland</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">dcad</td>
-<td style="text-align: left;">disjunct core area density</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_dcad</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">dcore_cv</td>
-<td style="text-align: left;">disjunct core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_dcore_cv</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">dcore_mn</td>
-<td style="text-align: left;">disjunct core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_dcore_mn</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">dcore_sd</td>
-<td style="text-align: left;">disjunct core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_dcore_sd</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">division</td>
-<td style="text-align: left;">division index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_division</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ed</td>
-<td style="text-align: left;">edge density</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_ed</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">enn_cv</td>
-<td style="text-align: left;">euclidean nearest neighbor distance</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_enn_cv</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">enn_mn</td>
-<td style="text-align: left;">euclidean nearest neighbor distance</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_enn_mn</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">enn_sd</td>
-<td style="text-align: left;">euclidean nearest neighbor distance</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_enn_sd</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">frac_cv</td>
-<td style="text-align: left;">fractal dimension index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_frac_cv</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">frac_mn</td>
-<td style="text-align: left;">fractal dimension index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_frac_mn</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">frac_sd</td>
-<td style="text-align: left;">fractal dimension index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_frac_sd</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">gyrate_cv</td>
-<td style="text-align: left;">radius of gyration</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_gyrate_cv</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">gyrate_mn</td>
-<td style="text-align: left;">radius of gyration</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_gyrate_mn</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">gyrate_sd</td>
-<td style="text-align: left;">radius of gyration</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_gyrate_sd</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">iji</td>
-<td style="text-align: left;">interspersion and juxtaposition index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_iji</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">lpi</td>
-<td style="text-align: left;">largest patch index</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_lpi</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">lsi</td>
-<td style="text-align: left;">landscape shape index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_lsi</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">mesh</td>
-<td style="text-align: left;">effective mesh size</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_mesh</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ndca</td>
-<td style="text-align: left;">number of disjunct core areas</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_ndca</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">nlsi</td>
-<td style="text-align: left;">normalized landscape shape index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_nlsi</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">np</td>
-<td style="text-align: left;">number of patches</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_np</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pafrac</td>
-<td style="text-align: left;">perimeter-area fractal dimension</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_pafrac</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">para_cv</td>
-<td style="text-align: left;">perimeter-area ratio</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_para_cv</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">para_mn</td>
-<td style="text-align: left;">perimeter-area ratio</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_para_mn</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">para_sd</td>
-<td style="text-align: left;">perimeter-area ratio</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_para_sd</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pd</td>
-<td style="text-align: left;">patch density</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_pd</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">pladj</td>
-<td style="text-align: left;">percentage of like adjacencies</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_pladj</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pland</td>
-<td style="text-align: left;">percentage of landscape</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_pland</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">shape_cv</td>
-<td style="text-align: left;">shape index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_shape_cv</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">shape_mn</td>
-<td style="text-align: left;">shape index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_shape_mn</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">shape_sd</td>
-<td style="text-align: left;">shape index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_shape_sd</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">split</td>
-<td style="text-align: left;">splitting index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_split</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tca</td>
-<td style="text-align: left;">total core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_tca</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">te</td>
-<td style="text-align: left;">total edge</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">class</td>
-<td style="text-align: left;">lsm_c_te</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ai</td>
-<td style="text-align: left;">aggregation index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_ai</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">area_cv</td>
-<td style="text-align: left;">patch area</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_area_cv</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">area_mn</td>
-<td style="text-align: left;">patch area</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_area_mn</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">area_sd</td>
-<td style="text-align: left;">patch area</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_area_sd</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cai_cv</td>
-<td style="text-align: left;">core area index</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_cai_cv</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cai_mn</td>
-<td style="text-align: left;">core area index</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_cai_mn</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cai_sd</td>
-<td style="text-align: left;">core area index</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_cai_sd</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">circle_cv</td>
-<td style="text-align: left;">related circumscribing circle</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_circle_cv</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">circle_mn</td>
-<td style="text-align: left;">related circumscribing circle</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_circle_mn</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">circle_sd</td>
-<td style="text-align: left;">related circumscribing circle</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_circle_sd</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cohesion</td>
-<td style="text-align: left;">patch cohesion index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_cohesion</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">condent</td>
-<td style="text-align: left;">conditional entropy</td>
-<td style="text-align: left;">complexity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_condent</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">contag</td>
-<td style="text-align: left;">connectance</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_contag</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">contig_cv</td>
-<td style="text-align: left;">contiguity index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_contig_cv</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">contig_mn</td>
-<td style="text-align: left;">contiguity index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_contig_mn</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">contig_sd</td>
-<td style="text-align: left;">contiguity index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_contig_sd</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">core_cv</td>
-<td style="text-align: left;">core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_core_cv</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">core_mn</td>
-<td style="text-align: left;">core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_core_mn</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">core_sd</td>
-<td style="text-align: left;">core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_core_sd</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">dcad</td>
-<td style="text-align: left;">disjunct core area density</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_dcad</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">dcore_cv</td>
-<td style="text-align: left;">disjunct core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_dcore_cv</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">dcore_mn</td>
-<td style="text-align: left;">disjunct core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_dcore_mn</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">dcore_sd</td>
-<td style="text-align: left;">disjunct core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_dcore_sd</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">division</td>
-<td style="text-align: left;">division index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_division</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ed</td>
-<td style="text-align: left;">edge density</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_ed</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">enn_cv</td>
-<td style="text-align: left;">euclidean nearest neighbor distance</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_enn_cv</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">enn_mn</td>
-<td style="text-align: left;">euclidean nearest neighbor distance</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_enn_mn</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">enn_sd</td>
-<td style="text-align: left;">euclidean nearest neighbor distance</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_enn_sd</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ent</td>
-<td style="text-align: left;">shannon entropy</td>
-<td style="text-align: left;">complexity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_ent</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">frac_cv</td>
-<td style="text-align: left;">fractal dimension index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_frac_cv</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">frac_mn</td>
-<td style="text-align: left;">fractal dimension index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_frac_mn</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">frac_sd</td>
-<td style="text-align: left;">fractal dimension index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_frac_sd</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">gyrate_cv</td>
-<td style="text-align: left;">radius of gyration</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_gyrate_cv</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">gyrate_mn</td>
-<td style="text-align: left;">radius of gyration</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_gyrate_mn</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">gyrate_sd</td>
-<td style="text-align: left;">radius of gyration</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_gyrate_sd</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">iji</td>
-<td style="text-align: left;">interspersion and juxtaposition index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_iji</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">joinent</td>
-<td style="text-align: left;">joint entropy</td>
-<td style="text-align: left;">complexity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_joinent</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">lpi</td>
-<td style="text-align: left;">largest patch index</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_lpi</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">lsi</td>
-<td style="text-align: left;">landscape shape index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_lsi</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">mesh</td>
-<td style="text-align: left;">effective mesh size</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_mesh</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">msidi</td>
-<td style="text-align: left;">modified simpson’s diversity index</td>
-<td style="text-align: left;">diversity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_msidi</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">msiei</td>
-<td style="text-align: left;">modified simpson’s evenness index</td>
-<td style="text-align: left;">diversity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_msiei</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">mutinf</td>
-<td style="text-align: left;">mutual information</td>
-<td style="text-align: left;">complexity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_mutinf</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">ndca</td>
-<td style="text-align: left;">number of disjunct core areas</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_ndca</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">np</td>
-<td style="text-align: left;">number of patches</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_np</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pafrac</td>
-<td style="text-align: left;">perimeter-area fractal dimension</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_pafrac</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">para_cv</td>
-<td style="text-align: left;">perimeter-area ratio</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_para_cv</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">para_mn</td>
-<td style="text-align: left;">perimeter-area ratio</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_para_mn</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">para_sd</td>
-<td style="text-align: left;">perimeter-area ratio</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_para_sd</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pd</td>
-<td style="text-align: left;">patch density</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_pd</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">pladj</td>
-<td style="text-align: left;">percentage of like adjacencies</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_pladj</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pr</td>
-<td style="text-align: left;">patch richness</td>
-<td style="text-align: left;">diversity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_pr</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">prd</td>
-<td style="text-align: left;">patch richness density</td>
-<td style="text-align: left;">diversity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_prd</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">relmutinf</td>
-<td style="text-align: left;">relative mutual information</td>
-<td style="text-align: left;">complexity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_relmutinf</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">rpr</td>
-<td style="text-align: left;">relative patch richness</td>
-<td style="text-align: left;">diversity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_rpr</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">shape_cv</td>
-<td style="text-align: left;">shape index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_shape_cv</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">shape_mn</td>
-<td style="text-align: left;">shape index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_shape_mn</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">shape_sd</td>
-<td style="text-align: left;">shape index</td>
-<td style="text-align: left;">shape metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_shape_sd</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">shdi</td>
-<td style="text-align: left;">shannon’s diversity index</td>
-<td style="text-align: left;">diversity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_shdi</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">shei</td>
-<td style="text-align: left;">shannon’s evenness index</td>
-<td style="text-align: left;">diversity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_shei</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">sidi</td>
-<td style="text-align: left;">simpson’s diversity index</td>
-<td style="text-align: left;">diversity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_sidi</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">siei</td>
-<td style="text-align: left;">simspon’s evenness index</td>
-<td style="text-align: left;">diversity metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_siei</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">split</td>
-<td style="text-align: left;">splitting index</td>
-<td style="text-align: left;">aggregation metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_split</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">ta</td>
-<td style="text-align: left;">total area</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_ta</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tca</td>
-<td style="text-align: left;">total core area</td>
-<td style="text-align: left;">core area metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_tca</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">te</td>
-<td style="text-align: left;">total edge</td>
-<td style="text-align: left;">area and edge metric</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">lsm_l_te</td>
-</tr>
-</tbody>
-</table>
-</div>
+
 </div>
 <div class="footer">
 <p><a href="https://r-spatialecology.github.io/landscapemetrics/">landscapemetrics</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a></p>
 </div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Qual métrica calcular e por quê?</h1>
-
 </section>
-<section class="slide level2 smaller">
-<h2>Concepção de uma pesquisa</h2>
+<section class="slide level1">
+<h1>Qual métrica calcular e por quê?</h1>
+<h2 class="smaller">Concepção de uma pesquisa</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <center>
@@ -1749,9 +759,7 @@
 <div class="footer">
 <p><a href="https://analises-ecologicas.com/cap2.html">Da Silva et al.&nbsp;(2022)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>Delineamento amostral</h2>
+<h2 class="smaller">Delineamento amostral</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <br><br>
@@ -1773,8 +781,6 @@
 <div class="footer">
 <p><a href="https://doi.org/10.2747/0272-3646.28.2.170">Wang &amp; Malanson (2013)</a>, <a href="https://doi.org/10.1111/geb.12233">Jackson &amp; Fahrig (2014)</a>, <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0123628">Moreira (2015)</a>, <a href="https://doi.org/10.1007/s10980-015-0314-1">Miguet et al.&nbsp;(2016)</a>, <a href="https://doi.org/10.1111/2041-210X.12198">Wang et al.&nbsp;(2014)</a>, <a href="https://link.springer.com/article/10.1007/s10980-018-0657-5">Huais (2018)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Correlação entre as métricas</h2>
 <center>
 <img src="img/corr.png" style="width:55%">
@@ -1782,8 +788,6 @@
 <div class="footer">
 <p><a href="https://doi.org/10.2747/0272-3646.28.2.170">Wang &amp; Malanson (2013)</a>, <a href="https://doi.org/10.1111/2041-210X.12198">Wang et al.&nbsp;(2014)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Escala de efeito</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
@@ -1801,9 +805,7 @@
 <div class="footer">
 <p><a href="https://doi.org/10.1111/geb.12233">Jackson &amp; Fahrig (2014)</a>, <a href="https://doi.org/10.1007/s10980-015-0314-1">Miguet et al.&nbsp;(2016)</a>, <a href="https://link.springer.com/article/10.1007/s10980-018-0657-5">Huais (2018)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>Recapitulando</h2>
+<h2 class="smaller">Recapitulando</h2>
 <ol type="1">
 <li><strong>Ecologia Espacial</strong>: respostas ecológicas à covariáveis ambientais incorporando o espaço</li>
 <li><strong>Ecologia da Paisagem</strong>: relaciona processos ecológicos a padrões espaciais</li>
@@ -1817,18 +819,12 @@
 <li><strong>Atenção</strong>: correlação entre as métricas</li>
 <li><strong>Atenção</strong>: escala de efeito</li>
 </ol>
-</section></section>
-<section class="title-slide slide level1 center">
+</section>
+<section class="slide level1">
 <h1>Dúvidas?</h1>
-
 </section>
-
-<section>
-<section class="title-slide slide level1 center">
+<section class="slide level1">
 <h1>Geoprocessamento</h1>
-
-</section>
-<section class="slide level2">
 <h2>Geoprocessamento</h2>
 <p>Entender os <strong>padrões espaciais</strong> como o ambiente físico, fenômenos climáticos, humanos, sociais ou econômicos, a partir de dados <strong>dados espaciais</strong> para gerar <strong>informações espaciais</strong></p>
 <center>
@@ -1837,8 +833,6 @@
 <div class="footer">
 <p><a href="http://www.ufrrj.br/lga/tiagomarino/artigos/oqueegeoprocessamento.pdf">Xavier-da-Silva (2009)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Geoprocessamento (Elementos)</h2>
 <ol type="1">
 <li>Cartografia digital (CD)</li>
@@ -1852,8 +846,6 @@
 <div class="footer">
 <p><a href="http://www.ufrrj.br/lga/tiagomarino/artigos/oqueegeoprocessamento.pdf">Xavier-da-Silva (2009)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Cartografia</h2>
 <h3>Escala</h3>
 <p>Relação entre a <strong>medida gráfica</strong> (representado no papel ou computador) e a <strong>medida real</strong> (objeto ou lugar)</p>
@@ -1866,9 +858,7 @@
 <center>
 <img src="img/barra_escala.png" style="width:30%">
 </center>
-</section>
-<section class="slide level2 smaller">
-<h2>Cartografia</h2>
+<h2 class="smaller">Cartografia</h2>
 <h3>Sistema de coordenadas geográfico (graus)</h3>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1893,9 +883,7 @@
 <div class="footer">
 <p><a href="https://express.adobe.com/page/WXwQFzH7DqYAw/">5 Themes of Geography</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>Cartografia</h2>
+<h2 class="smaller">Cartografia</h2>
 <h3>Sistema de coordenadas projetado (metros)</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1912,9 +900,7 @@
 <div class="footer">
 <p><a href="https://docs.qgis.org/3.22/pt_BR/docs/gentle_gis_introduction/coordinate_reference_systems.html">Guia do Usuário QGIS</a>, <a href="https://r-tmap.github.io/tmap-book/index.html">Tennekes &amp; Nowosad (in prep.)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>Cartografia</h2>
+<h2 class="smaller">Cartografia</h2>
 <h3>Sistema de coordenadas projetado (metros)</h3>
 <div class="columns">
 <div class="column" style="width:30%;">
@@ -1932,9 +918,7 @@
 <div class="footer">
 <p><a href="https://docs.qgis.org/3.22/pt_BR/docs/gentle_gis_introduction/coordinate_reference_systems.html">Guia do Usuário QGIS</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>Cartografia</h2>
+<h2 class="smaller">Cartografia</h2>
 <h3>Datum</h3>
 <p>Relação do sistema de coordenadas com a superfície da Terra</p>
 <div class="columns">
@@ -1957,9 +941,7 @@
 <div class="footer">
 <p><a href="http://www.geomatica.eng.uerj.br/docentes/araujo/cartografia_para_geoprocessamento">Cartografia para Geoprocessamento</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>Cartografia</h2>
+<h2 class="smaller">Cartografia</h2>
 <h3>Sistema de Referência de Coordenadas (SRC)</h3>
 <p>Datum + Sistema de Coordenadas (geográfico ou projetado)</p>
 <center>
@@ -1968,8 +950,6 @@
 <div class="footer">
 <p><a href="https://express.adobe.com/page/WXwQFzH7DqYAw/">5 Themes of Geography</a>, <a href="http://www.geomatica.eng.uerj.br/docentes/araujo/cartografia_para_geoprocessamento">Cartografia para Geoprocessamento</a>, <a href="https://docs.qgis.org/3.22/pt_BR/docs/gentle_gis_introduction/coordinate_reference_systems.html">Guia do Usuário QGIS</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Cartografia</h2>
 <h3>EPSG (<em>European Petroleum Survey Group</em>)</h3>
 <p><br></p>
@@ -1982,8 +962,6 @@
 <div class="footer">
 <p><a href="https://epsg.io/">epsg.io</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2><em>Global Positioning System</em> (GPS)</h2>
 <p>Indica uma localização no planeta através de pontos ou linhas</p>
 <div class="columns">
@@ -2002,8 +980,6 @@
 <div class="footer">
 <p><a href="https://www.electricalelibrary.com/2018/03/23/como-funciona-o-gps/">Como funciona o GPS?</a>, <a href="https://en.wikipedia.org/wiki/GPS_Exchange_Format">GPS Exchange Format</a>, <a href="https://www.clickgeo.com.br/conversor-online-kml-gpx/">Conversor Online para KML e GPX</a>, <a href="https://en.wikipedia.org/wiki/Global_Positioning_System">Global Positioning System</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2><em>Global Positioning System</em> (GPS)</h2>
 <p>Indica uma localização no planeta através de pontos ou linhas</p>
 <center>
@@ -2012,8 +988,6 @@
 <div class="footer">
 <p><a href="https://www.ofitexto.com.br/livro/processamento-de-imagens-de-satelite/">Zanotta et al.&nbsp;(2019)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Sensoriamento Remoto</h2>
 <br>
 <center>
@@ -2023,7 +997,7 @@
 <p><a href="https://www.ofitexto.com.br/livro/processamento-de-imagens-de-satelite/">Zanotta et al.&nbsp;(2019)</a></p>
 </div>
 </section>
-<section class="slide level2">
+<section class="slide level1">
 
 <h3>Sistema de Informação Geográfica (SIG/GIS)</h3>
 <br>
@@ -2033,13 +1007,9 @@
 <div class="footer">
 <p><a href="https://ankageo.com/en/information/geographic-information-system/">Geographic Information System</a>, <a href="https://www.eosconsultores.com.br/sig-funcionalidades-no-saneamento-basico/">SIG</a>, <a href="https://www.esri.com/pt-br/home">ArcGIS</a>, <a href="https://qgis.org/pt_BR/site/">QGIS</a>, <a href="https://grass.osgeo.org/">GRASS GIS</a></p>
 </div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Dados geoespaciais</h1>
-
 </section>
-<section class="slide level2">
+<section class="slide level1">
+<h1>Dados geoespaciais</h1>
 <h2>Dados geoespaciais</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -2055,8 +1025,6 @@
 <div class="footer">
 <p><a href="https://blog.startdee.com/%E0%B8%A14-6-%E0%B8%A0%E0%B8%B9%E0%B8%A1%E0%B8%B4%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B9%8C-%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%A8%E0%B8%A0%E0%B8%B9%E0%B8%A1%E0%B8%B4%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B9%8C">StartDee</a>, <a href="https://2012books.lardbucket.org/books/geographic-information-system-basics/index.html">Campbell &amp; Shin (2012)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Dados geoespaciais</h2>
 <center>
 <img src="img/geo_layers.gif" style="width:70%">
@@ -2064,8 +1032,6 @@
 <div class="footer">
 <p><a href="https://www.avenza.com/blog/2019/11/">7 GIS terms To Know: Map Making for Designers</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Dados vetoriais</h2>
 <p>Pontos, linhas e polígonos</p>
 <center>
@@ -2074,8 +1040,6 @@
 <div class="footer">
 <p><a href="https://analises-ecologicas.com/">Da Silva et al.&nbsp;(2022)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Dados vetoriais</h2>
 <p>Tabela de atributos</p>
 <center>
@@ -2084,9 +1048,7 @@
 <div class="footer">
 <p><a href="https://r-tmap.github.io/tmap-book/index.html">Tennekes &amp; Nowosad (in prep.)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>Dados vetoriais</h2>
+<h2 class="smaller">Dados vetoriais</h2>
 <p>Formato: Shapefile</p>
 <p><strong>.shp</strong>: contém as informações da feição (desenho)</p>
 <p><strong>.dbf</strong>: tabela que contém as informações (colunas) sobre cada feição (linhas)</p>
@@ -2099,8 +1061,6 @@
 <div class="footer">
 <p><a href="https://r-tmap.github.io/tmap-book/index.html">Tennekes &amp; Nowosad (in prep.)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Dados matriciais (Raster)</h2>
 <p>Matriz de valores</p>
 <center>
@@ -2109,8 +1069,6 @@
 <div class="footer">
 <p><a href="https://analises-ecologicas.com/">Da Silva et al.&nbsp;(2022)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Dados matriciais (Raster)</h2>
 <p>Matriz de valores - contínuos ou categóricos</p>
 <br>
@@ -2120,8 +1078,6 @@
 <div class="footer">
 <p><a href="https://geocompr.robinlovelace.net/">Lovelace et al.&nbsp;(2020)</a>, <a href="https://www.neonscience.org/resources/learning-hub/tutorials/dc-raster-data-r">National Ecological Observatory Network (NEON)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Dados matriciais (Raster)</h2>
 <p>Propriedades - extensão e resolução</p>
 <center>
@@ -2130,8 +1086,6 @@
 <div class="footer">
 <p><a href="https://www.neonscience.org/resources/learning-hub/tutorials/dc-raster-data-r">National Ecological Observatory Network (NEON)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Dados matriciais (Raster)</h2>
 <p>Formato: GeoTiff</p>
 <p><strong>.tif</strong>: arquivo rater georreferenciado</p>
@@ -2141,8 +1095,6 @@
 <div class="footer">
 <p><a href="https://luminfire.com/technologies/geotiff/">LuminFire Developers</a>, <a href="https://trac.osgeo.org/geotiff">GeoTIFF</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Conversão de dados geoespaciais</h2>
 <p>Converter vetor-raster e vice-versa</p>
 <center>
@@ -2151,9 +1103,7 @@
 <div class="footer">
 <p><a href="https://r-tmap.github.io/tmap-book/index.html">Tennekes &amp; Nowosad (in prep.)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller scrollable">
-<h2>Fontes de dados geoespaciais</h2>
+<h2 class="smaller scrollable">Fontes de dados geoespaciais</h2>
 <h3>Vetoriais</h3>
 <ul>
 <li><strong><a href="https://www.ibge.gov.br/geociencias/downloads-geociencias.html">IBGE</a></strong>: limites territoriais e censitários do Brasil</li>
@@ -2175,9 +1125,7 @@
 <div class="footer">
 <p><a href="https://mauriciovancine.github.io/blog/geodados-fonte/">Lista completa</a></p>
 </div>
-</section>
-<section class="slide level2 smaller scrollable">
-<h2>Fontes de dados geoespaciais</h2>
+<h2 class="smaller scrollable">Fontes de dados geoespaciais</h2>
 <h3>Matriciais</h3>
 <ul>
 <li><strong><a href="https://mapbiomas.org">MapBiomas</a></strong>: uso e cobertura da terra para o Brasil, diversos anos</li>
@@ -2200,9 +1148,7 @@
 <div class="footer">
 <p><a href="https://mauriciovancine.github.io/blog/geodados-fonte/">Lista completa</a></p>
 </div>
-</section>
-<section class="slide level2 smaller scrollable">
-<h2>Fontes de dados geoespaciais</h2>
+<h2 class="smaller scrollable">Fontes de dados geoespaciais</h2>
 <h3>Pacotes e sites</h3>
 <ul>
 <li><strong><a href="https://cran.r-project.org/web/packages/geobr/index.html">geobr</a></strong>: carrega Shapefiles de Conjuntos de Dados Espaciais Oficiais do Brasil</li>
@@ -2226,9 +1172,7 @@
 <div class="footer">
 <p><a href="https://mauriciovancine.github.io/blog/geodados-fonte/">Lista completa</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>Recapitulando</h2>
+<h2 class="smaller">Recapitulando</h2>
 <ol type="1">
 <li><strong>Geoprocessamento</strong>: entender padrões espaciais a partir de dados espaciais para gerar informações espaciais, com quatro componentes: cartografia, GPS, SR e SIG</li>
 <li><strong>Escala</strong>: relação entre uma medida gráfica e uma medida real</li>
@@ -2242,18 +1186,12 @@
 <li><strong>Raster</strong>: matriz de valores contínuos ou categóricos</li>
 <li><strong>Conversão</strong>: dados vetoriais para dados rasters e vice-versa</li>
 </ol>
-</section></section>
-<section class="title-slide slide level1 center">
+</section>
+<section class="slide level1">
 <h1>Tranquilo até aqui?</h1>
-
 </section>
-
-<section>
-<section class="title-slide slide level1 center">
+<section class="slide level1">
 <h1>R</h1>
-
-</section>
-<section class="slide level2">
 <h2>R</h2>
 <p>O R é uma <strong>linguagem de programação livre</strong> (<em>open source</em>), direcionada à <strong>manipulação, análise e visualização de dados</strong>, com diversas <strong>expansões</strong> (<em>pacotes</em>) para o uso de <strong>dados com formatos específicos</strong></p>
 <center>
@@ -2262,8 +1200,6 @@
 <div class="footer">
 <p><a href="https://www.r-project.org/">R</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>RStudio</h2>
 <p>IDE (<em>Integrated Development Environment</em>) ou Ambiente de Desenvolvimento Integrado</p>
 <center>
@@ -2272,39 +1208,27 @@
 <div class="footer">
 <p><a href="https://www.rstudio.com/">RStudio</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>Script</h2>
 <p>Onde os códigos são escritos e salvos no formato .R</p>
 <center>
 <img src="img/rstudio_script_bg.png" style="width:90%">
 </center>
-</section>
-<section class="slide level2">
 <h2>Objetos</h2>
 <p>Palavras que atribuímos dados possibilitando a manipulação dos mesmos</p>
 <p><strong>Atribuição (objeto &lt;- dados)</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># atribuicao (&lt;-)</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>objeto <span class="ot">&lt;-</span> <span class="dv">42</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a>objeto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 42</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># atribuicao (&lt;-)</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>objeto <span class="ot">&lt;-</span> <span class="dv">42</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>objeto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><strong>Operações (+, -, *, /, ^)</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># operacoes</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>objeto2 <span class="ot">&lt;-</span> objeto <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>objeto2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 84</code></pre>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># operacoes</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>objeto2 <span class="ot">&lt;-</span> objeto <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>objeto2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</div>
-</section>
-<section class="slide level2">
 <h2>Funções</h2>
 <p>Códigos que realizam operações em argumentos</p>
 <p><strong>Estrutura de uma função</strong></p>
@@ -2313,490 +1237,253 @@
 </blockquote>
 <p><strong>Soma</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># soma</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>objeto3 <span class="ot">&lt;-</span> <span class="fu">sum</span>(objeto, objeto2)</span>
-<span id="cb6-3"><a href="#cb6-3"></a>objeto3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 126</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># soma</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>objeto3 <span class="ot">&lt;-</span> <span class="fu">sum</span>(objeto, objeto2)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>objeto3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><strong>Repetição</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># repeticao</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>objeto4 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="at">x =</span> objeto, <span class="at">times =</span> <span class="dv">10</span>)</span>
-<span id="cb8-3"><a href="#cb8-3"></a>objeto4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 42 42 42 42 42 42 42 42 42 42</code></pre>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># repeticao</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>objeto4 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="at">x =</span> objeto, <span class="at">times =</span> <span class="dv">10</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>objeto4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</div>
-</section>
-<section class="slide level2">
 <h2>Pacotes</h2>
 <p>Coleção de funções para executar tarefas específicas</p>
 <p><strong>Instalar pacotes do CRAN</strong></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># instalar pacotes</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">install.packages</span>(<span class="st">"landscapemetrics"</span>, <span class="at">dep =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># instalar pacotes</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">install.packages</span>(<span class="st">"landscapemetrics"</span>, <span class="at">dep =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p><strong>Instalar pacotes do GitHub</strong></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># instalar pacotes do github</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
-<span id="cb11-3"><a href="#cb11-3"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"r-spatialecology/landscapemetrics"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># instalar pacotes do github</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"r-spatialecology/landscapemetrics"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><strong>Carregar pacotes</strong></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># carregar pacotes</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">library</span>(landscapemetrics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># carregar pacotes</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">library</span>(landscapemetrics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section class="slide level2">
 <h2>Diretório</h2>
 <p>Caminho de uma pasta/diretório onde o R irá importar e/ou exportar os dados</p>
 <p><strong>Definir um diretório de trabalho</strong></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># definir o diretorio de trabalho</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">setwd</span>(<span class="st">"/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># definir o diretorio de trabalho</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">setwd</span>(<span class="st">"/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p><strong>Verificar o diretório</strong></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># verificar o diretorio</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># verificar o diretorio</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><strong>Listar os arquivos no diretório</strong></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># listar os arquivos</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">dir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># listar os arquivos</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">dir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Dados geoespaciais no R</h1>
-
 </section>
-<section class="slide level2 scrollable">
+<section class="slide level1">
+<h1>Dados geoespaciais no R</h1>
+<h2 class="scrollable">Importar dados geoespaciais</h2>
+<p><strong>Vetor</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># pacote</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">library</span>(readr)</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co"># diretorio</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="fu">setwd</span>(<span class="st">"/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6"></a></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co"># importar pontos</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>da <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"pontos_amostragem_geo.csv"</span>)</span>
+<span id="cb11-9"><a href="#cb11-9"></a>da</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<h2 class="scrollable">Importar dados geoespaciais</h2>
+<p><strong>Vetor</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># pacote</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">library</span>(sf)</span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co"># importar pontos</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>po <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_as_sf</span>(da, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
+<span id="cb12-6"><a href="#cb12-6"></a>po</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <h2>Importar dados geoespaciais</h2>
 <p><strong>Vetor</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">plot</span>(po<span class="sc">$</span>geometry, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>, <span class="at">graticule =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<h2>Importar dados geoespaciais</h2>
+<p><strong>Vetor</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># pacote</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">library</span>(sf)</span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co"># diretorio</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="fu">setwd</span>(<span class="st">"/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6"></a></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="co"># importar vetor</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a>rc <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_read</span>(<span class="st">"rio_claro.shp"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-9"><a href="#cb14-9"></a>rc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<h2>Importar dados geoespaciais</h2>
+<p><strong>Vetor</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">plot</span>(rc<span class="sc">$</span>geom, <span class="at">col =</span> <span class="st">"gray"</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>, <span class="at">graticule =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<h2>Importar dados geoespaciais</h2>
+<p><strong>Raster</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># pacote</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">library</span>(readr)</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">library</span>(raster)</span>
 <span id="cb16-3"><a href="#cb16-3"></a></span>
 <span id="cb16-4"><a href="#cb16-4"></a><span class="co"># diretorio</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="fu">setwd</span>(<span class="st">"/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="fu">setwd</span>(<span class="st">"/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data/"</span>)</span>
 <span id="cb16-6"><a href="#cb16-6"></a></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="co"># importar pontos</span></span>
-<span id="cb16-8"><a href="#cb16-8"></a>da <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"pontos_amostragem_geo.csv"</span>)</span>
-<span id="cb16-9"><a href="#cb16-9"></a>da</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 3
-      id   lon   lat
-   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1     1 -47.7 -22.3
- 2     2 -47.6 -22.4
- 3     3 -47.5 -22.3
- 4     4 -47.6 -22.5
- 5     5 -47.6 -22.5
- 6     6 -47.5 -22.3
- 7     7 -47.5 -22.3
- 8     8 -47.5 -22.4
- 9     9 -47.6 -22.3
-10    10 -47.7 -22.3</code></pre>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="co"># importar raster</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a>mapbiomas <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">raster</span>(<span class="st">"mapbiomas.tif"</span>)</span>
+<span id="cb16-9"><a href="#cb16-9"></a>mapbiomas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section class="slide level2 scrollable">
-<h2>Importar dados geoespaciais</h2>
-<p><strong>Vetor</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># pacote</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">library</span>(sf)</span>
-<span id="cb18-3"><a href="#cb18-3"></a></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="co"># importar pontos</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a>po <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_as_sf</span>(da, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
-<span id="cb18-6"><a href="#cb18-6"></a>po</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 10 features and 1 field
-Geometry type: POINT
-Dimension:     XY
-Bounding box:  xmin: -47.68955 ymin: -22.51605 xmax: -47.49691 ymax: -22.26893
-Geodetic CRS:  WGS 84
-# A tibble: 10 × 2
-      id              geometry
- * &lt;dbl&gt;           &lt;POINT [°]&gt;
- 1     1 (-47.68955 -22.34861)
- 2     2 (-47.63003 -22.42595)
- 3     3  (-47.49691 -22.3334)
- 4     4 (-47.61035 -22.51605)
- 5     5   (-47.6095 -22.4709)
- 6     6 (-47.50656 -22.26893)
- 7     7 (-47.54502 -22.29159)
- 8     8 (-47.53064 -22.40221)
- 9     9 (-47.55712 -22.33515)
-10    10 (-47.68955 -22.34861)</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Importar dados geoespaciais</h2>
-<p><strong>Vetor</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">plot</span>(po<span class="sc">$</span>geometry, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>, <span class="at">graticule =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
-<h2>Importar dados geoespaciais</h2>
-<p><strong>Vetor</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># pacote</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">library</span>(sf)</span>
-<span id="cb21-3"><a href="#cb21-3"></a></span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="co"># diretorio</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="fu">setwd</span>(<span class="st">"/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data"</span>)</span>
-<span id="cb21-6"><a href="#cb21-6"></a></span>
-<span id="cb21-7"><a href="#cb21-7"></a><span class="co"># importar vetor</span></span>
-<span id="cb21-8"><a href="#cb21-8"></a>rc <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_read</span>(<span class="st">"rio_claro.shp"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb21-9"><a href="#cb21-9"></a>rc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 1 feature and 7 fields
-Geometry type: POLYGON
-Dimension:     XY
-Bounding box:  xmin: -47.76521 ymin: -22.55203 xmax: -47.46188 ymax: -22.24368
-Geodetic CRS:  WGS 84
-  code_mn   name_mn cod_stt abbrv_s   nam_stt cod_rgn nam_rgn
-1 3543907 Rio Claro      35      SP São Paulo       3 Sudeste
-                        geometry
-1 POLYGON ((-47.46875 -22.279...</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Importar dados geoespaciais</h2>
-<p><strong>Vetor</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">plot</span>(rc<span class="sc">$</span>geom, <span class="at">col =</span> <span class="st">"gray"</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>, <span class="at">graticule =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
-<h2>Importar dados geoespaciais</h2>
-<p><strong>Raster</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># pacote</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">library</span>(raster)</span>
-<span id="cb24-3"><a href="#cb24-3"></a></span>
-<span id="cb24-4"><a href="#cb24-4"></a><span class="co"># diretorio</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a><span class="fu">setwd</span>(<span class="st">"/home/mude/data/github/mauriciovancine/workshop-landscapemetrics/03_data/"</span>)</span>
-<span id="cb24-6"><a href="#cb24-6"></a></span>
-<span id="cb24-7"><a href="#cb24-7"></a><span class="co"># importar raster</span></span>
-<span id="cb24-8"><a href="#cb24-8"></a>mapbiomas <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">raster</span>(<span class="st">"mapbiomas.tif"</span>)</span>
-<span id="cb24-9"><a href="#cb24-9"></a>mapbiomas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>class      : RasterLayer 
-dimensions : 1143, 1124, 1284732  (nrow, ncol, ncell)
-resolution : 0.0002694946, 0.0002694946  (x, y)
-extent     : -47.76495, -47.46204, -22.55185, -22.24381  (xmin, xmax, ymin, ymax)
-crs        : +proj=longlat +datum=WGS84 +no_defs 
-source     : mapbiomas.tif 
-names      : mapbiomas 
-values     : 0, 255  (min, max)</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
 <h2>Importar dados geoespaciais</h2>
 <p><strong>Raster</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">plot</span>(mapbiomas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">plot</span>(mapbiomas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
 <h2>Reprojetar dados geoespaciais</h2>
 <p><strong>Vetor</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># reprojetar vetor</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a>po_utm <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_transform</span>(po, <span class="at">crs =</span> <span class="dv">31983</span>)</span>
-<span id="cb27-3"><a href="#cb27-3"></a>po_utm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 10 features and 1 field
-Geometry type: POINT
-Dimension:     XY
-Bounding box:  xmin: 222993.2 ymin: 7507708 xmax: 242815.3 ymax: 7535264
-Projected CRS: SIRGAS 2000 / UTM zone 23S
-# A tibble: 10 × 2
-      id           geometry
- * &lt;dbl&gt;        &lt;POINT [m]&gt;
- 1     1 (222993.2 7526113)
- 2     2 (229276.4 7517654)
- 3     3 (242815.3 7528139)
- 4     4 (231477.1 7507708)
- 5     5 (231477.4 7512711)
- 6     6 (241702.3 7535264)
- 7     7 (237779.5 7532687)
- 8     8 (239467.7 7520459)
- 9     9   (236614 7527841)
-10    10 (222993.2 7526113)</code></pre>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># reprojetar vetor</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>po_utm <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_transform</span>(po, <span class="at">crs =</span> <span class="dv">31983</span>)</span>
+<span id="cb18-3"><a href="#cb18-3"></a>po_utm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section class="slide level2">
 <h2>Reprojetar dados geoespaciais</h2>
 <p><strong>Vetor</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">plot</span>(po_utm<span class="sc">$</span>geometry, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>, <span class="at">graticule =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">plot</span>(po_utm<span class="sc">$</span>geometry, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>, <span class="at">graticule =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
 <h2>Reprojetar dados geoespaciais</h2>
 <p><strong>Vetor</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># reprojetar vetor</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a>rc_utm <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_transform</span>(rc, <span class="at">crs =</span> <span class="dv">31983</span>)</span>
-<span id="cb30-3"><a href="#cb30-3"></a>rc_utm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 1 feature and 7 fields
-Geometry type: POLYGON
-Dimension:     XY
-Bounding box:  xmin: 215165.5 ymin: 7503729 xmax: 246553 ymax: 7537978
-Projected CRS: SIRGAS 2000 / UTM zone 23S
-  code_mn   name_mn cod_stt abbrv_s   nam_stt cod_rgn nam_rgn
-1 3543907 Rio Claro      35      SP São Paulo       3 Sudeste
-                        geometry
-1 POLYGON ((245619.2 7534186,...</code></pre>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># reprojetar vetor</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>rc_utm <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_transform</span>(rc, <span class="at">crs =</span> <span class="dv">31983</span>)</span>
+<span id="cb20-3"><a href="#cb20-3"></a>rc_utm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section class="slide level2">
 <h2>Reprojetar dados geoespaciais</h2>
 <p><strong>Vetor</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">col =</span> <span class="st">"gray"</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>, <span class="at">graticule =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">col =</span> <span class="st">"gray"</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>, <span class="at">graticule =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
 <h2>Reprojetar dados geoespaciais</h2>
 <p><strong>Raster</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># reprojetar raster</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>mapbiomas_utm <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">projectRaster</span>(mapbiomas, </span>
-<span id="cb33-3"><a href="#cb33-3"></a>                                       <span class="at">crs =</span> <span class="st">"+init=epsg:31983"</span>, </span>
-<span id="cb33-4"><a href="#cb33-4"></a>                                       <span class="at">method =</span> <span class="st">"ngb"</span>, </span>
-<span id="cb33-5"><a href="#cb33-5"></a>                                       <span class="at">res =</span> <span class="dv">90</span>)</span>
-<span id="cb33-6"><a href="#cb33-6"></a>mapbiomas_utm </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>class      : RasterLayer 
-dimensions : 395, 363, 143385  (nrow, ncol, ncell)
-resolution : 90, 90  (x, y)
-extent     : 214560.4, 247230.4, 7503021, 7538571  (xmin, xmax, ymin, ymax)
-crs        : +proj=utm +zone=23 +south +ellps=GRS80 +units=m +no_defs 
-source     : memory
-names      : mapbiomas 
-values     : 0, 48  (min, max)</code></pre>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># reprojetar raster</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>mapbiomas_utm <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">projectRaster</span>(mapbiomas, </span>
+<span id="cb22-3"><a href="#cb22-3"></a>                                       <span class="at">crs =</span> <span class="st">"+init=epsg:31983"</span>, </span>
+<span id="cb22-4"><a href="#cb22-4"></a>                                       <span class="at">method =</span> <span class="st">"ngb"</span>, </span>
+<span id="cb22-5"><a href="#cb22-5"></a>                                       <span class="at">res =</span> <span class="dv">90</span>)</span>
+<span id="cb22-6"><a href="#cb22-6"></a>mapbiomas_utm </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section class="slide level2">
 <h2>Reprojetar dados geoespaciais</h2>
 <p><strong>Raster</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">plot</span>(mapbiomas_utm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">plot</span>(mapbiomas_utm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2 scrollable">
-<h2>Operações com dados geoespaciais</h2>
+<h2 class="scrollable">Operações com dados geoespaciais</h2>
 <p><strong>Buffer</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>bu <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_buffer</span>(po_utm, <span class="at">dist =</span> <span class="dv">500</span>)</span>
-<span id="cb36-2"><a href="#cb36-2"></a>bu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 10 features and 1 field
-Geometry type: POLYGON
-Dimension:     XY
-Bounding box:  xmin: 222493.2 ymin: 7507208 xmax: 243315.3 ymax: 7535764
-Projected CRS: SIRGAS 2000 / UTM zone 23S
-# A tibble: 10 × 2
-      id                                                                geometry
- * &lt;dbl&gt;                                                           &lt;POLYGON [m]&gt;
- 1     1 ((223493.2 7526113, 223492.5 7526086, 223490.5 7526060, 223487.1 75260…
- 2     2 ((229776.4 7517654, 229775.7 7517627, 229773.7 7517601, 229770.2 75175…
- 3     3 ((243315.3 7528139, 243314.6 7528113, 243312.6 7528087, 243309.2 75280…
- 4     4 ((231977.1 7507708, 231976.4 7507682, 231974.4 7507656, 231970.9 75076…
- 5     5 ((231977.4 7512711, 231976.7 7512685, 231974.6 7512659, 231971.2 75126…
- 6     6 ((242202.3 7535264, 242201.6 7535238, 242199.6 7535211, 242196.1 75351…
- 7     7 ((238279.5 7532687, 238278.8 7532661, 238276.7 7532635, 238273.3 75326…
- 8     8 ((239967.7 7520459, 239967 7520433, 239965 7520407, 239961.5 7520381, …
- 9     9 ((237114 7527841, 237113.3 7527815, 237111.3 7527789, 237107.9 7527763…
-10    10 ((223493.2 7526113, 223492.5 7526086, 223490.5 7526060, 223487.1 75260…</code></pre>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>bu <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_buffer</span>(po_utm, <span class="at">dist =</span> <span class="dv">500</span>)</span>
+<span id="cb24-2"><a href="#cb24-2"></a>bu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section class="slide level2">
 <h2>Operações com dados geoespaciais</h2>
 <p><strong>Buffer</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>)</span>
-<span id="cb38-2"><a href="#cb38-2"></a><span class="fu">plot</span>(po_utm<span class="sc">$</span>geometry, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb38-3"><a href="#cb38-3"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">plot</span>(po_utm<span class="sc">$</span>geometry, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
 <h2>Operações com dados geoespaciais</h2>
 <p><strong>Ajuste à extenção</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>mapbiomas_utm_crop <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">crop</span>(mapbiomas_utm, <span class="fu">st_as_sf</span>(bu))</span>
-<span id="cb39-2"><a href="#cb39-2"></a>mapbiomas_utm_crop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>class      : RasterLayer 
-dimensions : 317, 231, 73227  (nrow, ncol, ncell)
-resolution : 90, 90  (x, y)
-extent     : 222480.4, 243270.4, 7507251, 7535781  (xmin, xmax, ymin, ymax)
-crs        : +proj=utm +zone=23 +south +ellps=GRS80 +units=m +no_defs 
-source     : memory
-names      : mapbiomas 
-values     : 0, 48  (min, max)</code></pre>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>mapbiomas_utm_crop <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">crop</span>(mapbiomas_utm, <span class="fu">st_as_sf</span>(bu))</span>
+<span id="cb26-2"><a href="#cb26-2"></a>mapbiomas_utm_crop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section class="slide level2">
 <h2>Operações com dados geoespaciais</h2>
 <p><strong>Ajuste à extenção</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>)</span>
-<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">plot</span>(mapbiomas_utm_crop, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb41-3"><a href="#cb41-3"></a><span class="fu">plot</span>(po_utm<span class="sc">$</span>geometry, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb41-4"><a href="#cb41-4"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="fu">plot</span>(mapbiomas_utm_crop, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="fu">plot</span>(po_utm<span class="sc">$</span>geometry, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
 <h2>Operações com dados geoespaciais</h2>
 <p><strong>Ajuste à máscara</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>mapbiomas_utm_mask <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">mask</span>(mapbiomas_utm, <span class="fu">st_as_sf</span>(bu))</span>
-<span id="cb42-2"><a href="#cb42-2"></a>mapbiomas_utm_mask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>class      : RasterLayer 
-dimensions : 395, 363, 143385  (nrow, ncol, ncell)
-resolution : 90, 90  (x, y)
-extent     : 214560.4, 247230.4, 7503021, 7538571  (xmin, xmax, ymin, ymax)
-crs        : +proj=utm +zone=23 +south +ellps=GRS80 +units=m +no_defs 
-source     : memory
-names      : mapbiomas 
-values     : 3, 47  (min, max)</code></pre>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>mapbiomas_utm_mask <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">mask</span>(mapbiomas_utm, <span class="fu">st_as_sf</span>(bu))</span>
+<span id="cb28-2"><a href="#cb28-2"></a>mapbiomas_utm_mask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section class="slide level2">
 <h2>Operações com dados geoespaciais</h2>
 <p><strong>Ajuste à máscara</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">plot</span>(mapbiomas_utm_mask)</span>
-<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb44-3"><a href="#cb44-3"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">plot</span>(mapbiomas_utm_mask)</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
 <h2>Operações com dados geoespaciais</h2>
 <p><strong>Ajuste à extensão e à máscara</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>mapbiomas_utm_crop <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">crop</span>(mapbiomas_utm, <span class="fu">st_as_sf</span>(bu))</span>
-<span id="cb45-2"><a href="#cb45-2"></a>mapbiomas_utm_crop_mask <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">mask</span>(mapbiomas_utm_crop, <span class="fu">st_as_sf</span>(bu))</span>
-<span id="cb45-3"><a href="#cb45-3"></a>mapbiomas_utm_crop_mask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>class      : RasterLayer 
-dimensions : 317, 231, 73227  (nrow, ncol, ncell)
-resolution : 90, 90  (x, y)
-extent     : 222480.4, 243270.4, 7507251, 7535781  (xmin, xmax, ymin, ymax)
-crs        : +proj=utm +zone=23 +south +ellps=GRS80 +units=m +no_defs 
-source     : memory
-names      : mapbiomas 
-values     : 3, 47  (min, max)</code></pre>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>mapbiomas_utm_crop <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">crop</span>(mapbiomas_utm, <span class="fu">st_as_sf</span>(bu))</span>
+<span id="cb30-2"><a href="#cb30-2"></a>mapbiomas_utm_crop_mask <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">mask</span>(mapbiomas_utm_crop, <span class="fu">st_as_sf</span>(bu))</span>
+<span id="cb30-3"><a href="#cb30-3"></a>mapbiomas_utm_crop_mask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section class="slide level2">
 <h2>Operações com dados geoespaciais</h2>
 <p><strong>Ajuste à máscara</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">plot</span>(mapbiomas_utm_crop_mask)</span>
-<span id="cb47-2"><a href="#cb47-2"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb47-3"><a href="#cb47-3"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">plot</span>(mapbiomas_utm_crop_mask)</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">plot</span>(bu<span class="sc">$</span>geometry, <span class="at">border =</span> <span class="st">"red"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-26-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
 <h2>Operações com dados geoespaciais</h2>
 <p><strong>Reclassificação de rasters</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>mapbiomas_utm_floresta <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">reclassify</span>(<span class="at">x =</span> mapbiomas_utm,</span>
-<span id="cb48-2"><a href="#cb48-2"></a>                                             <span class="at">rcl =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="cn">NA</span>, <span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>, <span class="dv">4</span>,<span class="dv">48</span>,<span class="cn">NA</span>))</span>
-<span id="cb48-3"><a href="#cb48-3"></a>mapbiomas_utm_floresta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>class      : RasterLayer 
-dimensions : 395, 363, 143385  (nrow, ncol, ncell)
-resolution : 90, 90  (x, y)
-extent     : 214560.4, 247230.4, 7503021, 7538571  (xmin, xmax, ymin, ymax)
-crs        : +proj=utm +zone=23 +south +ellps=GRS80 +units=m +no_defs 
-source     : memory
-names      : mapbiomas 
-values     : 0, 1  (min, max)</code></pre>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>mapbiomas_utm_floresta <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">reclassify</span>(<span class="at">x =</span> mapbiomas_utm,</span>
+<span id="cb32-2"><a href="#cb32-2"></a>                                             <span class="at">rcl =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="cn">NA</span>, <span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>, <span class="dv">4</span>,<span class="dv">48</span>,<span class="cn">NA</span>))</span>
+<span id="cb32-3"><a href="#cb32-3"></a>mapbiomas_utm_floresta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section class="slide level2">
 <h2>Operações com dados geoespaciais</h2>
 <p><strong>Reclassificação de rasters</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">plot</span>(mapbiomas_utm_floresta)</span>
-<span id="cb50-2"><a href="#cb50-2"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">plot</span>(mapbiomas_utm_floresta)</span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="fu">plot</span>(rc_utm<span class="sc">$</span>geom, <span class="at">border =</span> <span class="st">"gray"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-28-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
 <h2>Visualização</h2>
 <p><strong>Vetor</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># pacote</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a><span class="fu">library</span>(tmap)</span>
-<span id="cb51-3"><a href="#cb51-3"></a></span>
-<span id="cb51-4"><a href="#cb51-4"></a><span class="co"># mapa</span></span>
-<span id="cb51-5"><a href="#cb51-5"></a><span class="fu">tm_shape</span>(rc_utm) <span class="sc">+</span></span>
-<span id="cb51-6"><a href="#cb51-6"></a>    <span class="fu">tm_polygons</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># pacote</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="fu">library</span>(tmap)</span>
+<span id="cb34-3"><a href="#cb34-3"></a></span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="co"># mapa</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a><span class="fu">tm_shape</span>(rc_utm) <span class="sc">+</span></span>
+<span id="cb34-6"><a href="#cb34-6"></a>    <span class="fu">tm_polygons</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-29-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
 <h2>Visualização</h2>
 <p><strong>Vetor</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">tm_shape</span>(rc_utm) <span class="sc">+</span></span>
-<span id="cb52-2"><a href="#cb52-2"></a>    <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb52-3"><a href="#cb52-3"></a>    <span class="fu">tm_grid</span>(<span class="at">lines =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb52-4"><a href="#cb52-4"></a>    <span class="fu">tm_compass</span>() <span class="sc">+</span></span>
-<span id="cb52-5"><a href="#cb52-5"></a>    <span class="fu">tm_scale_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">tm_shape</span>(rc_utm) <span class="sc">+</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>    <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>    <span class="fu">tm_grid</span>(<span class="at">lines =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a>    <span class="fu">tm_compass</span>() <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5"></a>    <span class="fu">tm_scale_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-30-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
 <h2>Visualização</h2>
 <p><strong>Raster</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">tm_shape</span>(mapbiomas_utm_floresta) <span class="sc">+</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a>    <span class="fu">tm_raster</span>(<span class="at">style =</span> <span class="st">"cat"</span>, <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"forestgreen"</span>)) <span class="sc">+</span></span>
-<span id="cb53-3"><a href="#cb53-3"></a>    <span class="fu">tm_shape</span>(rc_utm) <span class="sc">+</span></span>
-<span id="cb53-4"><a href="#cb53-4"></a>    <span class="fu">tm_borders</span>() <span class="sc">+</span></span>
-<span id="cb53-5"><a href="#cb53-5"></a>    <span class="fu">tm_grid</span>(<span class="at">lines =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb53-6"><a href="#cb53-6"></a>    <span class="fu">tm_compass</span>() <span class="sc">+</span></span>
-<span id="cb53-7"><a href="#cb53-7"></a>    <span class="fu">tm_scale_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">tm_shape</span>(mapbiomas_utm_floresta) <span class="sc">+</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>    <span class="fu">tm_raster</span>(<span class="at">style =</span> <span class="st">"cat"</span>, <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"forestgreen"</span>)) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a>    <span class="fu">tm_shape</span>(rc_utm) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a>    <span class="fu">tm_borders</span>() <span class="sc">+</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a>    <span class="fu">tm_grid</span>(<span class="at">lines =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb36-6"><a href="#cb36-6"></a>    <span class="fu">tm_compass</span>() <span class="sc">+</span></span>
+<span id="cb36-7"><a href="#cb36-7"></a>    <span class="fu">tm_scale_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-31-1.png" width="960" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2 smaller">
-<h2>Recapitulando</h2>
+<h2 class="smaller">Recapitulando</h2>
 <ol type="1">
 <li><strong>R</strong>: linguagem de programação direcionada à manipulação, análise e visualização de dados</li>
 <li><strong>RStudio</strong>: IDE (Ambiente de Desenvolvimento Integrado) facilita o uso do R</li>
@@ -2810,18 +1497,12 @@ values     : 0, 1  (min, max)</code></pre>
 <li><strong>Operações</strong>: sf::st_buffer(), raster::crop(), raster::mask() e raster::reclassify</li>
 <li><strong>Visualização</strong>: tm_shape() + tm_polygon() e tm_shape() + tm_raster()</li>
 </ol>
-</section></section>
-<section class="title-slide slide level1 center">
+</section>
+<section class="slide level1">
 <h1>Sussa? Bora finalmente calcular as métricas?</h1>
-
 </section>
-
-<section>
-<section class="title-slide slide level1 center">
+<section class="slide level1">
 <h1>Métricas de paisagem no R</h1>
-
-</section>
-<section class="slide level2">
 <h2>landscapemetrics</h2>
 <p>Implementação do FRAGSTATS para a linguagem R</p>
 <div class="columns">
@@ -2839,8 +1520,6 @@ values     : 0, 1  (min, max)</code></pre>
 <div class="footer">
 <p><a href="https://github.com/mauriciovancine/workshop-landscapemetrics">landscapemetrics</a>, <a href="http://www.umass.edu/landeco/research/fragstats/fragstats.html">McGarigal et al.&nbsp;(2012)</a>, <a href="https://www.fs.usda.gov/treesearch/pubs/3064">McGarigal &amp; Marks (1995)</a>, <a href="http://www.dpi.inpe.br/cursos/ser431/trabalhos/fragstats.pdf">Sá Volotão et al.&nbsp;(2008)</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a>,</p>
 </div>
-</section>
-<section class="slide level2">
 <h2>landscapemetrics</h2>
 <p>Pacote no R para calcular métricas de paisagem com classes categóricas (<strong>raster categórico</strong>)</p>
 <center>
@@ -2849,180 +1528,67 @@ values     : 0, 1  (min, max)</code></pre>
 <div class="footer">
 <p><a href="https://github.com/mauriciovancine/workshop-landscapemetrics">landscapemetrics</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>landscapemetrics</h2>
 <p>O raster categórico de entrada tem de estar com coordenadas projetadas</p>
 <p><strong>Checar o raster</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># pacote</span></span>
-<span id="cb54-2"><a href="#cb54-2"></a><span class="fu">library</span>(landscapemetrics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># pacote</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="fu">library</span>(landscapemetrics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Raster geográfico</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># checar o raster</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a><span class="fu">check_landscape</span>(mapbiomas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  layer        crs   units   class n_classes OK
-1     1 geographic degrees integer        18  ✖</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># checar o raster</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="fu">check_landscape</span>(mapbiomas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Raster projetado</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># checar o raster</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a><span class="fu">check_landscape</span>(mapbiomas_utm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  layer       crs units   class n_classes OK
-1     1 projected     m integer        18  ✔</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># checar o raster</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="fu">check_landscape</span>(mapbiomas_utm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="footer">
 <p><a href="https://github.com/mauriciovancine/workshop-landscapemetrics">landscapemetrics</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>landscapemetrics</h2>
+<h2 class="smaller">landscapemetrics</h2>
 <h3>Descrição das funções</h3>
 <ul>
 <li><p>Todas as funções começam com <code>lsm_</code> (para métricas de paisagem)</p></li>
 <li><p>A segunda parte especifica o nível (patch - <code>p</code>, classe - <code>c</code> ou paisagem - <code>l</code>)</p></li>
 <li><p>A última parte do nome da função é a abreviação da métrica correspondente (e.g., <code>enn</code> - euclidean nearest-neighbor distance)</p></li>
 </ul>
-<div class="sourceCode" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># general structure</span></span>
-<span id="cb59-2"><a href="#cb59-2"></a>lsm_<span class="st">"level"</span>_<span class="st">"metric"</span></span>
-<span id="cb59-3"><a href="#cb59-3"></a></span>
-<span id="cb59-4"><a href="#cb59-4"></a><span class="co"># Patch level</span></span>
-<span id="cb59-5"><a href="#cb59-5"></a><span class="do">## lsm_p_"metric"</span></span>
-<span id="cb59-6"><a href="#cb59-6"></a><span class="fu">lsm_p_enn</span>()</span>
-<span id="cb59-7"><a href="#cb59-7"></a></span>
-<span id="cb59-8"><a href="#cb59-8"></a><span class="co"># Class level</span></span>
-<span id="cb59-9"><a href="#cb59-9"></a><span class="do">## lsm_c_"metric"</span></span>
-<span id="cb59-10"><a href="#cb59-10"></a><span class="fu">lsm_c_enn</span>()</span>
-<span id="cb59-11"><a href="#cb59-11"></a></span>
-<span id="cb59-12"><a href="#cb59-12"></a><span class="co"># Landscape level</span></span>
-<span id="cb59-13"><a href="#cb59-13"></a><span class="do">## lsm_p_"metric"</span></span>
-<span id="cb59-14"><a href="#cb59-14"></a><span class="fu">lsm_l_enn</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># general structure</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>lsm_<span class="st">"level"</span>_<span class="st">"metric"</span></span>
+<span id="cb40-3"><a href="#cb40-3"></a></span>
+<span id="cb40-4"><a href="#cb40-4"></a><span class="co"># Patch level</span></span>
+<span id="cb40-5"><a href="#cb40-5"></a><span class="do">## lsm_p_"metric"</span></span>
+<span id="cb40-6"><a href="#cb40-6"></a><span class="fu">lsm_p_enn</span>()</span>
+<span id="cb40-7"><a href="#cb40-7"></a></span>
+<span id="cb40-8"><a href="#cb40-8"></a><span class="co"># Class level</span></span>
+<span id="cb40-9"><a href="#cb40-9"></a><span class="do">## lsm_c_"metric"</span></span>
+<span id="cb40-10"><a href="#cb40-10"></a><span class="fu">lsm_c_enn</span>()</span>
+<span id="cb40-11"><a href="#cb40-11"></a></span>
+<span id="cb40-12"><a href="#cb40-12"></a><span class="co"># Landscape level</span></span>
+<span id="cb40-13"><a href="#cb40-13"></a><span class="do">## lsm_p_"metric"</span></span>
+<span id="cb40-14"><a href="#cb40-14"></a><span class="fu">lsm_l_enn</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="footer">
 <p><a href="https://github.com/mauriciovancine/workshop-landscapemetrics">landscapemetrics</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller scrollable">
-<h2>landscapemetrics</h2>
+<h2 class="smaller scrollable">landscapemetrics</h2>
 <p>Todas as funções retornam uma tabela com a mesma estrutura</p>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="cell-output-display">
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-35-1.png" width="960"></p>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$layer_1</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-35-2.png" width="960"></p>
-</div>
+
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="fu">library</span>(landscapemetrics)</span>
-<span id="cb61-2"><a href="#cb61-2"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">lsm_p_area</span>(landscape) <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(class <span class="sc">==</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: right;">layer</th>
-<th style="text-align: left;">level</th>
-<th style="text-align: right;">class</th>
-<th style="text-align: right;">id</th>
-<th style="text-align: left;">metric</th>
-<th style="text-align: right;">value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">area</td>
-<td style="text-align: right;">0.0001</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">area</td>
-<td style="text-align: right;">0.0005</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">area</td>
-<td style="text-align: right;">0.0148</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">area</td>
-<td style="text-align: right;">0.0001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">area</td>
-<td style="text-align: right;">0.0001</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">area</td>
-<td style="text-align: right;">0.0014</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: left;">area</td>
-<td style="text-align: right;">0.0003</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">area</td>
-<td style="text-align: right;">0.0005</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">patch</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: left;">area</td>
-<td style="text-align: right;">0.0001</td>
-</tr>
-</tbody>
-</table>
-</div>
+
 </div>
 </div>
 </div>
 <div class="footer">
 <p><a href="https://github.com/mauriciovancine/workshop-landscapemetrics">landscapemetrics</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>landscapemetrics</h2>
+<h2 class="smaller">landscapemetrics</h2>
 <h3>Nível das métricas</h3>
 <ul>
 <li><p><strong>Mancha</strong> (<em>patch</em>): calculada para cada mancha na paisagem</p></li>
@@ -3035,8 +1601,6 @@ values     : 0, 1  (min, max)</code></pre>
 <div class="footer">
 <p><a href="https://github.com/mauriciovancine/workshop-landscapemetrics">landscapemetrics</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>landscapemetrics</h2>
 <h4>Regras de definição da manchas</h4>
 <center>
@@ -3045,9 +1609,7 @@ values     : 0, 1  (min, max)</code></pre>
 <div class="footer">
 <p><a href="https://link.springer.com/book/10.1007/978-3-030-01989-1">Fletcher &amp; Fortin (2018)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>landscapemetrics</h2>
+<h2 class="smaller">landscapemetrics</h2>
 <h3>Classes das métricas</h3>
 <ol type="1">
 <li><p><strong>Métricas de área e borda</strong> (<em>area</em> e <em>edge</em>): descrevem o tamanho de manchas, classes e a quantidade de borda (composição - dominância ou raridade de classes)</p></li>
@@ -3060,8 +1622,6 @@ values     : 0, 1  (min, max)</code></pre>
 <div class="footer">
 <p><a href="https://github.com/mauriciovancine/workshop-landscapemetrics">landscapemetrics</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a>, <a href="https://doi.org/10.1007/s10980-019-00830-x">Nowosad &amp; Stepinski 2019</a></p>
 </div>
-</section>
-<section class="slide level2">
 <h2>landscapemetrics</h2>
 <h3>Espacializar as métricas</h3>
 <p>Apenas para as métricas calculadas para manchas</p>
@@ -3071,91 +1631,10 @@ values     : 0, 1  (min, max)</code></pre>
 <div class="footer">
 <p><a href="https://github.com/mauriciovancine/workshop-landscapemetrics">landscapemetrics</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a></p>
 </div>
-</section>
-<section class="slide level2 smaller">
-<h2>landscapemetrics</h2>
+<h2 class="smaller">landscapemetrics</h2>
 <h3>Múltiplas escalas</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb62-2"><a href="#cb62-2"></a>    <span class="fu">data.frame</span>(<span class="at">buffer =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">3000</span>, <span class="dv">6000</span>), <span class="at">each =</span> <span class="dv">3</span>),</span>
-<span id="cb62-3"><a href="#cb62-3"></a>               <span class="at">layer =</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">6</span>),</span>
-<span id="cb62-4"><a href="#cb62-4"></a>               <span class="at">level =</span> <span class="fu">rep</span>(<span class="st">"landscape"</span>, <span class="dv">6</span>),   </span>
-<span id="cb62-5"><a href="#cb62-5"></a>               <span class="at">class =</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">6</span>),  </span>
-<span id="cb62-6"><a href="#cb62-6"></a>               <span class="at">id =</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">6</span>),  </span>
-<span id="cb62-7"><a href="#cb62-7"></a>               <span class="at">metric =</span> <span class="fu">rep</span>(<span class="st">"landscape"</span>, <span class="dv">6</span>),   </span>
-<span id="cb62-8"><a href="#cb62-8"></a>               <span class="at">value =</span> <span class="fu">c</span>(<span class="fl">0.87</span>, <span class="fl">1.49</span>, <span class="fl">0.665</span>, <span class="fl">1.02</span>, <span class="fl">1.62</span>, <span class="fl">0.731</span>)</span>
-<span id="cb62-9"><a href="#cb62-9"></a>    ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: right;">buffer</th>
-<th style="text-align: right;">layer</th>
-<th style="text-align: left;">level</th>
-<th style="text-align: left;">class</th>
-<th style="text-align: left;">id</th>
-<th style="text-align: left;">metric</th>
-<th style="text-align: right;">value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">3000</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: right;">0.870</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">3000</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: right;">1.490</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3000</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: right;">0.665</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6000</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: right;">1.020</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">6000</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: right;">1.620</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6000</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">landscape</td>
-<td style="text-align: right;">0.731</td>
-</tr>
-</tbody>
-</table>
-</div>
+
 </div>
 <center>
 <img src="img/multi_scale_bg.png" style="width:70%">
@@ -3163,13 +1642,9 @@ values     : 0, 1  (min, max)</code></pre>
 <div class="footer">
 <p><a href="https://r-spatialecology.github.io/landscapemetrics/">landscapemetrics</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecog.04617">Hesselbarth et al.&nbsp;(2019)</a> <a href="https://jakubnowosad.com/posts/2019-03-07-lsm-bp1/">Efficient landscape metrics calculations for buffers around sampling points</a></p>
 </div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Bora para o R!</h1>
-
 </section>
-<section class="slide level2">
+<section class="slide level1">
+<h1>Bora para o R!</h1>
 <h2>Muito obrigado!</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -3193,7 +1668,7 @@ values     : 0, 1  (min, max)</code></pre>
 <div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
@@ -3338,7 +1813,7 @@ values     : 0, 1  (min, max)</code></pre>
         defaultTiming: null,
 
         // Enable slide navigation via mouse wheel
-        mouseWheel: false,
+        mouseWheel: true,
 
         // The display mode that will be used to show slides
         display: 'block',
